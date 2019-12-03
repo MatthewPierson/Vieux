@@ -1,5 +1,9 @@
-import os, shutil, ipsw, restore
+#!/usr/bin/env python3
 
+import os
+import shutil
+import ipsw
+import restore
 
 def pick3264(fname):
     if "iPhone5,1" in fname or "iPhone5,2" in fname or "iPhone4,1" in fname:
@@ -18,39 +22,23 @@ def removeFiles(remove):
 
     if os.path.exists("kernelcache.release.iphone6"):
         os.remove("kernelcache.release.iphone6")
-    else:
-        print("kernelcache.release.iphone6 does not exist")
-    if os.path.exists("kernelcache.release.iphone8b"):
+    elif os.path.exists("kernelcache.release.iphone8b"):
         os.remove("kernelcache.release.iphone8b")
-    else:
-        print("kernelcache.release.iphone8b does not exist")
-    if os.path.exists("kernelcache.release.ipad4"):
+    elif os.path.exists("kernelcache.release.ipad4"):
         os.remove("kernelcache.release.ipad4")
-    else:
-        print("kernelcache.release.ipad4 does not exist")
-    if os.path.exists("kernelcache.release.ipad4b"):
+    elif os.path.exists("kernelcache.release.ipad4b"):
         os.remove("kernelcache.release.ipad4b")
-    else:
-        print("kernelcache.release.ipad4b does not exist")
-    if os.path.exists("restoreFiles/Mav7Mav8-7.60.00.Release.bbfw"):
+    elif os.path.exists("restoreFiles/Mav7Mav8-7.60.00.Release.bbfw"):
         os.remove("restoreFiles/Mav7Mav8-7.60.00.Release.bbfw")
-    else:
-        print("Mav7Mav8-7.60.00.Release.bbfw does not exist")
-    if os.path.exists("restoreFiles/sep-firmware.n53.RELEASE.im4p"):
+    elif os.path.exists("restoreFiles/sep-firmware.n53.RELEASE.im4p"):
         os.remove("restoreFiles/sep-firmware.n53.RELEASE.im4p")
-    else:
-        print("sep-firmware.n53.RELEASE.im4p does not exist")
-    if os.path.exists("custom.ipsw"):
+    elif os.path.exists("custom.ipsw"):
         if remove:
             os.remove("custom.ipsw")
             if os.path.exists("restoreFiles/baseband.bbfw"):
                 os.remove("restoreFiles/baseband.bbfw")
-            else:
-                print("baseband.bbfw does not exist")
-            if os.path.exists("restoreFiles/sep.im4p"):
+            elif os.path.exists("restoreFiles/sep.im4p"):
                 os.remove("restoreFiles/sep.im4p")
-            else:
-                print("sep.im4p does not exist")
 
     dir_name = os.getcwd()
     test = os.listdir(dir_name)
@@ -58,28 +46,26 @@ def removeFiles(remove):
     for item in test:
         if item.endswith(".im4p"):
             os.remove(os.path.join(dir_name, item))
-    for item in test:
-        if item.endswith(".plist"):
+        elif item.endswith(".plist"):
             os.remove(os.path.join(dir_name, item))
-    for item in test:
-        if item.endswith(".dmg"):
+        elif item.endswith(".dmg"):
             os.remove(os.path.join(dir_name, item))
-    for item in test:
-        if item.endswith(".shsh"):
+        elif item.endswith(".shsh"):
             os.remove(os.path.join(dir_name, item))
     if os.path.exists("Firmware"):
         shutil.rmtree("Firmware")
-    else:
-        print("Firmware folder does not exist")
+    print("Files deleted.")
 
 
-print("Matty's Python OTA Downgrader!")
-print("Still need to add tsschecker stuff and proper futurerestore stuff")
-restore.pwndfumode()
-ipsw.unzipIPSW()
-done = False
-print("Deleting unneeded files...")
-removeFiles(done)
-print("Done!")
-exit(0)
+if __name__ =="__main__":
+    print("Matty's Python OTA Downgrader!")
+    print("Please connect a device in DFU mode...")
+    print("Still in BETA so expect issues/broken things")
+    restore.pwndfumode()
+    ipsw.unzipIPSW()
+    done = False
+    print("Deleting unneeded files...")
+    removeFiles(done)
+    print("Done!")
+    exit(0)
 

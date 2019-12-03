@@ -1,4 +1,6 @@
-import os, shutil, bsdiff4
+import os
+import shutil
+import bsdiff4
 from pathlib import Path
 from zipfile import ZipFile
 from main import removeFiles, pick3264
@@ -31,7 +33,6 @@ def unzipIPSW():
 
         for f in files:
             shutil.move(source + f, dest1)
-
         pick3264(fname)
 
     else:
@@ -43,12 +44,12 @@ def createCustomIPSW32(fname):
     print("Starting iBSS/iBEC patching")
     patch_folder = Path("patches/")
     phone5ibec = patch_folder / "make them"
-    phone5ibss = patch_folder / "make them"
+    phone5ibss = patch_folder / "ibss.iphone5.patch"
     phone4sibec = patch_folder / "make them"
     phone4sibss = patch_folder / "make them"
     if "iPhone5,2" in fname or "iPhone5,1" in fname and "8.4.1" in fname:
         print("Looks like you are downgrading an iPhone 5 to 8.4.1 using OTA blobs!")
-        bsdiff4.file_patch_inplace("iBEC.n42.RELEASE.dfu", phone5ibec)
+        #bsdiff4.file_patch_inplace("iBEC.n42.RELEASE.dfu", phone5ibec)
         bsdiff4.file_patch_inplace("iBSS.n42.RELEASE.dfu", phone5ibss)
         device = "iPhone5"
     elif "6.1.3" in fname or "8.4.1" in fname and "iPhone4,1" in fname:
@@ -62,8 +63,8 @@ def createCustomIPSW32(fname):
 
     if device == "iPhone5":
         deviceSpecific = input("Which model of iPhone do you have? (iPhone5,1 or iPhone5,2)...\n")
-        shutil.move("iBEC.n42.RELEASE.dfu", "Firmware/dfu/")
-        shutil.move("iBSS.n42.RELEASE.dfu", "Firmware/dfu/")
+        shutil.move("iBEC.n42.RELEASE.dfua", "Firmware/dfu/iBEC.n42ap.RELEASE.dfu")
+        shutil.move("iBSS.n42.RELEASE.dfu", "Firmware/dfu/iBSS.n42ap.RELEASE.dfu")
         shutil.copy("Firmware/Mav5-8.02.00.Release.bbfw", "restoreFiles/baseband.bbfw")
         touch("Firmware/usr/local/standalone/blankfile")
         with ZipFile('custom.ipsw', 'w') as zipObj2:
@@ -176,18 +177,18 @@ def createCustomIPSW64(fname, devicemodel):
             shutil.move("iBSS.ipad4.RELEASE.im4p", "Firmware/dfu/")
             if deviceSpecific == "iPad4,1":
                 shutil.move("Firmware/all_flash/sep-firmware.j71.RELEASE.im4p", "restoreFiles/sep.im4p")
-            if deviceSpecific == "iPad4,2":
+            elif deviceSpecific == "iPad4,2":
                 shutil.move("Firmware/all_flash/sep-firmware.j72.RELEASE.im4p", "restoreFiles/sep.im4p")
                 shutil.move("Firmware/Mav7Mav8-7.60.00.Release.bbfw", "restoreFiles/baseband.bbfw")
-            if deviceSpecific == "iPad4,3":
+            elif deviceSpecific == "iPad4,3":
                 shutil.move("Firmware/all_flash/sep-firmware.j73.RELEASE.im4p", "restoreFiles/sep.im4p")
                 shutil.move("Firmware/Mav7Mav8-7.60.00.Release.bbfw", "restoreFiles/baseband.bbfw")
-        if deviceSpecific == "iPad4,4" or deviceSpecific == "iPad4,5":
+        elif deviceSpecific == "iPad4,4" or deviceSpecific == "iPad4,5":
             shutil.move("iBEC.ipad4b.RELEASE.im4p", "Firmware/dfu/")
             shutil.move("iBSS.ipad4b.RELEASE.im4p", "Firmware/dfu/")
             if deviceSpecific == "iPad4,4":
                 shutil.move("Firmware/all_flash/sep-firmware.j85.RELEASE.im4p", "restoreFiles/sep.im4p")
-            if deviceSpecific == "iPad4,5":
+            elif deviceSpecific == "iPad4,5":
                 shutil.move("Firmware/all_flash/sep-firmware.j86.RELEASE.im4p", "restoreFiles/sep.im4p")
                 shutil.move("Firmware/Mav7Mav8-7.60.00.Release.bbfw", "restoreFiles/baseband.bbfw")
         touch("Firmware/usr/local/standalone/blankfile")

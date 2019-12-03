@@ -1,5 +1,6 @@
 from ipwndfu import dfu
-import re, os
+import re
+import os
 
 
 def getecid():

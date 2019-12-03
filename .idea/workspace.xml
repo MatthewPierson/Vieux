@@ -1,70 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eb696922-d423-4df0-b6e4-46fd24c2cfa6" name="Default Changelist" comment="" />
+    <list default="true" id="eb696922-d423-4df0-b6e4-46fd24c2cfa6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/removesig/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/JAILBREAK-GUIDE.md" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/JAILBREAK-GUIDE.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/SHAtter.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/SHAtter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/alloc8.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/alloc8.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/checkm8.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/checkm8.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/device_platform.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/device_platform.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/dfu.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/dfu.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/dfuexec.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/dfuexec.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/ibootpatcher" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/ibootpatcher" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/image3.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/image3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/image3_24Kpwn.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/image3_24Kpwn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/ipwndfu" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/ipwndfu" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/ipwnrecovery" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/ipwnrecovery" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/libusbfinder/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/libusbfinder/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/limera1n.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/limera1n.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/nor-backups/README" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/nor-backups/README" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/nor.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/nor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/recovery.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/recovery.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/rmsigchks.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/rmsigchks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/src/24Kpwn-shellcode.S" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/src/24Kpwn-shellcode.S" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/src/SHAtter-shellcode.S" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/src/SHAtter-shellcode.S" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/src/alloc8-shellcode.S" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/src/alloc8-shellcode.S" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/src/checkm8_arm64.S" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/src/checkm8_arm64.S" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/src/checkm8_armv7.S" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/src/checkm8_armv7.S" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/src/ibss-flash-nor-shellcode.S" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/src/ibss-flash-nor-shellcode.S" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/src/limera1n-shellcode.S" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/src/limera1n-shellcode.S" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/src/steaks4uce-shellcode.S" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/src/steaks4uce-shellcode.S" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/src/t8010_t8011_disable_wxn_arm64.S" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/src/t8010_t8011_disable_wxn_arm64.S" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/src/usb_0xA1_2_arm64.S" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/src/usb_0xA1_2_arm64.S" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/src/usb_0xA1_2_armv7.S" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/src/usb_0xA1_2_armv7.S" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/steaks4uce.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/steaks4uce.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/usb/ACKNOWLEDGEMENTS" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/usb/ACKNOWLEDGEMENTS" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/usb/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/usb/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/usb/README.rst" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/usb/README.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/usb/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/usb/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/usb/_debug.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/usb/_debug.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/usb/_interop.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/usb/_interop.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/usb/_lookup.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/usb/_lookup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/usb/_objfinalizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/usb/_objfinalizer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/usb/backend/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/usb/backend/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/usb/backend/libusb0.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/usb/backend/libusb0.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/usb/backend/libusb1.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/usb/backend/libusb1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/usb/backend/openusb.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/usb/backend/openusb.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/usb/control.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/usb/control.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/usb/core.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/usb/core.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/usb/legacy.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/usb/legacy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/usb/libloader.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/usb/libloader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/usb/util.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/usb/util.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/usbexec.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/usbexec.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/utilities.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/utilities.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1145">
-              <caret line="84" selection-start-line="84" selection-end-line="84" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/restore.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-391">
-              <caret line="19" selection-start-line="19" selection-end-line="19" />
-              <folding>
-                <element signature="e#0#22#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ipwndfu/ipwndfu">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="56" column="46" selection-start-line="56" selection-start-column="46" selection-end-line="56" selection-end-column="46" />
-              <folding>
-                <element signature="e#100#161#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/device.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-              <folding>
-                <element signature="e#0#23#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ipsw.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2819">
-              <caret line="3" column="32" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -84,61 +80,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/removesig" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/32bit.py" />
-        <option value="$PROJECT_DIR$/ipwndfu/ipwndfu" />
-        <option value="$PROJECT_DIR$/checkm8.py" />
-        <option value="$PROJECT_DIR$/ipwndfu/dfu.py" />
-        <option value="$PROJECT_DIR$/ipwndfu_old/libusbfinder/__init__.py" />
-        <option value="$PROJECT_DIR$/ipwndfu/libusbfinder/__init__.py" />
-        <option value="$PROJECT_DIR$/ipwndfu/checkm8.py" />
-        <option value="$PROJECT_DIR$/ipwndfu/usbexec.py" />
-        <option value="$PROJECT_DIR$/ipwndfu/rmsigchks.py" />
-        <option value="$PROJECT_DIR$/restore.py" />
-        <option value="$PROJECT_DIR$/device.py" />
-        <option value="$PROJECT_DIR$/ipsw.py" />
-        <option value="$PROJECT_DIR$/main.py" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="17" />
-    <option name="y" value="37" />
-    <option name="width" value="1400" />
-    <option name="height" value="1000" />
-  </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="PythonCustomIPSW" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PythonFun" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PythonCustomIPSW" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PythonFun" type="462c0819:PsiDirectoryNode" />
-              <item name="ipwndfu" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PythonCustomIPSW" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PythonFun" type="462c0819:PsiDirectoryNode" />
-              <item name="venv" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
-  </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../ios-python-tools" />
@@ -229,186 +171,22 @@
       <is-autoscroll-to-source value="true" />
     </todo-panel>
   </component>
-  <component name="ToolWindowManager">
-    <frame x="17" y="37" width="1400" height="1000" extended-state="0" />
-    <editor active="true" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19626866" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.30334488" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Docker" order="6" show_stripe_button="false" />
-      <window_info anchor="bottom" id="TODO" order="7" weight="0.32936078" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32936078" />
-      <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50053304" side_tool="true" weight="0.32936078" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32936078" />
-      <window_info anchor="bottom" id="Python Console" order="12" sideWeight="0.49946696" weight="0.32936078" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="right" id="Database" order="4" />
-    </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1359275" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.28494042" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Docker" order="6" show_stripe_button="false" />
-      <window_info anchor="bottom" id="TODO" order="7" weight="0.32936078" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32936078" />
-      <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50053304" side_tool="true" weight="0.32936078" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32936078" />
-      <window_info anchor="bottom" id="Python Console" order="12" sideWeight="0.49946696" weight="0.32936078" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="right" id="Database" order="4" />
-    </layout-to-restore>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/PythonCustomIPSW$main.coverage" NAME="main Coverage Results" MODIFIED="1574651173436" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/PythonFun$main.coverage" NAME="main Coverage Results" MODIFIED="1574387948553" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/venv/Include/MobileDevice/setup.py" />
-    <entry file="file://$PROJECT_DIR$/venv/Include/MobileDevice/README.md" />
-    <entry file="file://$PROJECT_DIR$/MobileDevice.py" />
-    <entry file="file://$PROJECT_DIR$/ipwndfu_public/ipwndfu" />
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/zipfile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="1357" column="24" selection-start-line="1357" selection-start-column="24" selection-end-line="1357" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/igetnonce/common.c" />
-    <entry file="file://$PROJECT_DIR$/igetnonce/main.c" />
-    <entry file="file://$PROJECT_DIR$/32bit.py" />
-    <entry file="file://$PROJECT_DIR$/ipswapi.py" />
-    <entry file="file://$PROJECT_DIR$/checkm8.py" />
-    <entry file="file://$PROJECT_DIR$/ipwndfu/device_platform.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1265" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/device_platform.py" />
-    <entry file="file://$PROJECT_DIR$/ipwndfu_old/libusbfinder/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/ipwndfu/libusbfinder/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="92" column="55" selection-start-line="92" selection-start-column="55" selection-end-line="92" selection-end-column="55" />
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ipwndfu/usbexec.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ipwndfu/checkm8.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8585">
-          <caret line="507" column="31" lean-forward="true" selection-start-line="507" selection-start-column="2" selection-end-line="507" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/usb/core.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13821">
-          <caret line="822" column="8" selection-start-line="822" selection-start-column="8" selection-end-line="822" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ipwndfu/rmsigchks.py" />
-    <entry file="file://$PROJECT_DIR$/utils.py" />
-    <entry file="file://$PROJECT_DIR$/ipwndfu/dfu.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#16#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ipwndfu/usb/core.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13821">
-          <caret line="822" column="22" selection-start-line="822" selection-start-column="8" selection-end-line="822" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1145">
-          <caret line="84" selection-start-line="84" selection-end-line="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/restore.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-391">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ipwndfu/ipwndfu">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="56" column="46" selection-start-line="56" selection-start-column="46" selection-end-line="56" selection-end-column="46" />
-          <folding>
-            <element signature="e#100#161#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/device.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ipsw.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2819">
-          <caret line="3" column="32" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
   </component>
 </project>
