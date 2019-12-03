@@ -12,9 +12,11 @@ def touch(path):
         os.utime(path, None)
 
 def unzipIPSW():
-    fname = input("Enter the path to the zip file:\n")
+    fname = input("Enter the path to the zip file (Or drag and drop the IPSW into this window):\n")
     print("Starting IPSW unzipping")
     outputFolder = os.getcwd()
+    newpath = fname.rstrip()
+    fname = str(newpath)
     testFile = os.path.exists(fname)
 
     if testFile and fname.endswith(".ipsw"):
@@ -36,8 +38,8 @@ def unzipIPSW():
         pick3264(fname)
 
     else:
-        print("ERROR: Not valid filepath...")
-        print("ERROR: Exiting...")
+        print('\033[91m' + "ERROR: Not valid filepath...")
+        print("ERROR: Exiting..." + '\033[0m')
         exit(1)
 
 def createCustomIPSW32(fname):
@@ -58,7 +60,7 @@ def createCustomIPSW32(fname):
         bsdiff4.file_patch_inplace("make them", phone4sibss)
         device = "iPhone4s"
     else:
-        print("Im tired")
+        print('\033[91m' + "Im tired" + '\033[0m')
         exit(24)
 
     if device == "iPhone5":
@@ -208,5 +210,5 @@ def createCustomIPSW64(fname, devicemodel):
                     zipObj2.write(filePath)
         restore64(deviceSpecific)
     else:
-        print("something broke lmao")
+        print('\033[91m' + "something broke lmao" + '\033[0m')
         exit(1)

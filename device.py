@@ -1,30 +1,32 @@
 from ipwndfu import dfu
 import re
 import os
-
+import main
 
 def getecid():
     device = dfu.acquire_device()
     serial = device.serial_number
-    print(serial)
+    with main.silence_stdout():
+        print(serial)
 
     try:
         found = re.search('ECID:(.+?) IBFL', serial).group(1)
         print("Your ECID is :", found)
         return found
     except AttributeError:
-        print("ERROR: Couldn't find ECID in serial")
+        print('\033[91m' + "ERROR: Couldn't find ECID in serial" + '\033[0m')
 
 
 def getapnonce():
     print("Getting current ApNonce from device...")
     cmd = './igetnonce'
     so = os.popen(cmd).read()
-    print(so)
+    with main.silence_stdout():
+        print(so)
 
     try:
         found = re.search('ApNonce=(.+?)\nSep', so).group(1)
         print("Your current ApNonce is :", found)
         return found
     except AttributeError:
-        print("ERROR: Couldn't get ApNonce from device")
+        print('\033[91m' + "ERROR: Couldn't get ApNonce from device" + '\033[0m')

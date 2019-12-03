@@ -4,6 +4,22 @@ import os
 import shutil
 import ipsw
 import restore
+import sys
+import platform
+from contextlib import contextmanager
+
+
+@contextmanager
+def silence_stdout():
+    new_target = open(os.devnull, "w")
+    old_target = sys.stdout
+    sys.stdout = new_target
+    try:
+        yield new_target
+    finally:
+        sys.stdout = old_target
+
+
 
 def pick3264(fname):
     if "iPhone5,1" in fname or "iPhone5,2" in fname or "iPhone4,1" in fname:
@@ -14,7 +30,7 @@ def pick3264(fname):
         if devicehehe == "iPhone6,1" or devicehehe == "iPhone6,2" or devicehehe == "iPad4,1" or devicehehe == "iPad4,2" or devicehehe == "iPad4,3" or devicehehe == "iPad4,4" or devicehehe == "iPad4,5":
             ipsw.createCustomIPSW64(fname, devicehehe)
         else:
-            print("Not a valid device. Try again with a valid device please :). Exiting...")
+            print(bcolors.FAIL + "Not a valid device. Try again with a valid device please :). Exiting...")
             exit(2)
 
 
@@ -58,9 +74,12 @@ def removeFiles(remove):
 
 
 if __name__ =="__main__":
-    print("Matty's Python OTA Downgrader!")
+    print('\033[95m' + "Matty's Python OTA Downgrader!" + '\033[0m')
     print("Please connect a device in DFU mode...")
     print("Still in BETA so expect issues/broken things")
+    if platform.system() != 'Darwim':
+        print("Sorry this OS is not supported! Only MacOS machines are support as of now.")
+        exit(20)
     restore.pwndfumode()
     ipsw.unzipIPSW()
     done = False
