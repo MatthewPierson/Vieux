@@ -113,11 +113,11 @@ def restore32(device):
 def restore64(device):
     if os.path.exists("restoreFiles/futurerestore"):
         shutil.move("restoreFiles/futurerestore", "futurerestore")
-    elif os.path.exists("restoreFiles/igetnonce"):
+    if os.path.exists("restoreFiles/igetnonce"):
         shutil.move("restoreFiles/igetnonce", "igetnonce")
-    elif os.path.exists("restoreFiles/tsschecker"):
+    if os.path.exists("restoreFiles/tsschecker"):
         shutil.move("restoreFiles/tsschecker", "tsschecker")
-    elif os.path.exists("restoreFiles/irecovery"):
+    if os.path.exists("restoreFiles/irecovery"):
         shutil.move("restoreFiles/irecovery", "irecovery")
     print("Entering PWNREC mode...")
     ecid = localdevice.getecid()
@@ -169,7 +169,7 @@ def restore64(device):
     time.sleep(3)
     print("Restoring...")
     if os.path.exists("restoreFiles/baseband.bbfw"):
-        cmd2 = 'futurerestore -t restoreFiles/apnonce.shsh -s restoreFiles/sep.im4p -m restoreFiles/BuildManifest_iPhone6,2.plist -b restoreFiles/baseband.bbfw -p restoreFiles/BuildManifest_iPhone6,2.plist custom.ipsw'
+        cmd2 = f'futurerestore -t restoreFiles/apnonce.shsh -s restoreFiles/sep.im4p -m restoreFiles/BuildManifest_{device}.plist -b restoreFiles/baseband.bbfw -p restoreFiles/BuildManifest_{device}.plist custom.ipsw'
         so2 = os.popen(cmd2).read()
         with main.silence_stdout():
             print(so2)

@@ -12,6 +12,54 @@ def touch(path):
         os.utime(path, None)
 
 def unzipIPSW():
+
+    if os.path.exists("custom.ipsw"):
+        useoldipsw = input("Found an already made custom.ipsw, would you like to use it instead of making a new IPSW? (DOESN'T WORK IF IPSW WAS CREATED FOR DIFFFERENT DEVICE MODEL)\n('Yes' or 'No')\n")
+
+        if useoldipsw == "Yes":
+            print("Using exiting IPSW...")
+            print("Deleteing old files...")
+            done = True
+            removeFiles(done)
+            print("Unzipping..")
+            outputFolder = os.getcwd()
+            with ZipFile("custom.ipsw", 'r') as zip_ref:
+                zip_ref.extractall(outputFolder)
+            deviceSpecific = input("What device do you want to downgrade? E.G : iPhone4,1 iPhone6,2 iPad4,3\n")
+            if deviceSpecific == "iPhone5s":
+                shutil.move("iBEC.iphone6.RELEASE.im4p", "Firmware/dfu/")
+                shutil.move("iBSS.iphone6.RELEASE.im4p", "Firmware/dfu/")
+                shutil.move("Firmware/Mav7Mav8-7.60.00.Release.bbfw", "restoreFiles/baseband.bbfw")
+                shutil.move("Firmware/all_flash/sep-firmware.n53.RELEASE.im4p", "restoreFiles/sep.im4p")
+                touch("Firmware/usr/local/standalone/blankfile")
+                restore64(deviceSpecific)
+            elif deviceSpecific == "iPad4,1" or deviceSpecific == "iPad4,2" or deviceSpecific == "iPad4,3":
+                shutil.move("iBEC.ipad4.RELEASE.im4p", "Firmware/dfu/")
+                shutil.move("iBSS.ipad4.RELEASE.im4p", "Firmware/dfu/")
+                if deviceSpecific == "iPad4,1":
+                    shutil.move("Firmware/all_flash/sep-firmware.j71.RELEASE.im4p", "restoreFiles/sep.im4p")
+                elif deviceSpecific == "iPad4,2":
+                        shutil.move("Firmware/all_flash/sep-firmware.j72.RELEASE.im4p", "restoreFiles/sep.im4p")
+                        shutil.move("Firmware/Mav7Mav8-7.60.00.Release.bbfw", "restoreFiles/baseband.bbfw")
+                elif deviceSpecific == "iPad4,3":
+                        shutil.move("Firmware/all_flash/sep-firmware.j73.RELEASE.im4p", "restoreFiles/sep.im4p")
+                        shutil.move("Firmware/Mav7Mav8-7.60.00.Release.bbfw", "restoreFiles/baseband.bbfw")
+                elif deviceSpecific == "iPad4,4" or deviceSpecific == "iPad4,5":
+                    shutil.move("iBEC.ipad4b.RELEASE.im4p", "Firmware/dfu/")
+                    shutil.move("iBSS.ipad4b.RELEASE.im4p", "Firmware/dfu/")
+                elif deviceSpecific == "iPad4,4":
+                    shutil.move("Firmware/all_flash/sep-firmware.j85.RELEASE.im4p", "restoreFiles/sep.im4p")
+                elif deviceSpecific == "iPad4,5":
+                    shutil.move("Firmware/all_flash/sep-firmware.j86.RELEASE.im4p", "restoreFiles/sep.im4p")
+                    shutil.move("Firmware/Mav7Mav8-7.60.00.Release.bbfw", "restoreFiles/baseband.bbfw")
+            touch("Firmware/usr/local/standalone/blankfile")
+            restore64(deviceSpecific)
+
+            return
+        else:
+            print("Not using exiting IPSW...")
+            os.remove("custom.ipsw")
+
     fname = input("Enter the path to the zip file (Or drag and drop the IPSW into this window):\n")
     print("Starting IPSW unzipping")
     outputFolder = os.getcwd()
@@ -51,7 +99,7 @@ def createCustomIPSW32(fname):
     phone4sibss = patch_folder / "make them"
     if "iPhone5,2" in fname or "iPhone5,1" in fname and "8.4.1" in fname:
         print("Looks like you are downgrading an iPhone 5 to 8.4.1 using OTA blobs!")
-        #bsdiff4.file_patch_inplace("iBEC.n42.RELEASE.dfu", phone5ibec)
+        bsdiff4.file_patch_inplace("iBEC.n42.RELEASE.dfu", phone5ibec)
         bsdiff4.file_patch_inplace("iBSS.n42.RELEASE.dfu", phone5ibss)
         device = "iPhone5"
     elif "6.1.3" in fname or "8.4.1" in fname and "iPhone4,1" in fname:

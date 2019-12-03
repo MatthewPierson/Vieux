@@ -30,7 +30,7 @@ def pick3264(fname):
         if devicehehe == "iPhone6,1" or devicehehe == "iPhone6,2" or devicehehe == "iPad4,1" or devicehehe == "iPad4,2" or devicehehe == "iPad4,3" or devicehehe == "iPad4,4" or devicehehe == "iPad4,5":
             ipsw.createCustomIPSW64(fname, devicehehe)
         else:
-            print(bcolors.FAIL + "Not a valid device. Try again with a valid device please :). Exiting...")
+            print('\033[91m' + "Not a valid device. Try again with a valid device please :). Exiting..." + '\033[0m')
             exit(2)
 
 
@@ -48,13 +48,12 @@ def removeFiles(remove):
         os.remove("restoreFiles/Mav7Mav8-7.60.00.Release.bbfw")
     elif os.path.exists("restoreFiles/sep-firmware.n53.RELEASE.im4p"):
         os.remove("restoreFiles/sep-firmware.n53.RELEASE.im4p")
-    elif os.path.exists("custom.ipsw"):
-        if remove:
-            os.remove("custom.ipsw")
-            if os.path.exists("restoreFiles/baseband.bbfw"):
-                os.remove("restoreFiles/baseband.bbfw")
-            elif os.path.exists("restoreFiles/sep.im4p"):
-                os.remove("restoreFiles/sep.im4p")
+    elif os.path.exists("restoreFiles/baseband.bbfw"):
+        os.remove("restoreFiles/baseband.bbfw")
+    elif os.path.exists("restoreFiles/sep.im4p"):
+        os.remove("restoreFiles/sep.im4p")
+    elif os.path.exists("restoreFiles/apnonce.shsh"):
+        os.remove("restoreFiles/apnonce.shsh")
 
     dir_name = os.getcwd()
     test = os.listdir(dir_name)
@@ -74,12 +73,12 @@ def removeFiles(remove):
 
 
 if __name__ =="__main__":
-    print('\033[95m' + "Matty's Python OTA Downgrader!" + '\033[0m')
-    print("Please connect a device in DFU mode...")
-    print("Still in BETA so expect issues/broken things")
-    if platform.system() != 'Darwim':
+    if platform.system() != 'Darwin':
         print("Sorry this OS is not supported! Only MacOS machines are support as of now.")
         exit(20)
+    print('\033[95m' + "Matty's Python OTA Downgrader!" + '\033[0m')
+    print("Still in BETA so expect issues/broken things")
+    print("Please connect a device in DFU mode.....")
     restore.pwndfumode()
     ipsw.unzipIPSW()
     done = False
