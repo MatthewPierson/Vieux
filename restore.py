@@ -156,7 +156,10 @@ def restore64(device):
     time.sleep(5)
     print("Getting SHSH...")
     nonce = localdevice.getapnonce()
-    cmd = f'tsschecker -d {device} -i 10.3.3 -o -m restoreFiles/BuildManifest_{device}.plist -e {ecid} --apnonce {nonce} -s'
+    if device != "iPad4,3":
+        cmd = f'tsschecker -d {device} -i 10.3.3 -o -m restoreFiles/BuildManifest_{device}.plist -e {ecid} --apnonce {nonce} -s'
+    else:
+        cmd = f'tsschecker -d {device} --boardconfig j73AP -i 10.3.3 -o -m restoreFiles/BuildManifest_{device}.plist -e {ecid} --apnonce {nonce} -s'
     so = os.popen(cmd).read()
     with main.silence_stdout():
         print(so)
@@ -167,13 +170,13 @@ def restore64(device):
             shutil.move(os.path.join(dir_name, item), "restoreFiles/apnonce.shsh")
     time.sleep(3)
     print("Restoring...")
-    if os.path.exists("restoreFiles/baseband.bbfw"):
+    if device != "iPad4,1" or "iPad4,4":
         cmd2 = f'futurerestore -t restoreFiles/apnonce.shsh -s restoreFiles/sep.im4p -m restoreFiles/BuildManifest_{device}.plist -b restoreFiles/baseband.bbfw -p restoreFiles/BuildManifest_{device}.plist custom.ipsw'
         so2 = os.popen(cmd2).read()
         with main.silence_stdout():
             print(so2)
     else:
-        cmd2 = 'futurerestore -t restoreFiles/apnonce.shsh -s restoreFiles/sep.im4p -m restoreFiles/BuildManifest_iPhone6,2.plist --no-baseband custom.ipsw'
+        cmd2 = f'futurerestore -t restoreFiles/apnonce.shsh -s restoreFiles/sep.im4p -m restoreFiles/BuildManifest_{device}.plist --no-baseband custom.ipsw'
         so2 = os.popen(cmd2).read()
         with main.silence_stdout():
             print(so2)
