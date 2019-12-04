@@ -30,3 +30,16 @@ def getapnonce():
         return found
     except AttributeError:
         print('\033[91m' + "ERROR: Couldn't get ApNonce from device" + '\033[0m')
+
+def getmodel():
+    print("Getting device model...")
+    cmd = './igetnonce'
+    so = os.popen(cmd).read()
+    with main.silence_stdout():
+        print(so)
+    try:
+        found = re.search(', (.+?) in DFU mode', so).group(1)
+        print("Your device is an ", found)
+        return found
+    except AttributeError:
+        print('\033[91m' + "ERROR: Couldn't get device model information" + '\033[0m')

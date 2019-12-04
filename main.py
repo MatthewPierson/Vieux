@@ -5,6 +5,7 @@ import shutil
 import ipsw
 import restore
 import sys
+import device
 import platform
 from contextlib import contextmanager
 
@@ -26,7 +27,7 @@ def pick3264(fname):
         print("32 bit device detected")
         ipsw.createCustomIPSW32(fname)
     else:
-        devicehehe = input("What device do you want to downgrade? E.G : iPhone4,1 iPhone6,2 iPad4,3\n")
+        devicehehe = str(device.getmodel())
         if devicehehe == "iPhone6,1" or devicehehe == "iPhone6,2" or devicehehe == "iPad4,1" or devicehehe == "iPad4,2" or devicehehe == "iPad4,3" or devicehehe == "iPad4,4" or devicehehe == "iPad4,5":
             ipsw.createCustomIPSW64(fname, devicehehe)
         else:

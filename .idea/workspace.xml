@@ -2,6 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eb696922-d423-4df0-b6e4-46fd24c2cfa6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/device.py" beforeDir="false" afterPath="$PROJECT_DIR$/device.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipsw.py" beforeDir="false" afterPath="$PROJECT_DIR$/ipsw.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/removesig/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/removesig/JAILBREAK-GUIDE.md" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/JAILBREAK-GUIDE.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/removesig/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/LICENSE" afterDir="false" />
@@ -55,6 +60,7 @@
       <change beforePath="$PROJECT_DIR$/removesig/usb/util.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/usb/util.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/removesig/usbexec.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/usbexec.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/removesig/utilities.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/utilities.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restore.py" beforeDir="false" afterPath="$PROJECT_DIR$/restore.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -78,12 +84,13 @@
     </findStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/removesig" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProjectId" id="1UXRC3uDXlzBX68PNSCCCl5lU0U" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ios-python-tools" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -179,7 +186,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
