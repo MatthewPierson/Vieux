@@ -25,7 +25,8 @@ def silence_stdout():
 def pick3264(fname):
     if "iPhone5,1" in fname or "iPhone5,2" in fname or "iPhone4,1" in fname:
         print("32 bit device detected")
-        ipsw.createCustomIPSW32(fname)
+        restore.restore32("iPhone5,2", "8.4.1")
+        #ipsw.createCustomIPSW32(fname)
     else:
         devicehehe = str(device.getmodel())
         if devicehehe == "iPhone6,1" or devicehehe == "iPhone6,2" or devicehehe == "iPad4,1" or devicehehe == "iPad4,2" or devicehehe == "iPad4,3" or devicehehe == "iPad4,4" or devicehehe == "iPad4,5":
@@ -68,6 +69,8 @@ def removeFiles(remove):
             os.remove(os.path.join(dir_name, item))
         elif item.endswith(".shsh"):
             os.remove(os.path.join(dir_name, item))
+        elif item.endswith(".shsh2"):
+            os.remove(os.path.join(dir_name, item))
     if os.path.exists("Firmware"):
         shutil.rmtree("Firmware")
     print("Files deleted.")
@@ -77,6 +80,12 @@ if __name__ =="__main__":
     if platform.system() != 'Darwin':
         print("Sorry this OS is not supported! Only MacOS machines are support as of now.")
         exit(20)
+    if os.path.exists("restoreFiles/igetnonce"):
+        shutil.move("restoreFiles/igetnonce", "igetnonce")
+    elif os.path.exists("restoreFiles/tsschecker"):
+        shutil.move("restoreFiles/tsschecker", "tsschecker")
+    elif os.path.exists("restoreFiles/irecovery"):
+        shutil.move("restoreFiles/irecovery", "irecovery")
     print('\033[95m' + "Matty's Python OTA Downgrader!" + '\033[0m')
     print("Still in BETA so expect issues/broken things")
     print("Please connect a device in DFU mode.....")

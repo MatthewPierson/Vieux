@@ -41,73 +41,46 @@ def pwndfumode():
         print("iPhone 5 found!")
         os.chdir("..")
         print('\033[91m' + "32 Bit support is still WIP, shouldn't be hard to get it working :)" + '\033[0m')
-        exit(69)
+
     else:
         print('Found:', serial_number)
         print('\033[91m' + 'ERROR: This device is not supported.' + '\033[0m')
         exit(1)
 
-def restore32(device):
+def restore32(device, iosversion):
     print("still tired")
-    if os.path.exists("restoreFiles/futurerestore"):
-        shutil.move("restoreFiles/futurerestore", "futurerestore")
+    input("Path to IPSW:\n")
+    if os.path.exists("restoreFiles/futurerestore_32bit"):
+        shutil.move("restoreFiles/futurerestore_32bit", "futurerestore")
     elif os.path.exists("restoreFiles/igetnonce"):
         shutil.move("restoreFiles/igetnonce", "igetnonce")
-    elif os.path.exists("restoreFiles/idevicerestore"):
-        shutil.move("restoreFiles/idevicerestore", "idevicerestore")
     elif os.path.exists("restoreFiles/tsschecker"):
         shutil.move("restoreFiles/tsschecker", "tsschecker")
     elif os.path.exists("restoreFiles/irecovery"):
         shutil.move("restoreFiles/irecovery", "irecovery")
-    print("Entering PWNREC mode...")
-    os.chdir("Firmware/dfu")
-    if device == "iPhone5,2":
-        print("iPhonr 5 =)")
-        cmd = '../../irecovery -f iBSS.n42.RELEASE.dfu'
-        so = os.popen(cmd).read()
-        with main.silence_stdout():
-            print(so)
-        cmd = '../../irecovery -f iBEC.n42.RELEASE.dfu'
-        so = os.popen(cmd).read()
-        with main.silence_stdout():
-            print(so)
-    elif device == "iPhone5,1":
-        cmd = '../../irecovery -f iBSS.n41.RELEASE.dfu'
-        so = os.popen(cmd).read()
-        with main.silence_stdout():
-            print(so)
-        cmd = '../../irecovery -f iBEC.n41.RELEASE.dfu'
-        so = os.popen(cmd).read()
-        with main.silence_stdout():
-            print(so)
-    elif device == "iPhone4,1":
-        cmd = '../../irecovery -f iBSS.n94.RELEASE.dfu'
-        so = os.popen(cmd).read()
-        with main.silence_stdout():
-            print(so)
-        cmd = '../../irecovery -f iBEC.n94.RELEASE.dfu'
-        so = os.popen(cmd).read()
-        with main.silence_stdout():
-            print(so)
-    else:
-        print('\033[91m' + "Broke" + '\033[0m')
-        exit(5)
-    os.chdir("../..")
     print("Getting SHSH...")
-
-    cmd = 'tsschecker -d iPhone6,2 -i 10.3.3 -o -m restoreFiles/BuildManifest_iPhone6,2_1033_OTA.plist -e 376AE36B764 --apnonce "nonce" -s --save-path restoreFiles/apnonce.shsh'
+    ecid = localdevice.getecid()
+    device32 = localdevice.getmodel()
+    cmd = f'tsschecker -d {device32} -i {iosversion} -o -m restoreFiles/BuildManifest_{device32}.plist -e {ecid} -s'
     so = os.popen(cmd).read()
     with main.silence_stdout():
         print(so)
+    dir_name = os.getcwd()
+    test = os.listdir(dir_name)
+    for item in test:
+        if item.endswith(".shsh2"):
+            shutil.move(os.path.join(dir_name, item), "restoreFiles/apnonce.shsh")
     print("Restoring...")
-    if os.path.exists("restoreFiles/baseband.bbfw"):
-        cmd2 = './idevicerestore -e -c custom2.ipsw'
+    if device32 != "iPad2,1" or "iPad2,4" or "iPad2,5" or "iPad3,1" or "iPad3,4" or "iPod5,1":
+        cmd2 = './futurerestore -t restoreFiles/apnonce.shsh --use-pwndfu --latest-baseband custom.ipsw'
         so2 = os.popen(cmd2).read()
+        #with main.silence_stdout():
         print(so2)
     else:
-        cmd2 = 'futurerestore -t restoreFiles/apnonce.shsh --no-baseband custom.ipsw'
+        cmd2 = './futurerestore -t restoreFiles/apnonce.shsh --no-baseband --use-pwndfu custom.ipsw'
         so2 = os.popen(cmd2).read()
-        print(so2)
+        with main.silence_stdout():
+            print(so2)
 
 def restore64(device):
     if os.path.exists("restoreFiles/futurerestore"):
@@ -171,12 +144,12 @@ def restore64(device):
     time.sleep(3)
     print("Restoring...")
     if device != "iPad4,1" or "iPad4,4":
-        cmd2 = f'futurerestore -t restoreFiles/apnonce.shsh -s restoreFiles/sep.im4p -m restoreFiles/BuildManifest_{device}.plist -b restoreFiles/baseband.bbfw -p restoreFiles/BuildManifest_{device}.plist custom.ipsw'
+        cmd2 = f'./futurerestore -t restoreFiles/apnonce.shsh -s restoreFiles/sep.im4p -m restoreFiles/BuildManifest_{device}.plist -b restoreFiles/baseband.bbfw -p restoreFiles/BuildManifest_{device}.plist custom.ipsw'
         so2 = os.popen(cmd2).read()
         with main.silence_stdout():
             print(so2)
     else:
-        cmd2 = f'futurerestore -t restoreFiles/apnonce.shsh -s restoreFiles/sep.im4p -m restoreFiles/BuildManifest_{device}.plist --no-baseband custom.ipsw'
+        cmd2 = f'./futurerestore -t restoreFiles/apnonce.shsh -s restoreFiles/sep.im4p -m restoreFiles/BuildManifest_{device}.plist --no-baseband custom.ipsw'
         so2 = os.popen(cmd2).read()
         with main.silence_stdout():
             print(so2)

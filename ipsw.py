@@ -1,7 +1,7 @@
 import os
 import shutil
 import bsdiff4
-import device
+import device as localdevice
 from pathlib import Path
 from zipfile import ZipFile
 from main import removeFiles, pick3264
@@ -26,7 +26,7 @@ def unzipIPSW():
             outputFolder = os.getcwd()
             with ZipFile("custom.ipsw", 'r') as zip_ref:
                 zip_ref.extractall(outputFolder)
-            deviceSpecific = str(device.getmodel())
+            deviceSpecific = str(localdevice.getmodel())
             if deviceSpecific == "iPhone5s":
                 shutil.move("iBEC.iphone6.RELEASE.im4p", "Firmware/dfu/")
                 shutil.move("iBSS.iphone6.RELEASE.im4p", "Firmware/dfu/")
@@ -92,9 +92,11 @@ def unzipIPSW():
         exit(1)
 
 def createCustomIPSW32(fname):
+    if os.path.exists("restoreFiles/futurerestore_32bit"):
+        shutil.move("restoreFiles/futurerestore_32bit", "futurerestore")
     print("Starting iBSS/iBEC patching")
     patch_folder = Path("patches/")
-    phone5ibec = patch_folder / "make them"
+    phone5ibec = patch_folder / "ibec.iphone5.patch"
     phone5ibss = patch_folder / "ibss.iphone5.patch"
     phone4sibec = patch_folder / "make them"
     phone4sibss = patch_folder / "make them"
@@ -113,8 +115,9 @@ def createCustomIPSW32(fname):
         exit(24)
 
     if device == "iPhone5":
-        deviceSpecific = device.getmodel
-        shutil.move("iBEC.n42.RELEASE.dfua", "Firmware/dfu/iBEC.n42ap.RELEASE.dfu")
+        iosversion = "8.4.1"
+        deviceSpecific = str(localdevice.getmodel())
+        shutil.move("iBEC.n42.RELEASE.dfu", "Firmware/dfu/iBEC.n42ap.RELEASE.dfu")
         shutil.move("iBSS.n42.RELEASE.dfu", "Firmware/dfu/iBSS.n42ap.RELEASE.dfu")
         shutil.copy("Firmware/Mav5-8.02.00.Release.bbfw", "restoreFiles/baseband.bbfw")
         touch("Firmware/usr/local/standalone/blankfile")
@@ -129,9 +132,10 @@ def createCustomIPSW32(fname):
                 for filename in filenames:
                     filePath = os.path.join(folderName, filename)
                     zipObj2.write(filePath)
-        restore32(deviceSpecific)
+        restore32(deviceSpecific, iosversion)
     elif device == "iPhone4s":
         if "8.4.1" in fname:
+            iosversion = "8.4.1"
             deviceSpecific = "iPhone4,1"
             shutil.move("iBEC.n94.RELEASE.dfu", "Firmware/dfu/")
             shutil.move("iBSS.n94.RELEASE.dfu", "Firmware/dfu/")
@@ -148,8 +152,9 @@ def createCustomIPSW32(fname):
                     for filename in filenames:
                         filePath = os.path.join(folderName, filename)
                         zipObj2.write(filePath)
-            restore32(deviceSpecific)
+            restore32(deviceSpecific, iosversion)
         elif "6.1.3" in fname:
+            iosversion = "6.1.3"
             deviceSpecific = "iPhone4,1"
             shutil.move("iBEC.n94ap.RELEASE.dfu", "Firmware/dfu/")
             shutil.move("iBSS.n94ap.RELEASE.dfu", "Firmware/dfu/")
@@ -166,7 +171,7 @@ def createCustomIPSW32(fname):
                     for filename in filenames:
                         filePath = os.path.join(folderName, filename)
                         zipObj2.write(filePath)
-            restore32(deviceSpecific)
+            restore32(deviceSpecific, iosversion)
 def createCustomIPSW64(fname, devicemodel):
     print("Starting iBSS/iBEC patching")
     patch_folder = Path("patches/")
