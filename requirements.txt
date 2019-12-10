@@ -1,2 +1,3 @@
 bsdiff4==1.1.9
 pyusb==1.0.2
+paramiko==2.7.0
