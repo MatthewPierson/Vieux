@@ -24,6 +24,15 @@ def unzipIPSW():
     fname = str(newpath)
     testFile = os.path.exists(fname)
 
+    while not testFile or not fname.endswith!=(".ipsw"):
+        print("Invalid filepath/filename.\nPlease try again with a valid filepath/filename.")
+        fname = input("Enter the path to the IPSW file (Or drag and drop the IPSW into this window):\n")
+        newpath = fname.rstrip()
+        fname = str(newpath)
+        testFile = os.path.exists(fname)
+    else:
+        #Will now continue with new valid file
+        print("Continuing...")
     if testFile and fname.endswith(".ipsw"):
         print("IPSW found at given path...")
         print("Cleaning up old files...")
@@ -44,8 +53,7 @@ def unzipIPSW():
 
     else:
         print('\033[91m' + "ERROR: Not valid filepath...")
-        print("ERROR: Exiting..." + '\033[0m')
-        exit(1)
+        print("ERROR: Try again" + '\033[0m')
 
 def createCustomIPSW32(fname):
     if os.path.exists("restoreFiles/futurerestore_32bit"):
@@ -76,7 +84,7 @@ def createCustomIPSW32(fname):
 
     if device == "iPhone5":
         iosversion = "8.4.1"
-        shutil.move(fname, "custom.ipsw")
+        shutil.copy(fname, "custom.ipsw")
         localdevice.enterkdfumode(kloaderlocation, kloader10location, ibsslocation)
         deviceSpecific = str(localdevice.getmodel())
         restore32(deviceSpecific, iosversion)
@@ -84,11 +92,11 @@ def createCustomIPSW32(fname):
         deviceSpecific = "iPhone4,1"
         if "8.4.1" in fname:
             iosversion = "8.4.1"
-            shutil.move(fname, "custom.ipsw")
+            shutil.copy(fname, "custom.ipsw")
             restore32(deviceSpecific, iosversion)
         elif "6.1.3" in fname:
             iosversion = "6.1.3"
-            shutil.move(fname, "custom.ipsw")
+            shutil.copy(fname, "custom.ipsw")
             restore32(deviceSpecific, iosversion)
 def createCustomIPSW64(fname, devicemodel):
     print("Starting iBSS/iBEC patching")

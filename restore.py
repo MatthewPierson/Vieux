@@ -18,11 +18,17 @@ def pwndfumode():
     os.chdir("ipwndfu")
     is32 = input("Are you using a 32 Bit device?\n")
     #remake this to be automatic
-    if is32 == "Yes":
-        os.chdir("..")
-        return
+
+    while is32.lower() not in {'yes', 'no'}:
+        print("ERROR: Bad input. Please input either 'Yes' or 'No'.")
+        is32 = input("Are you using a 32 Bit device?\n")
     else:
-        print("Please connect a 64 Bit device in DFU mode.....")
+        print("Thank you for giving a valid input :)")
+        if is32.lower() == "yes":
+            os.chdir("..")
+            return
+        else:
+            print("Please connect a 64 Bit device in DFU mode.....")
     device = dfu.acquire_device()
     serial_number = device.serial_number
     dfu.release_device(device)
@@ -115,52 +121,47 @@ def restore64(device):
         cmd = '../../irecovery -f iBSS.iphone6.RELEASE.im4p'
         so = subprocess.run(cmd, shell=True, stdout=subprocess.DEVNULL)
         returncode = so.returncode
-        print(returncode)
         if returncode != 0:
+            print("ERROR..\nReturn code:", returncode)
             print("Sending iBSS/iBEC Failed.\nPlease try again and report the error + full logs if it persists.\nExiting...")
             exit(938862428)
         time.sleep(5)
         cmd = '../../irecovery -f iBEC.iphone6.RELEASE.im4p'
         so = subprocess.run(cmd, shell=True, stdout=subprocess.DEVNULL)
         returncode = so.returncode
-        print(returncode)
         if returncode != 0:
-            print(
-                "Sending iBSS/iBEC Failed.\nPlease try again and report the error + full logs if it persists.\nExiting...")
+            print("ERROR..\nReturn code:", returncode)
+            print("Sending iBSS/iBEC Failed.\nPlease try again and report the error + full logs if it persists.\nExiting...")
             exit(938862428)
     elif device == "iPad4,1" or device == "iPad4,2" or device == "iPad4,3":
         cmd = '../../irecovery -f iBSS.ipad4.RELEASE.im4p'
         so = subprocess.run(cmd, shell=True, stdout=subprocess.DEVNULL)
         returncode = so.returncode
-        print(returncode)
         if returncode != 0:
-            print(
-                "Sending iBSS/iBEC Failed.\nPlease try again and report the error + full logs if it persists.\nExiting...")
+            print("ERROR..\nReturn code:", returncode)
+            print("Sending iBSS/iBEC Failed.\nPlease try again and report the error + full logs if it persists.\nExiting...")
             exit(938862428)
         cmd = '../../irecovery -f iBEC.ipad4.RELEASE.im4p'
         so = subprocess.run(cmd, shell=True, stdout=subprocess.DEVNULL)
         returncode = so.returncode
-        print(returncode)
         if returncode != 0:
-            print(
-                "Sending iBSS/iBEC Failed.\nPlease try again and report the error + full logs if it persists.\nExiting...")
+            print("ERROR..\nReturn code:", returncode)
+            print("Sending iBSS/iBEC Failed.\nPlease try again and report the error + full logs if it persists.\nExiting...")
             exit(938862428)
     elif device == "iPad4,4" or device == "iPad4,5":
         cmd = '../../irecovery -f iBSS.ipad4b.RELEASE.im4p'
         so = subprocess.run(cmd, shell=True, stdout=subprocess.DEVNULL)
         returncode = so.returncode
-        print(returncode)
         if returncode != 0:
-            print(
-                "Sending iBSS/iBEC Failed.\nPlease try again and report the error + full logs if it persists.\nExiting...")
+            print("ERROR..\nReturn code:", returncode)
+            print("Sending iBSS/iBEC Failed.\nPlease try again and report the error + full logs if it persists.\nExiting...")
             exit(938862428)
         cmd = '../../irecovery -f iBEC.ipad4b.RELEASE.im4p'
         so = subprocess.run(cmd, shell=True, stdout=subprocess.DEVNULL)
         returncode = so.returncode
-        print(returncode)
         if returncode != 0:
-            print(
-                "Sending iBSS/iBEC Failed.\nPlease try again and report the error + full logs if it persists.\nExiting...")
+            print("ERROR..\nReturn code:", returncode)
+            print("Sending iBSS/iBEC Failed.\nPlease try again and report the error + full logs if it persists.\nExiting...")
             exit(938862428)
     else:
         print('\033[91m' + "Broke" + '\033[0m')
@@ -175,8 +176,8 @@ def restore64(device):
         cmd = f'tsschecker -d {device} --boardconfig j73AP -i 10.3.3 -o -m restoreFiles/BuildManifest_{device}.plist -e {ecid} --apnonce {nonce} -s'
     so = subprocess.run(cmd, shell=True, stdout=subprocess.DEVNULL)
     returncode = so.returncode
-    print(returncode)
     if returncode != 0:
+        print("ERROR..\nReturn code:", returncode)
         print("SHSH Saving Failed.\nPlease try again and report the error + full logs if it persists.\nExiting...")
         exit(938862428)
     dir_name = os.getcwd()
@@ -191,15 +192,15 @@ def restore64(device):
         cmd2 = f'./futurerestore -t restoreFiles/apnonce.shsh -s restoreFiles/sep.im4p -m restoreFiles/BuildManifest_{device}.plist -b restoreFiles/baseband.bbfw -p restoreFiles/BuildManifest_{device}.plist custom.ipsw'
         so2 = subprocess.run(cmd2, shell=True, stdout=subprocess.DEVNULL)
         returncode = so2.returncode
-        print(returncode)
         if returncode != 0:
+            print("ERROR..\nReturn code:", returncode)
             print("Restore Failed.\nPlease try again and report the error + full logs if it persists.\nExiting...")
             exit(938862428)
     else:
         cmd2 = f'./futurerestore -t restoreFiles/apnonce.shsh -s restoreFiles/sep.im4p -m restoreFiles/BuildManifest_{device}.plist --no-baseband custom.ipsw'
         so2 = subprocess.run(cmd2, shell=True, stdout=subprocess.DEVNULL)
         returncode = so2.returncode
-        print(returncode)
         if returncode != 0:
+            print("ERROR..\nReturn code:", returncode)
             print("Restore Failed.\nPlease try again and report the error + full logs if it persists.\nExiting...")
             exit(938862428)

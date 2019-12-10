@@ -91,7 +91,6 @@ def removeFiles(remove):
         try:
             shutil.copy("igetnonce", "restoreFiles/igetnonce")
         except:
-            #rip
             return
     print("Files cleaned.")
 

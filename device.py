@@ -6,7 +6,6 @@ import time
 import paramiko
 import socket
 import getpass
-import subprocess
 from scp import SCPClient
 
 
@@ -27,15 +26,11 @@ def getecid():
 def getapnonce():
     print("Getting current ApNonce from device...")
     cmd = './igetnonce'
-    so = subprocess.run(cmd, shell=True, stdout=subprocess.DEVNULL)
-    returncode = so.returncode
-    print(returncode)
-    if returncode != 0:
-        print(
-            "Getting APNONCE from Device Failed.\nPlease try again and report the error + full logs if it persists.\nExiting...")
-        exit(938862428)
-
+    so = os.popen(cmd).read()
+    with main.silence_stdout():
+        print(so)
     try:
+
         found = re.search('ApNonce=(.+?)\nSep', so).group(1)
         print("Your current ApNonce is :", found)
         return found
@@ -63,9 +58,26 @@ def enterkdfumode(kloader, kloader10, ibss):
 
     try:
         socket.inet_aton(ip)
-    except socket.error:
-        print("ERROR: Invalid IP address...\nExiting...")
-        exit(55)
+    except:
+        print("ERROR: Invalid IP address...")
+        a = ip
+        while not a.startswith("b'"):
+            ip = input("Please enter a valid IP Address...")
+            try:
+                socket.inet_aton(ip)
+            except:
+                print("")
+        else:
+            print("")
+    if ip.count(".") != 3:
+        print("ERROR: Invalid IP address...")
+        b = ip.count(".")
+        while b != 3:
+            ip = input("Please enter a valid IP Address...")
+            b = ip.count(".")
+            print(b)
+        else:
+            print("")
 
     devicepassword = getpass.getpass("Please enter the root password to your device (Default is 'alpine'):\n")
 

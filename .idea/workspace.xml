@@ -59,10 +59,8 @@
       <change beforePath="$PROJECT_DIR$/removesig/usb/util.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/usb/util.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/removesig/usbexec.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/usbexec.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/removesig/utilities.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/utilities.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/restore.py" beforeDir="false" afterPath="$PROJECT_DIR$/restore.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restoreFiles/futurerestore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/restoreFiles/idevicerestore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/restoreFiles/futurerestore_32bit" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/restoreFiles/igetnonce" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/restoreFiles/irecovery" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/restoreFiles/tsschecker" beforeDir="false" />
