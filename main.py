@@ -3,9 +3,7 @@
 import os
 import shutil
 import ipsw
-import restore
 import sys
-import device
 import platform
 from contextlib import contextmanager
 
@@ -19,20 +17,6 @@ def silence_stdout():
         yield new_target
     finally:
         sys.stdout = old_target
-
-
-
-def pick3264(fname):
-    if "iPhone5,1" in fname or "iPhone5,2" in fname or "iPhone4,1" in fname:
-        print("32 bit device detected")
-        ipsw.createCustomIPSW32(fname)
-    else:
-        devicehehe = str(device.getmodel())
-        if devicehehe == "iPhone6,1" or devicehehe == "iPhone6,2" or devicehehe == "iPad4,1" or devicehehe == "iPad4,2" or devicehehe == "iPad4,3" or devicehehe == "iPad4,4" or devicehehe == "iPad4,5":
-            ipsw.createCustomIPSW64(fname, devicehehe)
-        else:
-            print('\033[91m' + "Not a valid device. Try again with a valid device please :). Exiting..." + '\033[0m')
-            exit(2)
 
 
 def removeFiles(remove):
@@ -107,7 +91,7 @@ if __name__ =="__main__":
         shutil.move("restoreFiles/irecovery", "irecovery")
     print('\033[95m' + "Matty's Python OTA Downgrader!" + '\033[0m')
     print("Still in BETA so expect issues/broken things")
-    restore.pwndfumode()
+    print("If you are using a 64 Bit device then connect it in DFU Mode\nIf you are using a 32 Bit device then just have it connected in normal mode")
     ipsw.unzipIPSW()
     done = False
     print("Cleaning up files...")

@@ -16,19 +16,7 @@ def removesig():
 
 def pwndfumode():
     os.chdir("ipwndfu")
-    is32 = input("Are you using a 32 Bit device?\n")
-    #remake this to be automatic
 
-    while is32.lower() not in {'yes', 'no'}:
-        print("ERROR: Bad input. Please input either 'Yes' or 'No'.")
-        is32 = input("Are you using a 32 Bit device?\n")
-    else:
-        print("Thank you for giving a valid input :)")
-        if is32.lower() == "yes":
-            os.chdir("..")
-            return
-        else:
-            print("Please connect a 64 Bit device in DFU mode.....")
     device = dfu.acquire_device()
     serial_number = device.serial_number
     dfu.release_device(device)
@@ -53,7 +41,8 @@ def pwndfumode():
     elif 'CPID:8950' in serial_number:
         print("iPhone 5 found!")
         os.chdir("..")
-        print('\033[91m' + "32 Bit support is still WIP, expect issues :)" + '\033[0m')
+        print('\033[91m' + "You need to have your 32 Bit device in normal mode, not DFU. Restart it and try again" + '\033[0m')
+        exit(2)
 
     else:
         print('Found:', serial_number)
@@ -61,8 +50,8 @@ def pwndfumode():
         exit(1)
 
 def restore32(device, iosversion):
-    if os.path.exists("restoreFiles/futurerestore_32bit"):
-        shutil.move("restoreFiles/futurerestore_32bit", "futurerestore")
+    if os.path.exists("restoreFiles/futurerestore"):
+        shutil.move("restoreFiles/futurerestore", "futurerestore")
     elif os.path.exists("restoreFiles/igetnonce"):
         shutil.move("restoreFiles/igetnonce", "igetnonce")
     elif os.path.exists("restoreFiles/tsschecker"):
@@ -71,11 +60,10 @@ def restore32(device, iosversion):
         shutil.move("restoreFiles/irecovery", "irecovery")
     print("Getting SHSH...")
     ecid = localdevice.getecid()
-    device32 = localdevice.getmodel()
-    cmd = f'tsschecker -d {device32} -i {iosversion} -o -m restoreFiles/BuildManifest_{device32}.plist -e {ecid} -s'
+    device32 = str(localdevice.getmodel())
+    cmd = f'./tsschecker -d {device32} -i {iosversion} -o -m restoreFiles/BuildManifest_{device32}.plist -e {ecid} -s'
     so = subprocess.run(cmd, shell=True, stdout=subprocess.DEVNULL)
     returncode = so.returncode
-    print(returncode)
     if returncode != 0:
         print(
             "Resoting Failed.\nPlease try again and report the error + full logs if it persists.\nExiting...")
@@ -86,23 +74,21 @@ def restore32(device, iosversion):
         if item.endswith(".shsh2"):
             shutil.move(os.path.join(dir_name, item), "restoreFiles/apnonce.shsh")
     print("Restoring...")
+    print('\033[91m' + "Note that errors about 'BbSkeyId', 'FDR Client' and 'BasebandFirmware Node' are not important, just ignore them and only report errors that actually stop the restore." + '\033[0m')
     if device32 != "iPad2,1" or "iPad2,4" or "iPad2,5" or "iPad3,1" or "iPad3,4" or "iPod5,1":
-        cmd2 = './futurerestore_32bit -t restoreFiles/apnonce.shsh --use-pwndfu --latest-baseband custom.ipsw'
+        cmd2 = './futurerestore -t restoreFiles/apnonce.shsh --use-pwndfu --latest-baseband custom.ipsw'
         so = subprocess.run(cmd2, shell=True, stdout=subprocess.DEVNULL)
         returncode = so.returncode
-        print(returncode)
         if returncode != 0:
-            print(
-                "Resoting Failed.\nPlease try again and report the error + full logs if it persists.\nExiting...")
+            print("Resoting Failed.\nPlease try again and report the error + full logs if it persists.\nExiting...")
             exit(938862428)
     else:
-        cmd2 = './futurerestore_32bit -t restoreFiles/apnonce.shsh --no-baseband --use-pwndfu custom.ipsw'
+        cmd2 = './futurerestore -t restoreFiles/apnonce.shsh --no-baseband --use-pwndfu custom.ipsw'
         so = subprocess.run(cmd2, shell=True, stdout=subprocess.DEVNULL)
         returncode = so.returncode
         print(returncode)
         if returncode != 0:
-            print(
-                "Resoting Failed.\nPlease try again and report the error + full logs if it persists.\nExiting...")
+            print("Resoting Failed.\nPlease try again and report the error + full logs if it persists.\nExiting...")
             exit(938862428)
 
 def restore64(device):
@@ -171,9 +157,9 @@ def restore64(device):
     print("Getting SHSH...")
     nonce = localdevice.getapnonce()
     if device != "iPad4,3":
-        cmd = f'tsschecker -d {device} -i 10.3.3 -o -m restoreFiles/BuildManifest_{device}.plist -e {ecid} --apnonce {nonce} -s'
+        cmd = f'./tsschecker -d {device} -i 10.3.3 -o -m restoreFiles/BuildManifest_{device}.plist -e {ecid} --apnonce {nonce} -s'
     else:
-        cmd = f'tsschecker -d {device} --boardconfig j73AP -i 10.3.3 -o -m restoreFiles/BuildManifest_{device}.plist -e {ecid} --apnonce {nonce} -s'
+        cmd = f'./tsschecker -d iPad4,3 --boardconfig j73AP -i 10.3.3 -o -m restoreFiles/BuildManifest_iPad4,3.plist -e {ecid} --apnonce {nonce} -s'
     so = subprocess.run(cmd, shell=True, stdout=subprocess.DEVNULL)
     returncode = so.returncode
     if returncode != 0:

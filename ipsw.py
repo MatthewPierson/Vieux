@@ -4,8 +4,8 @@ import bsdiff4
 import device as localdevice
 from pathlib import Path
 from zipfile import ZipFile
-from main import removeFiles, pick3264
-from restore import restore64, restore32
+from main import removeFiles
+from restore import restore64, restore32, pwndfumode
 
 
 def touch(path):
@@ -49,7 +49,15 @@ def unzipIPSW():
 
         for f in files:
             shutil.move(source + f, dest1)
-        pick3264(fname)
+        devicemodel = str(localdevice.getmodel())
+        t = localdevice.pick3264(devicemodel, fname)
+        if t == 32:
+            createCustomIPSW32(fname)
+        elif t == 64:
+            pwndfumode()
+            createCustomIPSW64(fname, devicemodel)
+        else:
+            exit(2)
 
     else:
         print('\033[91m' + "ERROR: Not valid filepath...")
@@ -62,22 +70,23 @@ def createCustomIPSW32(fname):
     kloader10location = "restoreFiles/kloader10"
     kloaderlocation = "restoreFiles/kloader"
     patch_folder = Path("patches/")
-    #phone5ibec = patch_folder / "ibec.iphone5.patch"
     phone5ibss = patch_folder / "ibss.iphone5.patch"
     phone4sibss = patch_folder / "make them"
     if "iPhone5,2" in fname or "iPhone5,1" in fname and "8.4.1" in fname:
         print("Looks like you are downgrading an iPhone 5 to 8.4.1 using OTA blobs!")
-        #bsdiff4.file_patch_inplace("iBEC.n42.RELEASE.dfu", phone5ibec)
-        #shutil.copy("iBEC.n42.RELEASE.dfu", "ibec")
         bsdiff4.file_patch_inplace("iBSS.n42.RELEASE.dfu", phone5ibss)
         shutil.copy("iBSS.n42.RELEASE.dfu", "ibss")
         ibsslocation = "ibss"
         device = "iPhone5"
+        if "iPhone5,2" in fname:
+            model = "iPhone5,2"
+        elif "iPhone5,1" in fname:
+            model = "iPhone5,1"
     elif "6.1.3" in fname or "8.4.1" in fname and "iPhone4,1" in fname:
         print("Looks like you are downgrading an iPhone 4s using OTA blobs!")
-        #bsdiff4.file_patch_inplace("make them", phone4sibec)
         bsdiff4.file_patch_inplace("make them", phone4sibss)
         device = "iPhone4s"
+        model = "iPhone4,1"
     else:
         print('\033[91m' + "Im tired" + '\033[0m')
         exit(24)
@@ -86,18 +95,18 @@ def createCustomIPSW32(fname):
         iosversion = "8.4.1"
         shutil.copy(fname, "custom.ipsw")
         localdevice.enterkdfumode(kloaderlocation, kloader10location, ibsslocation)
-        deviceSpecific = str(localdevice.getmodel())
-        restore32(deviceSpecific, iosversion)
+        restore32(model, iosversion)
     elif device == "iPhone4s":
-        deviceSpecific = "iPhone4,1"
         if "8.4.1" in fname:
             iosversion = "8.4.1"
             shutil.copy(fname, "custom.ipsw")
-            restore32(deviceSpecific, iosversion)
+            localdevice.enterkdfumode(kloaderlocation, kloader10location, ibsslocation)
+            restore32(model, iosversion)
         elif "6.1.3" in fname:
             iosversion = "6.1.3"
             shutil.copy(fname, "custom.ipsw")
-            restore32(deviceSpecific, iosversion)
+            localdevice.enterkdfumode(kloaderlocation, kloader10location, ibsslocation)
+            restore32(model, iosversion)
 def createCustomIPSW64(fname, devicemodel):
     print("Starting iBSS/iBEC patching")
     patch_folder = Path("patches/")

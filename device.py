@@ -2,12 +2,31 @@ from ipwndfu import dfu
 import re
 import os
 import main
+import sys
 import time
 import paramiko
 import socket
 import getpass
 from scp import SCPClient
 
+def pick3264(model, fname):
+    armv7 = ['iPhone4,1']
+    armv7s = ['iPhone5,1', 'iPhone5,2']
+    arm64 = ['iPhone6,1', 'iPhone6,2', 'iPad4,1', 'iPad4,2', 'iPad4,3', 'iPad4,4', 'iPad4,5']
+    if model in arm64:
+        return 64
+    elif model == 'NULL':
+        print("No device found in DFU mode, assuming device to be 32 Bit...")
+        res = [ele for ele in armv7s if (ele in fname)]
+        res2 = [ele for ele in armv7 if (ele in fname)]
+        if bool(res) or bool(res2):
+            return 32
+        else:
+            print("No valid 32 Bit information found. Exiting...")
+            exit(2)
+
+    else:
+        sys.exit(f'Device {model} was not recognized!')
 
 def getecid():
     device = dfu.acquire_device()
@@ -48,7 +67,9 @@ def getmodel():
         print("Your device is an ", found)
         return found
     except AttributeError:
-        print('\033[91m' + "ERROR: Couldn't get device model information" + '\033[0m')
+        #print('\033[91m' + "ERROR: Couldn't get device model information" + '\033[0m')
+        found = "NULL"
+        return found
 
 
 

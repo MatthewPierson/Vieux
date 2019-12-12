@@ -60,10 +60,8 @@
       <change beforePath="$PROJECT_DIR$/removesig/usbexec.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/usbexec.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/removesig/utilities.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/utilities.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/restore.py" beforeDir="false" afterPath="$PROJECT_DIR$/restore.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restoreFiles/futurerestore" beforeDir="false" afterPath="$PROJECT_DIR$/restoreFiles/futurerestore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/restoreFiles/futurerestore_32bit" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/restoreFiles/igetnonce" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/restoreFiles/irecovery" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/restoreFiles/tsschecker" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
