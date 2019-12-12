@@ -103,13 +103,14 @@ def restore64(device):
     print("Entering PWNREC mode...")
     ecid = localdevice.getecid()
     os.chdir("Firmware/dfu")
+    irecerr = "Sending iBSS/iBEC Failed.\nPlease try again and report the error + full logs if it persists.\nExiting..."
     if device == "iPhone6,2" or device == "iPhone6,1":
         cmd = '../../irecovery -f iBSS.iphone6.RELEASE.im4p'
         so = subprocess.run(cmd, shell=True, stdout=subprocess.DEVNULL)
         returncode = so.returncode
         if returncode != 0:
             print("ERROR..\nReturn code:", returncode)
-            print("Sending iBSS/iBEC Failed.\nPlease try again and report the error + full logs if it persists.\nExiting...")
+            print(irecerr)
             exit(938862428)
         time.sleep(5)
         cmd = '../../irecovery -f iBEC.iphone6.RELEASE.im4p'
@@ -117,7 +118,7 @@ def restore64(device):
         returncode = so.returncode
         if returncode != 0:
             print("ERROR..\nReturn code:", returncode)
-            print("Sending iBSS/iBEC Failed.\nPlease try again and report the error + full logs if it persists.\nExiting...")
+            print(irecerr)
             exit(938862428)
     elif device == "iPad4,1" or device == "iPad4,2" or device == "iPad4,3":
         cmd = '../../irecovery -f iBSS.ipad4.RELEASE.im4p'
@@ -125,14 +126,14 @@ def restore64(device):
         returncode = so.returncode
         if returncode != 0:
             print("ERROR..\nReturn code:", returncode)
-            print("Sending iBSS/iBEC Failed.\nPlease try again and report the error + full logs if it persists.\nExiting...")
+            print(irecerr)
             exit(938862428)
         cmd = '../../irecovery -f iBEC.ipad4.RELEASE.im4p'
         so = subprocess.run(cmd, shell=True, stdout=subprocess.DEVNULL)
         returncode = so.returncode
         if returncode != 0:
             print("ERROR..\nReturn code:", returncode)
-            print("Sending iBSS/iBEC Failed.\nPlease try again and report the error + full logs if it persists.\nExiting...")
+            print(irecerr)
             exit(938862428)
     elif device == "iPad4,4" or device == "iPad4,5":
         cmd = '../../irecovery -f iBSS.ipad4b.RELEASE.im4p'
@@ -140,14 +141,14 @@ def restore64(device):
         returncode = so.returncode
         if returncode != 0:
             print("ERROR..\nReturn code:", returncode)
-            print("Sending iBSS/iBEC Failed.\nPlease try again and report the error + full logs if it persists.\nExiting...")
+            print(irecerr)
             exit(938862428)
         cmd = '../../irecovery -f iBEC.ipad4b.RELEASE.im4p'
         so = subprocess.run(cmd, shell=True, stdout=subprocess.DEVNULL)
         returncode = so.returncode
         if returncode != 0:
             print("ERROR..\nReturn code:", returncode)
-            print("Sending iBSS/iBEC Failed.\nPlease try again and report the error + full logs if it persists.\nExiting...")
+            print(irecerr)
             exit(938862428)
     else:
         print('\033[91m' + "Broke" + '\033[0m')

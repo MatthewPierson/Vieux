@@ -71,7 +71,8 @@ def createCustomIPSW32(fname):
     kloaderlocation = "restoreFiles/kloader"
     patch_folder = Path("patches/")
     phone5ibss = patch_folder / "ibss.iphone5.patch"
-    phone4sibss = patch_folder / "make them"
+    phone4sibss6 = patch_folder / "ibss.iphone4,1.6.1.3.patch"
+    phone4sibss8 = patch_folder / "ibss.iphone4,1.8.4.1.patch"
     if "iPhone5,2" in fname or "iPhone5,1" in fname and "8.4.1" in fname:
         print("Looks like you are downgrading an iPhone 5 to 8.4.1 using OTA blobs!")
         bsdiff4.file_patch_inplace("iBSS.n42.RELEASE.dfu", phone5ibss)
@@ -84,7 +85,6 @@ def createCustomIPSW32(fname):
             model = "iPhone5,1"
     elif "6.1.3" in fname or "8.4.1" in fname and "iPhone4,1" in fname:
         print("Looks like you are downgrading an iPhone 4s using OTA blobs!")
-        bsdiff4.file_patch_inplace("make them", phone4sibss)
         device = "iPhone4s"
         model = "iPhone4,1"
     else:
@@ -99,14 +99,26 @@ def createCustomIPSW32(fname):
     elif device == "iPhone4s":
         if "8.4.1" in fname:
             iosversion = "8.4.1"
+            bsdiff4.file_patch_inplace("iBSS.n94.RELEASE.dfu", phone4sibss8)
+            shutil.copy("iBSS.n94.RELEASE.dfu", "ibss")
+            ibsslocation = "ibss"
             shutil.copy(fname, "custom.ipsw")
             localdevice.enterkdfumode(kloaderlocation, kloader10location, ibsslocation)
             restore32(model, iosversion)
         elif "6.1.3" in fname:
             iosversion = "6.1.3"
+            bsdiff4.file_patch_inplace("iBSS.n94ap.RELEASE.dfu", phone4sibss6)
+            shutil.copy("iBSS.n94ap.RELEASE.dfu", "ibss")
+            ibsslocation = "ibss"
             shutil.copy(fname, "custom.ipsw")
             localdevice.enterkdfumode(kloaderlocation, kloader10location, ibsslocation)
             restore32(model, iosversion)
+        else:
+            print("=(")
+            exit(2)
+    else:
+        print("=(")
+        exit(2)
 def createCustomIPSW64(fname, devicemodel):
     print("Starting iBSS/iBEC patching")
     patch_folder = Path("patches/")
