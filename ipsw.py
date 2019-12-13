@@ -126,22 +126,26 @@ def createCustomIPSW32(fname):
     kloader10location = "resources/restoreFiles/kloader10"
     kloaderlocation = "resources/restoreFiles/kloader"
     patch_folder = Path("resources/patches/")
-    phone5ibss = patch_folder / "ibss.iphone5.patch"
+    phone52ibss = patch_folder / "ibss.iphone52.patch"
+    phone51ibss = patch_folder / "ibss.iphone51.patch"
     phone4sibss6 = patch_folder / "ibss.iphone4,1.6.1.3.patch"
     phone4sibss8 = patch_folder / "ibss.iphone4,1.8.4.1.patch"
     if "iPhone5,2" in fname or "iPhone5,1" in fname and "8.4.1" in fname:
         print("Looks like you are downgrading an iPhone 5 to 8.4.1!")
-        bsdiff4.file_patch_inplace("iBSS.n42.RELEASE.dfu", phone5ibss)
-        shutil.copy("iBSS.n42.RELEASE.dfu", "ibss")
-        ibsslocation = "ibss"
-        device = "iPhone5"
         if "iPhone5,2" in fname:
+            bsdiff4.file_patch_inplace("iBSS.n42.RELEASE.dfu", phone52ibss)
+            shutil.copy("iBSS.n42.RELEASE.dfu", "ibss")
             model = "iPhone5,2"
         elif "iPhone5,1" in fname:
+            bsdiff4.file_patch_inplace("iBSS.n41.RELEASE.dfu", phone51ibss)
+            shutil.copy("iBSS.n41.RELEASE.dfu", "ibss")
             model = "iPhone5,1"
+        ibsslocation = "ibss"
+        device = "iPhone5"
     elif "6.1.3" in fname or "8.4.1" in fname and "iPhone4,1" in fname:
         device = "iPhone4s"
         model = "iPhone4,1"
+
     else:
         print('\033[91m' + "Im tired" + '\033[0m')
         exit(24)
