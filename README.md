@@ -35,6 +35,9 @@ Run 'pip3 install -r requirements.txt' to install all dependencies
 4. Profit?
 -----------------
 # F.A.Q
+### How do I use this tool?
+If you have a 64 Bit device (iPhone 5s, iPad Mini 2, iPad Air) then just connect your device in DFU mode and run the tool, if you have a 32 Bit device then just connect the device in Normal mode, NOT DFU MODE, and run the tool!
+
 ### What devices does this support/when will it support my iPad XX or iPhone XX?
 See [above](#current-device-support), support is coming for more 32 Bit devices, namely 32 Bit iPads and iPods. No other devices will ever be supported for the 10.3.3 downgrade. Ever.
 
