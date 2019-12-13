@@ -1,7 +1,7 @@
 # Vieux - A tool for 32/64 Bit iOS downgrades using OTA Blobs
 
-## By - Matty (Twitter - @mosk_i)
-#### With help from - Merc (Twitter - @Vyce_Merculous)
+## By - Matty ([Twitter - @mosk_i](https://twitter.com/mosk_i))
+#### With help from - Merc ([Twitter - @Vyce_Merculous](https://twitter.com/Vyce_Merculous))
 
 
 -----------------
@@ -36,7 +36,7 @@ Run 'pip3 install -r requirements.txt' to install all dependencies
 -----------------
 # F.A.Q
 ### What devices does this support/when will it support my iPad XX or iPhone XX?
-See above at "Current device support", support is coming for more 32 Bit devices, namely 32 Bit iPads and iPods. No other devices will ever be supported for the 10.3.3 downgrade. Ever.
+See [above](#current-device-support), support is coming for more 32 Bit devices, namely 32 Bit iPads and iPods. No other devices will ever be supported for the 10.3.3 downgrade. Ever.
 
 ### Why does the tool not run?
 Make sure you have run "pip install -r requirements.txt" before attempting to use this tool. If that doesn't fix the issue, take a screen shot of the error and create an issue on the Github page.
@@ -50,14 +50,14 @@ This is by far the fastest tool for OTA downgrades on the market, plus no other 
 -----------------
 # Credits
 
-@axi0mX - Checkm8/ipwndfu
+[@axi0mX](https://twitter.com/axi0mX) - Checkm8/ipwndfu
 
-@tihmstar - Futurerestore/tsschecker
+[@tihmstar](https://twitter.com/tihmstar) - Futurerestore/tsschecker
 
-@linus_henze - SecureROM Signature Check Remover
+[@linushenze](https://twitter.com/LinusHenze) - SecureROM Signature Check Remover
 
-@Vyce_Merculous - General help/Cleaning up my messy code
+[@Vyce_Merculous](https://twitter.com/Vyce_Merculous) - General help/Cleaning up my messy code
 
-@xerusdesign - Testing
+[@xerusdesign](https://twitter.com/xerusdesign) - Testing
 
 -----------------
