@@ -4,9 +4,55 @@ import bsdiff4
 import device as localdevice
 from pathlib import Path
 from zipfile import ZipFile
-from vieux import removeFiles
 from restore import restore64, restore32, pwndfumode
 
+def removeFiles(remove):
+
+    if os.path.exists("kernelcache.release.iphone6"):
+        os.remove("kernelcache.release.iphone6")
+    elif os.path.exists("kernelcache.release.iphone8b"):
+        os.remove("kernelcache.release.iphone8b")
+    elif os.path.exists("kernelcache.release.iphone8b"):
+        os.remove("kernelcache.release.iphone8b")
+    elif os.path.exists("kernelcache.release.ipad4"):
+        os.remove("kernelcache.release.ipad4")
+    elif os.path.exists("kernelcache.release.ipad4b"):
+        os.remove("kernelcache.release.ipad4b")
+    elif os.path.exists("kernelcache.release.n42"):
+        os.remove("kernelcache.release.n42")
+    elif os.path.exists("ibss"):
+        os.remove("ibss")
+    elif os.path.exists("ibec"):
+        os.remove("ibec")
+    elif os.path.exists("resources/restoreFiles/Mav7Mav8-7.60.00.Release.bbfw"):
+        os.remove("resources/restoreFiles/Mav7Mav8-7.60.00.Release.bbfw")
+    elif os.path.exists("resources/restoreFiles/sep-firmware.n53.RELEASE.im4p"):
+        os.remove("resources/restoreFiles/sep-firmware.n53.RELEASE.im4p")
+    elif os.path.exists("resources/restoreFiles/baseband.bbfw"):
+        os.remove("resources/restoreFiles/baseband.bbfw")
+    elif os.path.exists("resources/restoreFiles/sep.im4p"):
+        os.remove("resources/restoreFiles/sep.im4p")
+    elif os.path.exists("resources/restoreFiles/apnonce.shsh"):
+        os.remove("resources/restoreFiles/apnonce.shsh")
+    dir_name = os.getcwd()
+    test = os.listdir(dir_name)
+
+    for item in test:
+        if item.endswith(".im4p"):
+            os.remove(os.path.join(dir_name, item))
+        elif item.endswith(".plist"):
+            os.remove(os.path.join(dir_name, item))
+        elif item.endswith(".dmg"):
+            os.remove(os.path.join(dir_name, item))
+        elif item.endswith(".shsh"):
+            os.remove(os.path.join(dir_name, item))
+        elif item.endswith(".shsh2"):
+            os.remove(os.path.join(dir_name, item))
+        elif item.endswith(".dfu"):
+            os.remove(os.path.join(dir_name, item))
+    if os.path.exists("Firmware"):
+        shutil.rmtree("Firmware")
+    print("Files cleaned.")
 
 def touch(path):
     with open(path, 'a'):

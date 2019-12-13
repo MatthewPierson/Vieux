@@ -3,11 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="eb696922-d423-4df0-b6e4-46fd24c2cfa6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/restoreFiles/futurerestore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/restoreFiles/igetnonce" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/restoreFiles/irecovery" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/restoreFiles/tsschecker" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/device.py" beforeDir="false" afterPath="$PROJECT_DIR$/device.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipsw.py" beforeDir="false" afterPath="$PROJECT_DIR$/ipsw.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vieux" beforeDir="false" afterPath="$PROJECT_DIR$/vieux" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

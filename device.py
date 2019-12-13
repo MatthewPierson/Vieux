@@ -1,13 +1,24 @@
 from resources.ipwndfu import dfu
 import re
 import os
-import vieux as main
+from contextlib import contextmanager
 import sys
 import time
 import paramiko
 import socket
 import getpass
 from scp import SCPClient
+
+@contextmanager
+def silence_stdout():
+    new_target = open(os.devnull, "w")
+    old_target = sys.stdout
+    sys.stdout = new_target
+    try:
+        yield new_target
+    finally:
+        sys.stdout = old_target
+
 
 def pick3264(model, fname):
     armv7 = ['iPhone4,1']
@@ -31,7 +42,7 @@ def pick3264(model, fname):
 def getecid():
     device = dfu.acquire_device()
     serial = device.serial_number
-    with main.silence_stdout():
+    with silence_stdout():
         print(serial)
 
     try:
@@ -46,7 +57,7 @@ def getapnonce():
     #print("Getting current ApNonce from device...")
     cmd = './igetnonce'
     so = os.popen(cmd).read()
-    with main.silence_stdout():
+    with silence_stdout():
         print(so)
     try:
 
@@ -60,7 +71,7 @@ def getmodel():
     #print("Getting device model...")
     cmd = './igetnonce'
     so = os.popen(cmd).read()
-    with main.silence_stdout():
+    with silence_stdout():
         print(so)
     try:
         found = re.search(', (.+?) in DFU mode', so).group(1)
@@ -112,7 +123,7 @@ def enterkdfumode(kloader, kloader10, ibss):
         result = stdout.read(),
         scp = SCPClient(client.get_transport())
         finalresult = str(result)
-        with main.silence_stdout():
+        with silence_stdout():
             print(finalresult)
         scp.put(ibss, '/')
         if finalresult.startswith("(b'16"):
@@ -125,7 +136,7 @@ def enterkdfumode(kloader, kloader10, ibss):
             command2 = "/kloader /ibss > /dev/null 2>&1 &"
         stdin, stdout, stderr = client.exec_command(command2)
         result2 = stdout.read(),
-        with main.silence_stdout():
+        with silence_stdout():
             print(result2)
         scp.close()
         client.close()
