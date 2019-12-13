@@ -190,12 +190,12 @@ def createCustomIPSW64(fname, devicemodel):
     elif "iPad" in fname and "10.3.3" in fname:
         if devicemodel == "iPad4,1" or devicemodel == "iPad4,2" or devicemodel == "iPad4,3":
             print("Looks like you are downgrading an iPad Air to 10.3.3!")
-            bsdiff4.file_patch_inplace("iBEC.ipad4.RELEASE.im4p ", ipadairibec)
+            bsdiff4.file_patch_inplace("iBEC.ipad4.RELEASE.im4p", ipadairibec)
             bsdiff4.file_patch_inplace("iBSS.ipad4.RELEASE.im4p", ipadairibss)
             device = "iPadAir"
         elif devicemodel == "iPad4,4" or devicemodel == "iPad4,5":
             print("Looks like you are downgrading an iPad Mini 2 to 10.3.3!")
-            bsdiff4.file_patch_inplace("iBEC.ipad4b.RELEASE.im4p ", ipadminiibec)
+            bsdiff4.file_patch_inplace("iBEC.ipad4b.RELEASE.im4p", ipadminiibec)
             bsdiff4.file_patch_inplace("iBSS.ipad4b.RELEASE.im4p", ipadminiibss)
             device = "iPadMini"
         else:
