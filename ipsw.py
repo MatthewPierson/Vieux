@@ -58,12 +58,11 @@ def touch(path):
     with open(path, 'a'):
         os.utime(path, None)
 
-def unzipIPSW():
+def unzipIPSW(fname):
 
     if os.path.exists("custom.ipsw"):
             os.remove("custom.ipsw")
 
-    fname = input("Enter the path to the IPSW file (Or drag and drop the IPSW into this window):\n")
     print("Starting IPSW unzipping")
     outputFolder = os.getcwd()
     newpath = fname.rstrip()
@@ -80,6 +79,14 @@ def unzipIPSW():
         #Will now continue with new valid file
         print("Continuing...")
     if testFile and fname.endswith(".ipsw"):
+        if os.path.exists("resources/restoreFiles/igetnonce"):
+            shutil.move("resources/restoreFiles/igetnonce", "igetnonce")
+        if os.path.exists("resources/restoreFiles/tsschecker"):
+            shutil.move("resources/restoreFiles/tsschecker", "tsschecker")
+        if os.path.exists("resources/restoreFiles/futurerestore"):
+            shutil.move("resources/restoreFiles/futurerestore", "futurerestore")
+        if os.path.exists("resources/restoreFiles/irecovery"):
+            shutil.move("resources/restoreFiles/irecovery", "irecovery")
         print("IPSW found at given path...")
         print("Cleaning up old files...")
         done = True

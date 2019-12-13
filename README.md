@@ -16,6 +16,8 @@ iPhone 5, iPhone 4s, More 32 Bit device support is coming
 ## 6.1.3
 iPhone 4s, More 32 Bit device support is coming
 
+#### You can also run "./vieux -l" to list all compatible devices and what iOS versions they can restore to
+
 -----------------
 # Installing dependencies
 
@@ -28,11 +30,11 @@ Run 'pip3 install -r requirements.txt' to install all dependencies
 -----------------
 # Instructions
 
-0. 'pip3 install -r requirements.txt' to install all dependencies
-1. 'cd' into the 'Vieux' folder that you either git cloned or downloaded
-2. run './vieux' or, if the that command doesn't work, 'python3 vieux'
-3. Follow what the tool tells you to do
-4. Profit?
+1. 'pip3 install -r requirements.txt' to install all dependencies
+2. 'cd' into the 'Vieux' folder that you either git cloned or downloaded
+3. run './vieux -i "PATH/TO/.ipsw"' or, if the that command doesn't work, 'python3 vieux -i "PATH/TO/.ipsw"'
+4. Follow what the tool tells you to do
+5. Profit?
 -----------------
 # F.A.Q
 ### How do I use this tool?
