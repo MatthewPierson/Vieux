@@ -58,7 +58,7 @@ If you have tried everything mentioned in this readme, you can either open an is
 Please include as much detail as you can, including but not limited to - Full log from the tool, macOS version, device model/iOS version you are trying to downgrade to and what you have already tried.
 
 ### How do you pronounce "Vieux"?
-"*Voo*", it's French for "old" or "outdated" which fits well with the old iOS versions this tool downgrades devices to! Not that iOS 6/8/10 are bad at all, even given their age.
+"vyuh" apparently, I've had 5 different pronunciations given to me, it's French for "old" which fits well with the old iOS versions this tool downgrades devices to! Not that iOS 6/8/10 are bad at all, even given their age.
 
 -----------------
 # Credits
