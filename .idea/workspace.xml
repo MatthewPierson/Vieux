@@ -2,66 +2,255 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eb696922-d423-4df0-b6e4-46fd24c2cfa6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/device.py" beforeDir="false" afterPath="$PROJECT_DIR$/device.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ipsw.py" beforeDir="false" afterPath="$PROJECT_DIR$/ipsw.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ipwndfu/dfu.py" beforeDir="false" afterPath="$PROJECT_DIR$/ipwndfu/dfu.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/JAILBREAK-GUIDE.md" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/JAILBREAK-GUIDE.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/SHAtter.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/SHAtter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/alloc8.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/alloc8.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/checkm8.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/checkm8.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/device_platform.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/device_platform.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/dfu.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/dfu.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/dfuexec.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/dfuexec.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/ibootpatcher" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/ibootpatcher" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/image3.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/image3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/image3_24Kpwn.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/image3_24Kpwn.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/ipwndfu" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/ipwndfu" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/ipwnrecovery" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/ipwnrecovery" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/libusbfinder/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/libusbfinder/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/limera1n.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/limera1n.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/nor-backups/README" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/nor-backups/README" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/nor.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/nor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/recovery.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/recovery.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/rmsigchks.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/rmsigchks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/src/24Kpwn-shellcode.S" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/src/24Kpwn-shellcode.S" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/src/SHAtter-shellcode.S" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/src/SHAtter-shellcode.S" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/src/alloc8-shellcode.S" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/src/alloc8-shellcode.S" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/src/checkm8_arm64.S" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/src/checkm8_arm64.S" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/src/checkm8_armv7.S" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/src/checkm8_armv7.S" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/src/ibss-flash-nor-shellcode.S" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/src/ibss-flash-nor-shellcode.S" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/src/limera1n-shellcode.S" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/src/limera1n-shellcode.S" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/src/steaks4uce-shellcode.S" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/src/steaks4uce-shellcode.S" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/src/t8010_t8011_disable_wxn_arm64.S" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/src/t8010_t8011_disable_wxn_arm64.S" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/src/usb_0xA1_2_arm64.S" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/src/usb_0xA1_2_arm64.S" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/src/usb_0xA1_2_armv7.S" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/src/usb_0xA1_2_armv7.S" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/steaks4uce.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/steaks4uce.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/usb/ACKNOWLEDGEMENTS" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/usb/ACKNOWLEDGEMENTS" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/usb/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/usb/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/usb/README.rst" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/usb/README.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/usb/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/usb/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/usb/_debug.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/usb/_debug.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/usb/_interop.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/usb/_interop.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/usb/_lookup.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/usb/_lookup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/usb/_objfinalizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/usb/_objfinalizer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/usb/backend/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/usb/backend/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/usb/backend/libusb0.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/usb/backend/libusb0.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/usb/backend/libusb1.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/usb/backend/libusb1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/usb/backend/openusb.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/usb/backend/openusb.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/usb/control.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/usb/control.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/usb/core.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/usb/core.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/usb/legacy.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/usb/legacy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/usb/libloader.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/usb/libloader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/usb/util.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/usb/util.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/usbexec.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/usbexec.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/removesig/utilities.py" beforeDir="false" afterPath="$PROJECT_DIR$/removesig/utilities.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/JAILBREAK-GUIDE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/SHAtter.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/aes-keys/S5L8920-firmware" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/alloc8.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/bin/24Kpwn-shellcode.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/bin/SHAtter-shellcode.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/bin/alloc8-shellcode.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/bin/checkm8_arm64.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/bin/checkm8_armv7.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/bin/ibss-flash-nor-shellcode.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/bin/limera1n-shellcode.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/bin/steaks4uce-shellcode.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/bin/t8010_t8011_disable_wxn_arm64.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/bin/usb_0xA1_2_arm64.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/bin/usb_0xA1_2_armv7.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/checkm8.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/device_platform.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/dfu.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/dfuexec.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/ibootpatcher" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/image3.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/image3_24Kpwn.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/ipwndfu" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/ipwnrecovery" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/libusbfinder/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/libusbfinder/bottles/libusb-1.0.19.mountain_lion.bottle.1.tar.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/libusbfinder/bottles/libusb-1.0.20.mavericks.bottle.1.tar.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/libusbfinder/bottles/libusb-1.0.21.yosemite.bottle.tar.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/libusbfinder/bottles/libusb-1.0.22.el_capitan.bottle.tar.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/libusbfinder/bottles/libusb-1.0.22.high_sierra.bottle.tar.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/libusbfinder/bottles/libusb-1.0.22.mojave.bottle.tar.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/libusbfinder/bottles/libusb-1.0.22.sierra.bottle.tar.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/limera1n.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/nor-backups/README" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/nor.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/recovery.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/repo/ipwndfu.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/rmsigchks.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/src/24Kpwn-shellcode.S" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/src/SHAtter-shellcode.S" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/src/alloc8-shellcode.S" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/src/checkm8_arm64.S" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/src/checkm8_armv7.S" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/src/ibss-flash-nor-shellcode.S" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/src/limera1n-shellcode.S" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/src/steaks4uce-shellcode.S" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/src/t8010_t8011_disable_wxn_arm64.S" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/src/usb_0xA1_2_arm64.S" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/src/usb_0xA1_2_armv7.S" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/steaks4uce.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/usb/ACKNOWLEDGEMENTS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/usb/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/usb/README.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/usb/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/usb/_debug.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/usb/_interop.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/usb/_lookup.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/usb/_objfinalizer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/usb/backend/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/usb/backend/libusb0.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/usb/backend/libusb1.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/usb/backend/openusb.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/usb/control.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/usb/core.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/usb/legacy.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/usb/libloader.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/usb/util.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/usbexec.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipwndfu/utilities.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patches/ibec.iphone5.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patches/ibec5s.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patches/ibec_ipad4.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patches/ibec_ipad4b.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patches/ibss.iphone4,1.6.1.3.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patches/ibss.iphone4,1.8.4.1.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patches/ibss.iphone5.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patches/ibss5s.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patches/ibss_ipad4.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/patches/ibss_ipad4b.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/JAILBREAK-GUIDE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/SHAtter.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/aes-keys/S5L8920-firmware" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/alloc8.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/bin/24Kpwn-shellcode.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/bin/SHAtter-shellcode.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/bin/alloc8-shellcode.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/bin/checkm8_arm64.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/bin/checkm8_armv7.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/bin/ibss-flash-nor-shellcode.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/bin/limera1n-shellcode.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/bin/steaks4uce-shellcode.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/bin/t8010_t8011_disable_wxn_arm64.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/bin/usb_0xA1_2_arm64.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/bin/usb_0xA1_2_armv7.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/checkm8.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/device_platform.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/dfu.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/dfuexec.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/ibootpatcher" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/image3.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/image3_24Kpwn.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/ipwndfu" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/ipwnrecovery" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/libusbfinder/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/libusbfinder/bottles/libusb-1.0.19.mountain_lion.bottle.1.tar.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/libusbfinder/bottles/libusb-1.0.20.mavericks.bottle.1.tar.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/libusbfinder/bottles/libusb-1.0.21.yosemite.bottle.tar.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/libusbfinder/bottles/libusb-1.0.22.el_capitan.bottle.tar.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/libusbfinder/bottles/libusb-1.0.22.high_sierra.bottle.tar.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/libusbfinder/bottles/libusb-1.0.22.mojave.bottle.tar.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/libusbfinder/bottles/libusb-1.0.22.sierra.bottle.tar.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/limera1n.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/nor-backups/README" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/nor.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/recovery.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/repo/ipwndfu.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/rmsigchks.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/src/24Kpwn-shellcode.S" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/src/SHAtter-shellcode.S" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/src/alloc8-shellcode.S" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/src/checkm8_arm64.S" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/src/checkm8_armv7.S" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/src/ibss-flash-nor-shellcode.S" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/src/limera1n-shellcode.S" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/src/steaks4uce-shellcode.S" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/src/t8010_t8011_disable_wxn_arm64.S" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/src/usb_0xA1_2_arm64.S" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/src/usb_0xA1_2_armv7.S" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/steaks4uce.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/usb/ACKNOWLEDGEMENTS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/usb/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/usb/README.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/usb/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/usb/_debug.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/usb/_interop.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/usb/_lookup.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/usb/_objfinalizer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/usb/backend/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/usb/backend/libusb0.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/usb/backend/libusb1.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/usb/backend/openusb.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/usb/control.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/usb/core.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/usb/legacy.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/usb/libloader.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/usb/util.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/usbexec.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/removesig/utilities.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/JAILBREAK-GUIDE.md" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/JAILBREAK-GUIDE.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/SHAtter.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/SHAtter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/alloc8.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/alloc8.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/checkm8.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/checkm8.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/device_platform.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/device_platform.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/dfu.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/dfu.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/dfuexec.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/dfuexec.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/ibootpatcher" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/ibootpatcher" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/image3.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/image3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/image3_24Kpwn.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/image3_24Kpwn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/ipwndfu" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/ipwndfu" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/ipwnrecovery" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/ipwnrecovery" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/libusbfinder/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/libusbfinder/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/limera1n.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/limera1n.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/nor-backups/README" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/nor-backups/README" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/nor.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/nor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/recovery.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/recovery.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/rmsigchks.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/rmsigchks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/src/24Kpwn-shellcode.S" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/src/24Kpwn-shellcode.S" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/src/SHAtter-shellcode.S" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/src/SHAtter-shellcode.S" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/src/alloc8-shellcode.S" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/src/alloc8-shellcode.S" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/src/checkm8_arm64.S" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/src/checkm8_arm64.S" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/src/checkm8_armv7.S" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/src/checkm8_armv7.S" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/src/ibss-flash-nor-shellcode.S" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/src/ibss-flash-nor-shellcode.S" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/src/limera1n-shellcode.S" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/src/limera1n-shellcode.S" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/src/steaks4uce-shellcode.S" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/src/steaks4uce-shellcode.S" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/src/t8010_t8011_disable_wxn_arm64.S" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/src/t8010_t8011_disable_wxn_arm64.S" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/src/usb_0xA1_2_arm64.S" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/src/usb_0xA1_2_arm64.S" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/src/usb_0xA1_2_armv7.S" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/src/usb_0xA1_2_armv7.S" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/steaks4uce.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/steaks4uce.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/usb/ACKNOWLEDGEMENTS" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/usb/ACKNOWLEDGEMENTS" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/usb/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/usb/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/usb/README.rst" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/usb/README.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/usb/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/usb/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/usb/_debug.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/usb/_debug.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/usb/_interop.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/usb/_interop.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/usb/_lookup.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/usb/_lookup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/usb/_objfinalizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/usb/_objfinalizer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/usb/backend/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/usb/backend/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/usb/backend/libusb0.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/usb/backend/libusb0.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/usb/backend/libusb1.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/usb/backend/libusb1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/usb/backend/openusb.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/usb/backend/openusb.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/usb/control.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/usb/control.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/usb/core.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/usb/core.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/usb/legacy.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/usb/legacy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/usb/libloader.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/usb/libloader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/usb/util.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/usb/util.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/usbexec.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/usbexec.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/removesig/utilities.py" beforeDir="false" afterPath="$PROJECT_DIR$/resources/removesig/utilities.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/restore.py" beforeDir="false" afterPath="$PROJECT_DIR$/restore.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restoreFiles/BuildManifest613_iPad2,1.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/restoreFiles/BuildManifest613_iPad2,2.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/restoreFiles/BuildManifest613_iPad2,3.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/restoreFiles/BuildManifest613_iPhone4,1.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/restoreFiles/BuildManifest_iPad2,1.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/restoreFiles/BuildManifest_iPad2,2.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/restoreFiles/BuildManifest_iPad2,3.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/restoreFiles/BuildManifest_iPad2,4.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/restoreFiles/BuildManifest_iPad2,5.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/restoreFiles/BuildManifest_iPad2,6.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/restoreFiles/BuildManifest_iPad2,7.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/restoreFiles/BuildManifest_iPad3,1.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/restoreFiles/BuildManifest_iPad3,2.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/restoreFiles/BuildManifest_iPad3,3.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/restoreFiles/BuildManifest_iPad3,4.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/restoreFiles/BuildManifest_iPad3,5.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/restoreFiles/BuildManifest_iPad3,6.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/restoreFiles/BuildManifest_iPad4,1.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/restoreFiles/BuildManifest_iPad4,2.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/restoreFiles/BuildManifest_iPad4,3.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/restoreFiles/BuildManifest_iPad4,4.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/restoreFiles/BuildManifest_iPad4,5.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/restoreFiles/BuildManifest_iPhone4,1.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/restoreFiles/BuildManifest_iPhone5,1.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/restoreFiles/BuildManifest_iPhone5,2.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/restoreFiles/BuildManifest_iPhone6,1.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/restoreFiles/BuildManifest_iPhone6,2.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/restoreFiles/BuildManifest_iPod5,1.plist" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/restoreFiles/futurerestore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/restoreFiles/igetnonce" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/restoreFiles/irecovery" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/restoreFiles/kloader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/restoreFiles/kloader10" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/restoreFiles/tsschecker" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />

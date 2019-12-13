@@ -4,5 +4,6 @@
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/ipwndfu_public" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/removesig" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/resources/removesig" vcs="Git" />
   </component>
 </project>

@@ -1,41 +1,63 @@
-# PythonOTADowngrader
+# Vieux - A tool for 32/64 Bit iOS downgrades using OTA Blobs
 
 ## By - Matty (Twitter - @mosk_i)
-## With help from - Merc (Twitter - @Vyce_Merculous)
+#### With help from - Merc (Twitter - @Vyce_Merculous)
 
+
+-----------------
 # Current device support
 
 ## 10.3.3
-### iPhone 5s, iPad Air, iPad Mini (Not iPad4,6)
+iPhone 5s, iPad Air, iPad Mini (Not iPad4,6)
 
 ## 8.4.1
-### iPhone 5, More 32 bit device support is coming
+iPhone 5, iPhone 4s, More 32 Bit device support is coming
 
+## 6.1.3
+iPhone 4s, More 32 Bit device support is coming
+
+-----------------
 # Installing dependencies
 
-Needs python3 (I used 3.8 but any 3.x should be fine) and python2 installed. Am working on removing the python2 dependency, should have it gone by the full release :)
+Needs Python3 (At least 3.5)
 
-All other dependecies are in requirements.txt
+Also needs Python2 but that comes default with macOS
 
-pip install -r requirements.txt
+Run 'pip3 install -r requirements.txt' to install all dependencies
 
-
+-----------------
 # Instructions
 
-1. 'cd' into the 'PythonOTADowngrader' folder
-2. run './main.py' or, if the first command doesn't work, 'python3 main.py'
+0. 'pip3 install -r requirements.txt' to install all dependencies
+1. 'cd' into the 'Vieux' folder that you either git cloned or downloaded
+2. run './vieux.py' or, if the that command doesn't work, 'python3 vieux.py'
 3. Follow what the tool tells you to do
 4. Profit?
+-----------------
+# F.A.Q
+### What devices does this support/when will it support my iPad XX or iPhone XX?
+See above at "Current device support", support is coming for more 32 Bit devices, namely 32 Bit iPads and iPods. No other devices will ever be supported for the 10.3.3 downgrade. Ever.
 
-# Known Issues
+### Why does the tool not run?
+Make sure you have run "pip install -r requirements.txt" before attempting to use this tool. If that doesn't fix the issue, take a screen shot of the error and create an issue on the Github page.
 
-Sometimes the program will crash and complain about "USB permissions" if it is run multiple times back to back in quick succession. No clue why it does this, but just waiting 5 seconds or so will fix this issue
+### When will other OS's be supported? E.G Linux, Windows, etc...
+There will most likely never be windows support as Windows is an awful OS for any iOS related stuff. Linux support is possible and will most likely come at a later date.
 
-No output in terminal when the device is restoring. This isn't really an issue, more of a choice I made. I am working on adding a "verbose" option which will show the output of everything that I've hidden for those that want it.
+### Why should I use this over other older methods?
+This is by far the fastest tool for OTA downgrades on the market, plus no other tool can do both 32 and 64 Bit downgrades. Also this tool "Just Works (TM)" so there is no reason not to try it!
 
-It only works on MacOS machines (hackintosh or legit). This is something that *can* be fixed at least Linux support could be added, just would need someone to compile the edited futurerestore for OTA downgrades on Linux so I can create a patchfile for the currently released Linux binary. Everything else this tool does *should* work fine on Linux already. Windows sucks.
+-----------------
+# Credits
 
+@axi0mX - Checkm8/ipwndfu
 
-# Other Things
+@tihmstar - Futurerestore/tsschecker
 
-This tool is my first venture into Python, so there are probably a plethora of things that I could have done better. If you find something then just open a pull request and explain why the changes you have made are better :) I'm quite fine with admitting that I am not an expert in Python and I would love some help/critisism on this tool. Also this tool will never support any devices other then A5, A6 and A7 ones (unless later on other checkm8 vulnerable devices end up with a permenatly signed OTA version) so don't even ask.
+@linus_henze - SecureROM Signature Check Remover
+
+@Vyce_Merculous - General help/Cleaning up my messy code
+
+@xerusdesign - Testing
+
+-----------------

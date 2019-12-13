@@ -1,7 +1,7 @@
-from ipwndfu import dfu
+from resources.ipwndfu import dfu
 import re
 import os
-import main
+import vieux as main
 import sys
 import time
 import paramiko
@@ -36,14 +36,14 @@ def getecid():
 
     try:
         found = re.search('ECID:(.+?) IBFL', serial).group(1)
-        print("Your ECID is :", found)
+        #print("Your ECID is :", found)
         return found
     except AttributeError:
         print('\033[91m' + "ERROR: Couldn't find ECID in serial" + '\033[0m')
 
 
 def getapnonce():
-    print("Getting current ApNonce from device...")
+    #print("Getting current ApNonce from device...")
     cmd = './igetnonce'
     so = os.popen(cmd).read()
     with main.silence_stdout():
@@ -51,20 +51,20 @@ def getapnonce():
     try:
 
         found = re.search('ApNonce=(.+?)\nSep', so).group(1)
-        print("Your current ApNonce is :", found)
+        #print("Your current ApNonce is :", found)
         return found
     except AttributeError:
         print('\033[91m' + "ERROR: Couldn't get ApNonce from device" + '\033[0m')
 
 def getmodel():
-    print("Getting device model...")
+    #print("Getting device model...")
     cmd = './igetnonce'
     so = os.popen(cmd).read()
     with main.silence_stdout():
         print(so)
     try:
         found = re.search(', (.+?) in DFU mode', so).group(1)
-        print("Your device is an ", found)
+        #print("Your device is an ", found)
         return found
     except AttributeError:
         #print('\033[91m' + "ERROR: Couldn't get device model information" + '\033[0m')
@@ -74,7 +74,6 @@ def getmodel():
 
 
 def enterkdfumode(kloader, kloader10, ibss):
-    print("Connecting to device via SSH...")
     ip = input("Please enter your devices IP address (Find it in WiFi settings):\n")
 
     try:
@@ -101,7 +100,7 @@ def enterkdfumode(kloader, kloader10, ibss):
             print("")
 
     devicepassword = getpass.getpass("Please enter the root password to your device (Default is 'alpine'):\n")
-
+    print("Connecting to device via SSH...")
     try:
         client = paramiko.SSHClient()
         client.load_system_host_keys()
@@ -131,6 +130,7 @@ def enterkdfumode(kloader, kloader10, ibss):
         scp.close()
         client.close()
         print("Please press the home button on your device or unplug and replug it back in.\nWaiting 10 seconds for you to do this.")
-        time.sleep(10)
+        time.sleep(13)
     except:
-        print("broke")
+        print("ERROR: SSH/SCP failed, (need to add more details in this part)\nExiting...")
+        exit(222)

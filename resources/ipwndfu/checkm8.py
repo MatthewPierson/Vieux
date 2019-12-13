@@ -1,6 +1,6 @@
 import array, ctypes, struct, sys, time
 import usb
-from ipwndfu import dfu
+from resources.ipwndfu import dfu
 
 # Must be global so garbage collector never frees it
 request = None
@@ -501,9 +501,9 @@ def exploit_config(serial_number):
   sys.exit(1)
 
 def exploit():
-  print('*** checkm8 exploit by axi0mX ***')
-  print('*** modified version by Linus Henze ***')
-  print('*** s5l8965x support by Matthew Pierson ***')
+  #print('*** checkm8 exploit by axi0mX ***')
+  #print('*** modified version by Linus Henze ***')
+  #print('*** s5l8965x support by Matthew Pierson ***')
 
   device = dfu.acquire_device()
   start = time.time()

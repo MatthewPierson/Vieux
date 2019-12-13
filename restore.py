@@ -2,7 +2,7 @@ import os
 import subprocess
 import shutil
 import time
-from ipwndfu import dfu, checkm8
+from resources.ipwndfu import checkm8, dfu
 import device as localdevice
 
 def removesig():
@@ -12,10 +12,10 @@ def removesig():
     so = os.popen(cmd).read()
     print(so)
     
-    os.chdir("..")
+    os.chdir("../..")
 
 def pwndfumode():
-    os.chdir("ipwndfu")
+    os.chdir("resources/ipwndfu")
 
     device = dfu.acquire_device()
     serial_number = device.serial_number
@@ -50,40 +50,40 @@ def pwndfumode():
         exit(1)
 
 def restore32(device, iosversion):
-    if os.path.exists("restoreFiles/futurerestore"):
-        shutil.move("restoreFiles/futurerestore", "futurerestore")
-    elif os.path.exists("restoreFiles/igetnonce"):
-        shutil.move("restoreFiles/igetnonce", "igetnonce")
-    elif os.path.exists("restoreFiles/tsschecker"):
-        shutil.move("restoreFiles/tsschecker", "tsschecker")
-    elif os.path.exists("restoreFiles/irecovery"):
-        shutil.move("restoreFiles/irecovery", "irecovery")
+    if os.path.exists("resources/restoreFiles/futurerestore"):
+        shutil.move("resources/restoreFiles/futurerestore", "futurerestore")
+    elif os.path.exists("resources/restoreFiles/igetnonce"):
+        shutil.move("resources/restoreFiles/igetnonce", "igetnonce")
+    elif os.path.exists("resources/estoreFiles/tsschecker"):
+        shutil.move("resources/restoreFiles/tsschecker", "tsschecker")
+    elif os.path.exists("resources/restoreFiles/irecovery"):
+        shutil.move("resources/restoreFiles/irecovery", "irecovery")
     print("Getting SHSH...")
     ecid = localdevice.getecid()
     device32 = str(localdevice.getmodel())
-    cmd = f'./tsschecker -d {device32} -i {iosversion} -o -m restoreFiles/BuildManifest_{device32}.plist -e {ecid} -s'
+    cmd = f'./tsschecker -d {device32} -i {iosversion} -o -m resources/restoreFiles/BuildManifest_{device32}.plist -e {ecid} -s'
     so = subprocess.run(cmd, shell=True, stdout=subprocess.DEVNULL)
     returncode = so.returncode
     if returncode != 0:
         print(
-            "Resoting Failed.\nPlease try again and report the error + full logs if it persists.\nExiting...")
+            "Saving SHSH failed.\nPlease try again and report the error + full logs if it persists.\nExiting...")
         exit(938862428)
     dir_name = os.getcwd()
     test = os.listdir(dir_name)
     for item in test:
         if item.endswith(".shsh2"):
-            shutil.move(os.path.join(dir_name, item), "restoreFiles/apnonce.shsh")
+            shutil.move(os.path.join(dir_name, item), "resources/restoreFiles/apnonce.shsh")
     print("Restoring...")
     print('\033[91m' + "Note that errors about 'BbSkeyId', 'FDR Client' and 'BasebandFirmware Node' are not important, just ignore them and only report errors that actually stop the restore." + '\033[0m')
     if device32 != "iPad2,1" or "iPad2,4" or "iPad2,5" or "iPad3,1" or "iPad3,4" or "iPod5,1":
-        cmd2 = './futurerestore -t restoreFiles/apnonce.shsh --use-pwndfu --latest-baseband custom.ipsw'
+        cmd2 = './futurerestore -t resources/restoreFiles/apnonce.shsh --use-pwndfu --latest-baseband custom.ipsw'
         so = subprocess.run(cmd2, shell=True, stdout=subprocess.DEVNULL)
         returncode = so.returncode
         if returncode != 0:
             print("Resoting Failed.\nPlease try again and report the error + full logs if it persists.\nExiting...")
             exit(938862428)
     else:
-        cmd2 = './futurerestore -t restoreFiles/apnonce.shsh --no-baseband --use-pwndfu custom.ipsw'
+        cmd2 = './futurerestore -t resources/restoreFiles/apnonce.shsh --no-baseband --use-pwndfu custom.ipsw'
         so = subprocess.run(cmd2, shell=True, stdout=subprocess.DEVNULL)
         returncode = so.returncode
         print(returncode)
@@ -92,18 +92,18 @@ def restore32(device, iosversion):
             exit(938862428)
 
 def restore64(device):
-    if os.path.exists("restoreFiles/futurerestore"):
-        shutil.move("restoreFiles/futurerestore", "futurerestore")
-    if os.path.exists("restoreFiles/igetnonce"):
-        shutil.move("restoreFiles/igetnonce", "igetnonce")
-    if os.path.exists("restoreFiles/tsschecker"):
-        shutil.move("restoreFiles/tsschecker", "tsschecker")
-    if os.path.exists("restoreFiles/irecovery"):
-        shutil.move("restoreFiles/irecovery", "irecovery")
+    if os.path.exists("resources/restoreFiles/futurerestore"):
+        shutil.move("resources/restoreFiles/futurerestore", "futurerestore")
+    if os.path.exists("resources/restoreFiles/igetnonce"):
+        shutil.move("resources/restoreFiles/igetnonce", "igetnonce")
+    if os.path.exists("resources/restoreFiles/tsschecker"):
+        shutil.move("resources/restoreFiles/tsschecker", "tsschecker")
+    if os.path.exists("resources/restoreFiles/irecovery"):
+        shutil.move("resources/restoreFiles/irecovery", "irecovery")
     print("Entering PWNREC mode...")
     ecid = localdevice.getecid()
     os.chdir("Firmware/dfu")
-    irecerr = "Sending iBSS/iBEC Failed.\nPlease try again and report the error + full logs if it persists.\nExiting..."
+    irecerr = "Sending iBSS/iBEC Failed.\nPlease reboot device, start the tool again and report the error + full logs if it persists.\nExiting..."
     if device == "iPhone6,2" or device == "iPhone6,1":
         cmd = '../../irecovery -f iBSS.iphone6.RELEASE.im4p'
         so = subprocess.run(cmd, shell=True, stdout=subprocess.DEVNULL)
@@ -158,9 +158,9 @@ def restore64(device):
     print("Getting SHSH...")
     nonce = localdevice.getapnonce()
     if device != "iPad4,3":
-        cmd = f'./tsschecker -d {device} -i 10.3.3 -o -m restoreFiles/BuildManifest_{device}.plist -e {ecid} --apnonce {nonce} -s'
+        cmd = f'./tsschecker -d {device} -i 10.3.3 -o -m resources/restoreFiles/BuildManifest_{device}.plist -e {ecid} --apnonce {nonce} -s'
     else:
-        cmd = f'./tsschecker -d iPad4,3 --boardconfig j73AP -i 10.3.3 -o -m restoreFiles/BuildManifest_iPad4,3.plist -e {ecid} --apnonce {nonce} -s'
+        cmd = f'./tsschecker -d iPad4,3 --boardconfig j73AP -i 10.3.3 -o -m resources/restoreFiles/BuildManifest_iPad4,3.plist -e {ecid} --apnonce {nonce} -s'
     so = subprocess.run(cmd, shell=True, stdout=subprocess.DEVNULL)
     returncode = so.returncode
     if returncode != 0:
@@ -171,12 +171,12 @@ def restore64(device):
     test = os.listdir(dir_name)
     for item in test:
         if item.endswith(".shsh"):
-            shutil.move(os.path.join(dir_name, item), "restoreFiles/apnonce.shsh")
+            shutil.move(os.path.join(dir_name, item), "resources/restoreFiles/apnonce.shsh")
     time.sleep(3)
     print("Restoring...")
     print('\033[91m' + "Note that errors about 'BbSkeyId', 'FDR Client' and 'BasebandFirmware Node' are not important, just ignore them and only report errors that actually stop the restore." + '\033[0m')
     if device != "iPad4,1" or "iPad4,4":
-        cmd2 = f'./futurerestore -t restoreFiles/apnonce.shsh -s restoreFiles/sep.im4p -m restoreFiles/BuildManifest_{device}.plist -b restoreFiles/baseband.bbfw -p restoreFiles/BuildManifest_{device}.plist custom.ipsw'
+        cmd2 = f'./futurerestore -t resources/restoreFiles/apnonce.shsh -s resources/restoreFiles/sep.im4p -m resources/restoreFiles/BuildManifest_{device}.plist -b resources/restoreFiles/baseband.bbfw -p resources/restoreFiles/BuildManifest_{device}.plist custom.ipsw'
         so2 = subprocess.run(cmd2, shell=True, stdout=subprocess.DEVNULL)
         returncode = so2.returncode
         if returncode != 0:
@@ -184,7 +184,7 @@ def restore64(device):
             print("Restore Failed.\nPlease try again and report the error + full logs if it persists.\nExiting...")
             exit(938862428)
     else:
-        cmd2 = f'./futurerestore -t restoreFiles/apnonce.shsh -s restoreFiles/sep.im4p -m restoreFiles/BuildManifest_{device}.plist --no-baseband custom.ipsw'
+        cmd2 = f'./futurerestore -t resources/restoreFiles/apnonce.shsh -s resources/restoreFiles/sep.im4p -m resources/restoreFiles/BuildManifest_{device}.plist --no-baseband custom.ipsw'
         so2 = subprocess.run(cmd2, shell=True, stdout=subprocess.DEVNULL)
         returncode = so2.returncode
         if returncode != 0:

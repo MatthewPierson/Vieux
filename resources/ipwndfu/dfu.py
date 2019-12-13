@@ -1,7 +1,7 @@
 import sys, time
 import usb # pyusb: use 'pip install pyusb' to install this module
 import usb.backend.libusb1
-from ipwndfu import libusbfinder
+from resources.ipwndfu import libusbfinder
 
 MAX_PACKET_SIZE = 0x800
 
@@ -33,12 +33,12 @@ def reset_counters(device):
     assert device.ctrl_transfer(0x21, 4, 0, 0, 0, 1000) == 0
 
 def usb_reset(device):
-    print('Performing USB port reset.')
+    #print('Performing USB port reset.')
     try:
         device.reset()
     except usb.core.USBError:
         # OK: doesn't happen on Yosemite but happens on El Capitan and Sierra
-        print('Caught exception during port reset; should still work.')
+        #print('Caught exception during port reset; should still work.')
         pass
 
 def send_data(device, data):
