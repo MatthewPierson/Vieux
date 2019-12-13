@@ -69,6 +69,8 @@ Please include as much detail as you can, including but not limited to - Full lo
 
 [@linushenze](https://twitter.com/LinusHenze) - SecureROM Signature Check Remover
 
+[@geohotz](https://twitter.com/realGeorgeHotz) - Fork of ipwndfu ported to Python3
+
 [@Vyce_Merculous](https://twitter.com/Vyce_Merculous) - General help/Cleaning up my messy code
 
 [@xerusdesign](https://twitter.com/xerusdesign) - Testing

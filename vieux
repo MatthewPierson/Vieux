@@ -10,13 +10,16 @@ import argparse
 if __name__ =="__main__":
     text = 'Vieux - A tool for 32/64 Bit OTA downgrades'
     parser = argparse.ArgumentParser(description = text, usage="vieux -i 'PATH/TO/.ipsw'")
-    requiredNamed = parser.add_argument_group('required arguments')
-    requiredNamed.add_argument("-i", "--ipsw", help="Path to IPSW file", required=True)
+    parser.add_argument("-i", "--ipsw", help="Path to IPSW file")
     parser.add_argument("-l", "--list", help="List what devices can be restored to what iOS versions", action="store_true")
+    parser.add_argument("-v", "--version", help="List the version of the tool", action="store_true")
     if len(sys.argv) == 1:
         parser.print_help(sys.stderr)
         sys.exit(1)
     args = parser.parse_args()
+    if args.version:
+        print("Current version is: Public Beta 1")
+        exit()
     if args.list:
         print("iOS 10.3.3 COMPATIBLE DEVICES:\n")
         print("iPhone 5s, iPhone6,1 iPhone6,2")
@@ -29,7 +32,7 @@ if __name__ =="__main__":
         print("iPhone 4s, iPhone4,1\n")
         print("Support for more 32 Bit devices for 8.4.1 and 6.1.3 is coming soon")
         exit()
-    if args.ipsw:
+    elif args.ipsw:
         print("Given IPSW Path is %s" % args.ipsw)
         path = args.ipsw
     else:
