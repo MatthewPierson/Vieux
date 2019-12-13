@@ -45,10 +45,18 @@ See [above](#current-device-support), support is coming for more 32 Bit devices,
 Make sure you have run "pip3 install -r requirements.txt" before attempting to use this tool. If that doesn't fix the issue, take a screen shot of the error and create an issue on the Github page.
 
 ### When will other OS's be supported? E.G Linux, Windows, etc...
-There will most likely never be windows support as Windows is an awful OS for any iOS related stuff. Linux support is possible and will most likely come at a later date.
+There will most likely never be Windows support as Windows is an awful OS for any iOS related stuff. Linux support is possible and will most likely come at a later date.
 
 ### Why should I use this over other older methods?
 This is by far the fastest tool for OTA downgrades on the market, plus no other tool can do both 32 and 64 Bit downgrades. Also this tool "Just Works (TM)" so there is no reason not to try it!
+
+### How can I get help with an error/issue that I can't figure out?
+If you have tried everything mentioned in this readme, you can either open an issue on the Github page, tweet @ me (@mosk_i) or send me a DM on twitter (@mosk_i). 
+
+Please include as much detail as you can, including but not limited to - Full log from the tool, macOS version, device model/iOS version you are trying to downgrade to and what you have already tried.
+
+### How do you pronounce "Vieux"?
+"*Voo*", it's French for "old" or "outdated" which fits well with the old iOS versions this tool downgrades devices to! Not that iOS 6/8/10 are bad at all, even given their age.
 
 -----------------
 # Credits
