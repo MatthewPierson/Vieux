@@ -6,8 +6,12 @@ from pathlib import Path
 from zipfile import ZipFile
 from restore import restore64, restore32, pwndfumode
 
-def removeFiles(remove):
+def removeFiles():
 
+    if os.path.exists('errorlogshsh.txt'):
+        os.remove('errorlogshsh.txt')
+    if os.path.exists('errorlogrestore.txt'):
+        os.remove('errorlogrestore.txt')
     if os.path.exists("kernelcache.release.iphone6"):
         os.remove("kernelcache.release.iphone6")
     elif os.path.exists("kernelcache.release.iphone8b"):
@@ -89,8 +93,7 @@ def unzipIPSW(fname):
             shutil.move("resources/restoreFiles/irecovery", "irecovery")
         print("IPSW found at given path...")
         print("Cleaning up old files...")
-        done = True
-        removeFiles(done)
+        removeFiles()
         print("Unzipping..")
         with ZipFile(fname, 'r') as zip_ref:
             zip_ref.extractall(outputFolder)

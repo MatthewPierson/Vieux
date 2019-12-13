@@ -46,9 +46,8 @@ if __name__ =="__main__":
     print("Still in " + '\033[91m' + "BETA" + '\033[0m' + " so expect issues/broken things")
     print("If you are using a 64 Bit device then connect it in DFU Mode\nIf you are using a 32 Bit device then just have it connected in normal mode")
     ipsw.unzipIPSW(path)
-    done = False
     print("Cleaning up files...")
-    ipsw.removeFiles(done)
+    ipsw.removeFiles()
     if os.path.exists("igetnonce"):
         shutil.move("igetnonce", "resources/restoreFiles/igetnonce")
     if os.path.exists("tsschecker"):
@@ -57,6 +56,6 @@ if __name__ =="__main__":
         shutil.move("futurerestore", "resources/restoreFiles/futurerestore")
     if os.path.exists("irecovery"):
         shutil.move("irecovery", "resources/restoreFiles/irecovery")
-    print('\033[92m' + ''"Finished! Enjoy your downgraded phone :)" + '\033[0m')
+    print('\033[92m' + ''"Finished! Enjoy your downgraded device :)" + '\033[0m')
     exit(0)
 

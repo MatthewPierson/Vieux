@@ -161,12 +161,18 @@ def restore64(device):
         cmd = f'./tsschecker -d {device} -i 10.3.3 -o -m resources/restoreFiles/BuildManifest_{device}.plist -e {ecid} --apnonce {nonce} -s'
     else:
         cmd = f'./tsschecker -d iPad4,3 --boardconfig j73AP -i 10.3.3 -o -m resources/restoreFiles/BuildManifest_iPad4,3.plist -e {ecid} --apnonce {nonce} -s'
-    so = subprocess.run(cmd, shell=True, stdout=subprocess.DEVNULL)
+    so = subprocess.run(cmd, shell=True, stdout=open('errorlogshsh.txt', 'w'))
     returncode = so.returncode
+    output = 'errorlogshsh.txt'
     if returncode != 0:
+        with open(output, 'r') as fin:
+            print(fin.read())
         print("ERROR..\nReturn code:", returncode)
-        print("SHSH Saving Failed.\nPlease try again and report the error + full logs if it persists.\nExiting...")
+        print("SHSH Saving Failed.\nPlease try again and report the error/full logs and the 'errorlogshsh.txt' file if it persists.\nExiting...")
         exit(938862428)
+    else:
+        if os.path.exists('errorlogshsh.txt'):
+            os.remove('errorlogshsh.txt')
     dir_name = os.getcwd()
     test = os.listdir(dir_name)
     for item in test:
@@ -177,17 +183,26 @@ def restore64(device):
     print('\033[91m' + "Note that errors about 'BbSkeyId', 'FDR Client' and 'BasebandFirmware Node' are not important, just ignore them and only report errors that actually stop the restore." + '\033[0m')
     if device != "iPad4,1" or "iPad4,4":
         cmd2 = f'./futurerestore -t resources/restoreFiles/apnonce.shsh -s resources/restoreFiles/sep.im4p -m resources/restoreFiles/BuildManifest_{device}.plist -b resources/restoreFiles/baseband.bbfw -p resources/restoreFiles/BuildManifest_{device}.plist custom.ipsw'
-        so2 = subprocess.run(cmd2, shell=True, stdout=subprocess.DEVNULL)
+        so2 = subprocess.run(cmd2, shell=True, stdout=open('errorlogrestore.txt', 'w'))
         returncode = so2.returncode
+        output = 'errorlogrestore.txt'
         if returncode != 0:
+            with open(output, 'r') as fin:
+                print(fin.read())
             print("ERROR..\nReturn code:", returncode)
-            print("Restore Failed.\nPlease try again and report the error + full logs if it persists.\nExiting...")
+            print("Restore Failed.\nPlease try again and report the error/send me the full logs and the 'errorlogrestore.txt' file if it persists\nExiting...")
             exit(938862428)
+        else:
+            if os.path.exists('errorlogrestore.txt'):
+                os.remove('errorlogrestore.txt')
     else:
         cmd2 = f'./futurerestore -t resources/restoreFiles/apnonce.shsh -s resources/restoreFiles/sep.im4p -m resources/restoreFiles/BuildManifest_{device}.plist --no-baseband custom.ipsw'
-        so2 = subprocess.run(cmd2, shell=True, stdout=subprocess.DEVNULL)
+        so2 = subprocess.run(cmd2, shell=True, stdout=open('errorlogrestore.txt', 'w'))
         returncode = so2.returncode
+        output = 'errorlogrestore.txt'
         if returncode != 0:
+            with open(output, 'r') as fin:
+                print(fin.read())
             print("ERROR..\nReturn code:", returncode)
             print("Restore Failed.\nPlease try again and report the error + full logs if it persists.\nExiting...")
             exit(938862428)
