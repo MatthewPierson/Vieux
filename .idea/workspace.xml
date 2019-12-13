@@ -3,54 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="eb696922-d423-4df0-b6e4-46fd24c2cfa6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/JAILBREAK-GUIDE.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/SHAtter.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/aes-keys/S5L8920-firmware" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/alloc8.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/ibootpatcher" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/image3.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/image3_24Kpwn.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/ipwndfu" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/ipwnrecovery" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/limera1n.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/nor-backups/README" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/nor.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/recovery.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/repo/ipwndfu.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/rmsigchks.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/src/24Kpwn-shellcode.S" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/src/SHAtter-shellcode.S" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/src/alloc8-shellcode.S" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/src/checkm8_arm64.S" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/src/checkm8_armv7.S" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/src/ibss-flash-nor-shellcode.S" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/src/limera1n-shellcode.S" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/src/steaks4uce-shellcode.S" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/src/t8010_t8011_disable_wxn_arm64.S" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/src/usb_0xA1_2_arm64.S" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/src/usb_0xA1_2_armv7.S" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/steaks4uce.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/usb/ACKNOWLEDGEMENTS" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/usb/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/usb/README.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/usb/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/usb/_debug.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/usb/_interop.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/usb/_lookup.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/usb/_objfinalizer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/usb/backend/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/usb/backend/libusb0.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/usb/backend/libusb1.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/usb/backend/openusb.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/usb/control.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/usb/core.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/usb/legacy.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/usb/libloader.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/usb/util.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/ipwndfu/utilities.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/restoreFiles/futurerestore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/restoreFiles/igetnonce" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/restoreFiles/irecovery" beforeDir="false" />

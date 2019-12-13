@@ -30,7 +30,7 @@ Run 'pip3 install -r requirements.txt' to install all dependencies
 
 0. 'pip3 install -r requirements.txt' to install all dependencies
 1. 'cd' into the 'Vieux' folder that you either git cloned or downloaded
-2. run './vieux.py' or, if the that command doesn't work, 'python3 vieux.py'
+2. run './vieux' or, if the that command doesn't work, 'python3 vieux'
 3. Follow what the tool tells you to do
 4. Profit?
 -----------------
@@ -42,7 +42,7 @@ If you have a 64 Bit device (iPhone 5s, iPad Mini 2, iPad Air) then just connect
 See [above](#current-device-support), support is coming for more 32 Bit devices, namely 32 Bit iPads and iPods. No other devices will ever be supported for the 10.3.3 downgrade. Ever.
 
 ### Why does the tool not run?
-Make sure you have run "pip install -r requirements.txt" before attempting to use this tool. If that doesn't fix the issue, take a screen shot of the error and create an issue on the Github page.
+Make sure you have run "pip3 install -r requirements.txt" before attempting to use this tool. If that doesn't fix the issue, take a screen shot of the error and create an issue on the Github page.
 
 ### When will other OS's be supported? E.G Linux, Windows, etc...
 There will most likely never be windows support as Windows is an awful OS for any iOS related stuff. Linux support is possible and will most likely come at a later date.
