@@ -209,6 +209,11 @@ def createCustomIPSW64(fname, devicemodel):
             print("ERROR: Unknown input. Exiting purely because you can't read and that's sad...")
             print("ERROR: Exiting...")
             exit(1)
+    else:
+        print("Varible "device" was not set. Please make sure IPSW file name is default/device is connected and try again")
+        exit(55555)
+
+
     print("Patched iBSS/iBEC")
     print("About to re-build IPSW")
 
