@@ -210,7 +210,7 @@ def createCustomIPSW64(fname, devicemodel):
             print("ERROR: Exiting...")
             exit(1)
     else:
-        print("Varible "device" was not set. Please make sure IPSW file name is default/device is connected and try again")
+        print("Varible 'device' was not set. Please make sure IPSW file name is default/device is connected and try again")
         exit(55555)
 
 
