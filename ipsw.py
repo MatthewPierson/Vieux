@@ -1,10 +1,25 @@
 import os
 import shutil
 import bsdiff4
+import plistlib
 import device as localdevice
 from pathlib import Path
 from zipfile import ZipFile
 from restore import restore64, restore32, pwndfumode
+
+def readmanifest(path, flag):
+    fn = path
+    with open(fn, 'rb') as f:
+        pl = plistlib.load(f)
+    if flag:
+        result = pl['ProductVersion']
+    else:
+        supportedModels = str(pl['SupportedProductTypes'])
+        supportedModels1 = supportedModels.replace("[", "")
+        supportedModels2 = supportedModels1.replace("'", "")
+        result = supportedModels2.replace("]", "")
+    return result
+
 
 def removeFiles():
     randomfiles = ['errorlogshsh.txt', 'errorlogrestore.txt', 'ibss', 'ibec', 'resources/restoreFiles/baseband.bbfw', 'resources/restoreFiles/sep.im4p', 'resources/restoreFiles/apnonce.shsh', '']
@@ -43,7 +58,8 @@ def touch(path):
         os.utime(path, None)
 
 def unzipIPSW(fname):
-
+    armv7 = ['iPhone4,1']
+    armv7s = ['iPhone5,1', 'iPhone5,2']
     if os.path.exists("custom.ipsw"):
         os.remove("custom.ipsw")
 
@@ -89,15 +105,25 @@ def unzipIPSW(fname):
         for f in files:
             shutil.move(source + f, dest1)
         devicemodel = str(localdevice.getmodel())
-        t = localdevice.pick3264(devicemodel, fname)
-        if t == 32:
+        version = False
+        supportedModels = str(readmanifest("IPSW/BuildManifest.plist", version))
+        if supportedModels in armv7:
             createCustomIPSW32(fname)
-        elif t == 64:
-            pwndfumode()
-            createCustomIPSW64(fname, devicemodel)
         else:
-            exit(2)
-
+            if supportedModels in armv7s:
+                createCustomIPSW32(fname)
+            else:
+                arm64check = ('iPhone6,1', 'iPhone6,2', 'iPad4,1', 'iPad4,2', 'iPad4,3', 'iPad4,4', 'iPad4,5')
+                if any(ext in supportedModels for ext in arm64check):
+                    if any(ext in devicemodel for ext in arm64check):
+                        pwndfumode()
+                        createCustomIPSW64(fname, devicemodel)
+                    else:
+                        print("ERROR: Unsupported model...\nExiting...")
+                        exit(82)
+                else:
+                    print("ERROR: Unsupported model...\nExiting...")
+                    exit(82)
     else:
         print('\033[91m' + "ERROR: Not valid filepath...")
         print("ERROR: Try again" + '\033[0m')
@@ -113,19 +139,23 @@ def createCustomIPSW32(fname):
     phone51ibss = patch_folder / "ibss.iphone51.patch"
     phone4sibss6 = patch_folder / "ibss.iphone4,1.6.1.3.patch"
     phone4sibss8 = patch_folder / "ibss.iphone4,1.8.4.1.patch"
-    if "iPhone5,2" in fname or "iPhone5,1" in fname and "8.4.1" in fname:
+    version = True
+    versionManifest = readmanifest("IPSW/BuildManifest.plist", version)
+    version = False
+    deviceManifest = readmanifest("IPSW/BuildManifest.plist", version)
+    if "iPhone5,2" in deviceManifest or "iPhone5,1" in deviceManifest and "8.4.1" in versionManifest:
         print("Looks like you are downgrading an iPhone 5 to 8.4.1!")
-        if "iPhone5,2" in fname:
+        if "iPhone5,2" in deviceManifest:
             bsdiff4.file_patch_inplace("iBSS.n42.RELEASE.dfu", phone52ibss)
             shutil.copy("iBSS.n42.RELEASE.dfu", "ibss")
             model = "iPhone5,2"
-        elif "iPhone5,1" in fname:
+        elif "iPhone5,1" in deviceManifest:
             bsdiff4.file_patch_inplace("iBSS.n41.RELEASE.dfu", phone51ibss)
             shutil.copy("iBSS.n41.RELEASE.dfu", "ibss")
             model = "iPhone5,1"
         ibsslocation = "ibss"
         device = "iPhone5"
-    elif "6.1.3" in fname or "8.4.1" in fname and "iPhone4,1" in fname:
+    elif "6.1.3" in versionManifest or "8.4.1" in versionManifest and "iPhone4,1" in deviceManifest:
         device = "iPhone4s"
         model = "iPhone4,1"
 
@@ -139,7 +169,7 @@ def createCustomIPSW32(fname):
         localdevice.enterkdfumode(kloaderlocation, kloader10location, ibsslocation)
         restore32(model, iosversion)
     elif device == "iPhone4s":
-        if "8.4.1" in fname:
+        if "8.4.1" in versionManifest:
             print("Looks like you are downgrading an iPhone 4s to 8.4.1!")
             iosversion = "8.4.1"
             bsdiff4.file_patch_inplace("iBSS.n94.RELEASE.dfu", phone4sibss8)
@@ -148,7 +178,7 @@ def createCustomIPSW32(fname):
             shutil.copy(fname, "custom.ipsw")
             localdevice.enterkdfumode(kloaderlocation, kloader10location, ibsslocation)
             restore32(model, iosversion)
-        elif "6.1.3" in fname:
+        elif "6.1.3" in versionManifest:
             print("Looks like you are downgrading an iPhone 4s to 6.1.3!")
             iosversion = "6.1.3"
             bsdiff4.file_patch_inplace("iBSS.n94ap.RELEASE.dfu", phone4sibss6)
@@ -172,12 +202,16 @@ def createCustomIPSW64(fname, devicemodel):
     ipadminiibss = patch_folder / "ibss_ipad4b.patch"
     ipadairibec = patch_folder / "ibec_ipad4.patch"
     ipadairibss = patch_folder / "ibss_ipad4.patch"
-    if "iPhone" in fname and "10.3.3" in fname:
+    version = True
+    versionManifest = readmanifest("IPSW/BuildManifest.plist", version)
+    version = False
+    deviceManifest = readmanifest("IPSW/BuildManifest.plist", version)
+    if "iPhone" in deviceManifest and "10.3.3" in versionManifest:
         print("Looks like you are downgrading an iPhone 5s to 10.3.3!")
         bsdiff4.file_patch_inplace("iBEC.iphone6.RELEASE.im4p", phoneibec)
         bsdiff4.file_patch_inplace("iBSS.iphone6.RELEASE.im4p", phoneibss)
         device = "iPhone5s"
-    elif "iPad" in fname and "10.3.3" in fname:
+    elif "iPad" in deviceManifest and "10.3.3" in versionManifest:
         if devicemodel == "iPad4,1" or devicemodel == "iPad4,2" or devicemodel == "iPad4,3":
             print("Looks like you are downgrading an iPad Air to 10.3.3!")
             bsdiff4.file_patch_inplace("iBEC.ipad4.RELEASE.im4p", ipadairibec)

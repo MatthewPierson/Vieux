@@ -56,6 +56,8 @@ if __name__ =="__main__":
         shutil.move("futurerestore", "resources/restoreFiles/futurerestore")
     if os.path.exists("irecovery"):
         shutil.move("irecovery", "resources/restoreFiles/irecovery")
+    if os.path.exists("custom.ipsw"):
+        os.remove("custom.ipsw")
     print('\033[92m' + ''"Finished! Enjoy your downgraded device :)" + '\033[0m')
     exit(0)
 
