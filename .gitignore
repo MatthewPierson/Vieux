@@ -5,3 +5,6 @@ __pycache__
 .idea
 .TODO
 errorlog*.txt
+IPSW
+custom
+.ipsw

@@ -8,7 +8,7 @@ import platform
 import argparse
 
 if __name__ =="__main__":
-    text = 'Vieux - A tool for 32/64 Bit OTA downgrades'
+    text = 'Vieux - A tool for 32/64 Bit OTA downgrades by Matty, @mosk_i'
     parser = argparse.ArgumentParser(description = text, usage="vieux -i 'PATH/TO/.ipsw'")
     parser.add_argument("-i", "--ipsw", help="Path to IPSW file")
     parser.add_argument("-l", "--list", help="List what devices can be restored to what iOS versions", action="store_true")
@@ -18,7 +18,7 @@ if __name__ =="__main__":
         sys.exit(1)
     args = parser.parse_args()
     if args.version:
-        print("Current version is: Public Beta 1")
+        print("Current version is: Public Beta 2")
         exit()
     if args.list:
         print("iOS 10.3.3 COMPATIBLE DEVICES:\n")

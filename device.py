@@ -55,6 +55,7 @@ def getecid():
 
 def getapnonce():
     #print("Getting current ApNonce from device...")
+    time.sleep(6)
     cmd = './igetnonce'
     so = os.popen(cmd).read()
     with silence_stdout():
@@ -69,6 +70,7 @@ def getapnonce():
 
 def getmodel():
     #print("Getting device model...")
+    time.sleep(6)
     cmd = './igetnonce'
     so = os.popen(cmd).read()
     with silence_stdout():

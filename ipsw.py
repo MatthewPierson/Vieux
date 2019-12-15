@@ -7,37 +7,18 @@ from zipfile import ZipFile
 from restore import restore64, restore32, pwndfumode
 
 def removeFiles():
+    randomfiles = ['errorlogshsh.txt', 'errorlogrestore.txt', 'ibss', 'ibec', 'resources/restoreFiles/baseband.bbfw', 'resources/restoreFiles/sep.im4p', 'resources/restoreFiles/apnonce.shsh', '']
 
-    if os.path.exists('errorlogshsh.txt'):
-        os.remove('errorlogshsh.txt')
-    if os.path.exists('errorlogrestore.txt'):
-        os.remove('errorlogrestore.txt')
-    if os.path.exists("kernelcache.release.iphone6"):
-        os.remove("kernelcache.release.iphone6")
-    elif os.path.exists("kernelcache.release.iphone8b"):
-        os.remove("kernelcache.release.iphone8b")
-    elif os.path.exists("kernelcache.release.iphone8b"):
-        os.remove("kernelcache.release.iphone8b")
-    elif os.path.exists("kernelcache.release.ipad4"):
-        os.remove("kernelcache.release.ipad4")
-    elif os.path.exists("kernelcache.release.ipad4b"):
-        os.remove("kernelcache.release.ipad4b")
-    elif os.path.exists("kernelcache.release.n42"):
-        os.remove("kernelcache.release.n42")
-    elif os.path.exists("ibss"):
-        os.remove("ibss")
-    elif os.path.exists("ibec"):
-        os.remove("ibec")
-    elif os.path.exists("resources/restoreFiles/Mav7Mav8-7.60.00.Release.bbfw"):
-        os.remove("resources/restoreFiles/Mav7Mav8-7.60.00.Release.bbfw")
-    elif os.path.exists("resources/restoreFiles/sep-firmware.n53.RELEASE.im4p"):
-        os.remove("resources/restoreFiles/sep-firmware.n53.RELEASE.im4p")
-    elif os.path.exists("resources/restoreFiles/baseband.bbfw"):
-        os.remove("resources/restoreFiles/baseband.bbfw")
-    elif os.path.exists("resources/restoreFiles/sep.im4p"):
-        os.remove("resources/restoreFiles/sep.im4p")
-    elif os.path.exists("resources/restoreFiles/apnonce.shsh"):
-        os.remove("resources/restoreFiles/apnonce.shsh")
+    for item in randomfiles:
+        if os.path.isfile(item):
+            os.remove(item)
+    if os.path.exists("IPSW"):
+        shutil.rmtree("IPSW")
+    if os.path.exists("Firmware"):
+        shutil.rmtree("Firmware")
+    if os.path.exists("custom"):
+        shutil.rmtree('custom')
+
     dir_name = os.getcwd()
     test = os.listdir(dir_name)
 
@@ -54,8 +35,7 @@ def removeFiles():
             os.remove(os.path.join(dir_name, item))
         elif item.endswith(".dfu"):
             os.remove(os.path.join(dir_name, item))
-    if os.path.exists("Firmware"):
-        shutil.rmtree("Firmware")
+
     print("Files cleaned.")
 
 def touch(path):
@@ -65,13 +45,18 @@ def touch(path):
 def unzipIPSW(fname):
 
     if os.path.exists("custom.ipsw"):
-            os.remove("custom.ipsw")
+        os.remove("custom.ipsw")
 
     print("Starting IPSW unzipping")
-    outputFolder = os.getcwd()
+    outputFolder = "IPSW"
     newpath = fname.rstrip()
     fname = str(newpath)
     testFile = os.path.exists(fname)
+    if os.path.exists('IPSW'):
+        shutil.rmtree('IPSW')
+        os.mkdir('IPSW')
+    elif not os.path.exists('IPSW'):
+        os.mkdir('IPSW')
 
     while not testFile or not fname.endswith!=(".ipsw"):
         print("Invalid filepath/filename.\nPlease try again with a valid filepath/filename.")
@@ -80,7 +65,6 @@ def unzipIPSW(fname):
         fname = str(newpath)
         testFile = os.path.exists(fname)
     else:
-        #Will now continue with new valid file
         print("Continuing...")
     if testFile and fname.endswith(".ipsw"):
         if os.path.exists("resources/restoreFiles/igetnonce"):
@@ -97,8 +81,7 @@ def unzipIPSW(fname):
         print("Unzipping..")
         with ZipFile(fname, 'r') as zip_ref:
             zip_ref.extractall(outputFolder)
-
-        source = ("Firmware/dfu/")
+        source = ("IPSW/Firmware/dfu/")
         dest1 = os.getcwd()
 
         files = os.listdir(source)
@@ -212,21 +195,20 @@ def createCustomIPSW64(fname, devicemodel):
     else:
         print("Varible 'device' was not set. Please make sure IPSW file name is default/device is connected and try again")
         exit(55555)
-
-
     print("Patched iBSS/iBEC")
     print("About to re-build IPSW")
 
     if device == "iPhone5s":
-        shutil.move("iBEC.iphone6.RELEASE.im4p", "Firmware/dfu/")
-        shutil.move("iBSS.iphone6.RELEASE.im4p", "Firmware/dfu/")
-        shutil.move("Firmware/Mav7Mav8-7.60.00.Release.bbfw", "resources/restoreFiles/baseband.bbfw")
+        shutil.move("iBEC.iphone6.RELEASE.im4p", "IPSW/Firmware/dfu/")
+        shutil.move("iBSS.iphone6.RELEASE.im4p", "IPSW/Firmware/dfu/")
+        shutil.move("IPSW/Firmware/Mav7Mav8-7.60.00.Release.bbfw", "resources/restoreFiles/baseband.bbfw")
         if devicemodel == "iPhone6,1":
-            shutil.move("Firmware/all_flash/sep-firmware.n51.RELEASE.im4p", "resources/restoreFiles/sep.im4p")
+            shutil.move("IPSW/Firmware/all_flash/sep-firmware.n51.RELEASE.im4p", "resources/restoreFiles/sep.im4p")
         elif devicemodel == "iPhone6,2":
-            shutil.move("Firmware/all_flash/sep-firmware.n53.RELEASE.im4p", "resources/restoreFiles/sep.im4p")
-        touch("Firmware/usr/local/standalone/blankfile")
+            shutil.move("IPSW/Firmware/all_flash/sep-firmware.n53.RELEASE.im4p", "resources/restoreFiles/sep.im4p")
+        touch("IPSW/Firmware/usr/local/standalone/blankfile")
         with ZipFile('custom.ipsw', 'w') as zipObj2:
+            os.chdir("IPSW")
             zipObj2.write('Restore.plist')
             zipObj2.write('kernelcache.release.iphone8b')
             zipObj2.write('kernelcache.release.iphone6')
@@ -239,31 +221,35 @@ def createCustomIPSW64(fname, devicemodel):
                 for filename in filenames:
                     filePath = os.path.join(folderName, filename)
                     zipObj2.write(filePath)
+            if os.path.exists("IPSW/custom.ipsw"):
+                shutil.move("IPSW/custom.ipsw", "custom.ipsw")
+            os.chdir("..")
         restore64(devicemodel)
 
     elif device == "iPadAir" or device == "iPadMini":
         if devicemodel == "iPad4,1" or devicemodel == "iPad4,2" or devicemodel == "iPad4,3":
-            shutil.move("iBEC.ipad4.RELEASE.im4p", "Firmware/dfu/")
-            shutil.move("iBSS.ipad4.RELEASE.im4p", "Firmware/dfu/")
+            shutil.move("iBEC.ipad4.RELEASE.im4p", "IPSW/Firmware/dfu/")
+            shutil.move("iBSS.ipad4.RELEASE.im4p", "IPSW/Firmware/dfu/")
             if devicemodel == "iPad4,1":
-                shutil.move("Firmware/all_flash/sep-firmware.j71.RELEASE.im4p", "resources/restoreFiles/sep.im4p")
+                shutil.move("IPSW/Firmware/all_flash/sep-firmware.j71.RELEASE.im4p", "resources/restoreFiles/sep.im4p")
             elif devicemodel == "iPad4,2":
-                shutil.move("Firmware/all_flash/sep-firmware.j72.RELEASE.im4p", "resources/restoreFiles/sep.im4p")
-                shutil.move("Firmware/Mav7Mav8-7.60.00.Release.bbfw", "resources/restoreFiles/baseband.bbfw")
+                shutil.move("IPSW/Firmware/all_flash/sep-firmware.j72.RELEASE.im4p", "resources/restoreFiles/sep.im4p")
+                shutil.move("IPSW/Firmware/Mav7Mav8-7.60.00.Release.bbfw", "resources/restoreFiles/baseband.bbfw")
             elif devicemodel == "iPad4,3":
-                shutil.move("Firmware/all_flash/sep-firmware.j73.RELEASE.im4p", "resources/restoreFiles/sep.im4p")
-                shutil.move("Firmware/Mav7Mav8-7.60.00.Release.bbfw", "resources/restoreFiles/baseband.bbfw")
+                shutil.move("IPSW/Firmware/all_flash/sep-firmware.j73.RELEASE.im4p", "resources/restoreFiles/sep.im4p")
+                shutil.move("IPSW/Firmware/Mav7Mav8-7.60.00.Release.bbfw", "resources/restoreFiles/baseband.bbfw")
         elif devicemodel == "iPad4,4" or devicemodel == "iPad4,5":
-            shutil.move("iBEC.ipad4b.RELEASE.im4p", "Firmware/dfu/")
-            shutil.move("iBSS.ipad4b.RELEASE.im4p", "Firmware/dfu/")
+            shutil.move("iBEC.ipad4b.RELEASE.im4p", "IPSW/Firmware/dfu/")
+            shutil.move("iBSS.ipad4b.RELEASE.im4p", "IPSW/Firmware/dfu/")
             if devicemodel == "iPad4,4":
-                shutil.move("Firmware/all_flash/sep-firmware.j85.RELEASE.im4p", "resources/restoreFiles/sep.im4p")
+                shutil.move("IPSW/Firmware/all_flash/sep-firmware.j85.RELEASE.im4p", "resources/restoreFiles/sep.im4p")
             elif devicemodel == "iPad4,5":
-                shutil.move("Firmware/all_flash/sep-firmware.j86.RELEASE.im4p", "resources/restoreFiles/sep.im4p")
-                shutil.move("Firmware/Mav7Mav8-7.60.00.Release.bbfw", "resources/restoreFiles/baseband.bbfw")
-        touch("Firmware/usr/local/standalone/blankfile")
+                shutil.move("IPSW/Firmware/all_flash/sep-firmware.j86.RELEASE.im4p", "resources/restoreFiles/sep.im4p")
+                shutil.move("IPSW/Firmware/Mav7Mav8-7.60.00.Release.bbfw", "resources/restoreFiles/baseband.bbfw")
+        touch("IPSW/Firmware/usr/local/standalone/blankfile")
 
         with ZipFile('custom.ipsw', 'w') as zipObj2:
+            os.chdir("IPSW")
             zipObj2.write('Restore.plist')
             zipObj2.write('kernelcache.release.ipad4')
             zipObj2.write('kernelcache.release.ipad4b')
@@ -276,6 +262,9 @@ def createCustomIPSW64(fname, devicemodel):
                 for filename in filenames:
                     filePath = os.path.join(folderName, filename)
                     zipObj2.write(filePath)
+            os.chdir("..")
+            if os.path.exists("IPSW/custom.ipsw"):
+                shutil.move("IPSW/custom.ipsw", "custom.ipsw")
         restore64(devicemodel)
     else:
         print('\033[91m' + "something broke lmao" + '\033[0m')
