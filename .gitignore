@@ -8,3 +8,4 @@ errorlog*.txt
 IPSW
 custom
 .ipsw
+.vscode

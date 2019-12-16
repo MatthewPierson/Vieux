@@ -9,19 +9,49 @@ import socket
 import getpass
 from scp import SCPClient
 
+def supported():
+
+    devices = [
+
+        # I think you don't have to define device and version every time, FIXME
+
+        {'device': 'iPhone4,1', 'version': '6.1.3'}, # iPhone 4S
+        {'device': 'iPhone4,1', 'version': '8.4.1'},
+
+        {'device': 'iPhone5,1', 'version': '8.4.1'}, # iPhone 5
+        {'device': 'iPhone5,2', 'version': '8.4.1'},
+
+        {'device': 'iPhone6,1', 'version': '10.3.3'}, # iPhone 5S
+        {'device': 'iPhone6,2', 'version': '10.3.3'},
+
+        {'device': 'iPhone4,4', 'version': '10.3.3'}, # iPad Mini 2
+        {'device': 'iPhone4,5', 'version': '10.3.3'},
+
+        {'device': 'iPhone4,1', 'version': '10.3.3'}, # iPad Air
+        {'device': 'iPhone4,2', 'version': '10.3.3'},
+        {'device': 'iPhone4,3', 'version': '10.3.3'}
+
+    ]
+
+    return devices
+
+
 @contextmanager
 def silence_stdout():
     new_target = open(os.devnull, "w")
     old_target = sys.stdout
     sys.stdout = new_target
+
     try:
         yield new_target
     finally:
         sys.stdout = old_target
 
+
 def getecid():
     device = dfu.acquire_device()
     serial = device.serial_number
+
     with silence_stdout():
         print(serial)
 
@@ -38,8 +68,10 @@ def getapnonce():
     time.sleep(6)
     cmd = './igetnonce'
     so = os.popen(cmd).read()
+
     with silence_stdout():
         print(so)
+
     try:
 
         found = re.search('ApNonce=(.+?)\nSep', so).group(1)
@@ -48,13 +80,16 @@ def getapnonce():
     except AttributeError:
         print('\033[91m' + "ERROR: Couldn't get ApNonce from device" + '\033[0m')
 
+
 def getmodel():
     #print("Getting device model...")
     time.sleep(6)
     cmd = './igetnonce'
     so = os.popen(cmd).read()
+
     with silence_stdout():
         print(so)
+        
     try:
         found = re.search(', (.+?) in DFU mode', so).group(1)
         #print("Your device is an ", found)
@@ -63,7 +98,6 @@ def getmodel():
         #print('\033[91m' + "ERROR: Couldn't get device model information" + '\033[0m')
         found = "NULL"
         return found
-
 
 
 def enterkdfumode(kloader, kloader10, ibss):

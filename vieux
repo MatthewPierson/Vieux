@@ -7,57 +7,73 @@ import ipsw
 import platform
 import argparse
 
-if __name__ =="__main__":
+import device
+import restore
+import ipsw
+import utils
+
+tool_version = 'Public Beta 2' # Leave outside so we have it at an obvious spot to find later
+
+if __name__ == "__main__":
+    argv = sys.argv
+
     text = 'Vieux - A tool for 32/64 Bit OTA downgrades by Matty, @mosk_i'
     parser = argparse.ArgumentParser(description = text, usage="vieux -i 'PATH/TO/.ipsw'")
-    parser.add_argument("-i", "--ipsw", help="Path to IPSW file")
+    parser.add_argument('-c', '--clean', help='Clean up any mess', action='store_true')
+    parser.add_argument("-i", "--ipsw", help="Path to IPSW file", nargs=1)
+    parser.add_argument('-k', '--kdfu', help='Enter kdfu (device must be jailbroken)', action='store_true')
     parser.add_argument("-l", "--list", help="List what devices can be restored to what iOS versions", action="store_true")
+    parser.add_argument('-p', '--pwn', help='Enter pwn dfu mode, which will also apply sig patches', action='store_true')
+    parser.add_argument('-r', '--restore', help='Just restore to a custom ipsw', nargs=1, metavar='IPSW')
     parser.add_argument("-v", "--version", help="List the version of the tool", action="store_true")
-    if len(sys.argv) == 1:
+
+
+    if platform.system() != 'Darwin': # If not MacOS
+        sys.exit("Sorry this OS is not supported!\nOnly MacOS machines (Hackintosh or a legitimate Apple computer) are support as of now.")
+
+    if len(argv) == 1:
         parser.print_help(sys.stderr)
         sys.exit(1)
-    args = parser.parse_args()
-    if args.version:
-        print("Current version is: Public Beta 2")
-        exit()
-    if args.list:
-        print("iOS 10.3.3 COMPATIBLE DEVICES:\n")
-        print("iPhone 5s, iPhone6,1 iPhone6,2")
-        print("iPad Air, iPad4,1 iPad4,2 iPad4,3")
-        print("iPad Mini 2, iPad4,4 iPad4,5\n\n")
-        print("iOS 8.4.1 COMPATIBLE DEVICES:\n")
-        print("iPhone 5, iPhone5,1 iPhone5,2")
-        print("iPhone 4s, iPhone4,1\n\n")
-        print("iOS 6.1.3 COMPATIBLE DEVICES\n")
-        print("iPhone 4s, iPhone4,1\n")
-        print("Support for more 32 Bit devices for 8.4.1 and 6.1.3 is coming soon")
-        exit()
-    elif args.ipsw:
-        print("Given IPSW Path is %s" % args.ipsw)
-        path = args.ipsw
-    else:
-        print("Error: Please specify a path to your IPSW with '-i path/to/.ipsw")
-        exit()
 
-    if platform.system() != 'Darwin':
-        print("Sorry this OS is not supported!\nOnly MacOS machines (Hackintosh or a legitimate Apple computer) are support as of now.")
-        exit(20)
+    args = parser.parse_args()
+
+    if args.clean():
+        utils.clean()
+
+    elif args.ipsw:
+        ipsw.removeFiles()
+        ipsw.unzipIPSW(argv[2])
+    
+    elif args.list:
+        for devices in device.supported():
+            print(f"Device {devices['device']}, iOS {devices['version']}")
+        sys.exit()
+
+    elif args.version:
+        sys.exit(f"Current version is: {tool_version}")
+
+    else:
+        sys.exit(f'{argv[1]} is not a valid argument!')
+
+  
     print('\033[95m' + "Vieux - A tool for 32/64 Bit OTA downgrades" + '\033[0m')
     print("Still in " + '\033[91m' + "BETA" + '\033[0m' + " so expect issues/broken things")
     print("If you are using a 64 Bit device then connect it in DFU Mode\nIf you are using a 32 Bit device then just have it connected in normal mode")
-    ipsw.unzipIPSW(path)
-    print("Cleaning up files...")
-    ipsw.removeFiles()
+
     if os.path.exists("igetnonce"):
         shutil.move("igetnonce", "resources/restoreFiles/igetnonce")
+
     if os.path.exists("tsschecker"):
         shutil.move("tsschecker", "resources/restoreFiles/tsschecker")
+
     if os.path.exists("futurerestore"):
         shutil.move("futurerestore", "resources/restoreFiles/futurerestore")
+
     if os.path.exists("irecovery"):
         shutil.move("irecovery", "resources/restoreFiles/irecovery")
+
     if os.path.exists("custom.ipsw"):
         os.remove("custom.ipsw")
-    print('\033[92m' + ''"Finished! Enjoy your downgraded device :)" + '\033[0m')
-    exit(0)
 
+    print('\033[92m' + ''"Finished! Enjoy your downgraded device :)" + '\033[0m')
+    sys.exit(0)
