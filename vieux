@@ -37,7 +37,7 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    if args.clean():
+    if args.clean:
         utils.clean()
 
     elif args.ipsw:
