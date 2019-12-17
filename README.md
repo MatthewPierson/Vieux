@@ -22,7 +22,7 @@ iPhone 4s, More 32 Bit device support is coming
 
 # Usage
 ```
-Usage: viuex [OPTIONS] /path/to/ipsw
+Usage: viuex [OPTIONS] [IPSW PATH (If required)]
 
 Options:
 
