@@ -23,7 +23,7 @@ if __name__ == "__main__":
     parser.add_argument("-i", "--ipsw", help="Path to IPSW file", nargs=1)
     parser.add_argument('-k', '--kdfu', help='Enter KDFU mode (32 Bit Only, device must be jailbroken)', action='store_true')
     parser.add_argument("-l", "--list", help="List what devices can be restored to what iOS versions", action="store_true")
-    parser.add_argument('-p', '--pwn', help='Enter PWNDFU mode, which will also apply sig patches', action='store_true')
+    parser.add_argument('-p', '--pwn', help='Enter PWNDFU mode, which will also apply sig patches (64 Bit Only)', action='store_true')
     parser.add_argument('-r', '--restore', help='"Path/To/.ipsw" Just restore to a custom ipsw', nargs=1, metavar='IPSW')
     parser.add_argument('-s', '--shsh', help='"Path/To/Save/Location/" Save OTA blobs to a given path for future use (64 Bit Only)', nargs=1, metavar='PATH')
     parser.add_argument("-v", "--version", help="List the version of the tool", action="store_true")
