@@ -16,8 +16,6 @@ iPhone 5, iPhone 4s, More 32 Bit device support is coming
 ## 6.1.3
 iPhone 4s, More 32 Bit device support is coming
 
-#### You can also run "./vieux -l" to list all compatible devices and what iOS versions they can restore to
-
 -----------------
 
 # Usage
