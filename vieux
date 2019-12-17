@@ -12,24 +12,40 @@ import restore
 import ipsw
 import utils
 
-tool_version = 'Public Beta 2' # Leave outside so we have it at an obvious spot to find later
+tool_version = 'Public Beta 3' # Leave outside so we have it at an obvious spot to find later
 
 if __name__ == "__main__":
     argv = sys.argv
 
     text = 'Vieux - A tool for 32/64 Bit OTA downgrades by Matty, @mosk_i'
     parser = argparse.ArgumentParser(description = text, usage="vieux -i 'PATH/TO/.ipsw'")
-    parser.add_argument('-c', '--clean', help='Clean up any mess', action='store_true')
+    parser.add_argument('-c', '--clean', help='Clean up any leftover files', action='store_true')
     parser.add_argument("-i", "--ipsw", help="Path to IPSW file", nargs=1)
-    parser.add_argument('-k', '--kdfu', help='Enter kdfu (device must be jailbroken)', action='store_true')
+    parser.add_argument('-k', '--kdfu', help='Enter KDFU mode (32 Bit Only, device must be jailbroken)', action='store_true')
     parser.add_argument("-l", "--list", help="List what devices can be restored to what iOS versions", action="store_true")
-    parser.add_argument('-p', '--pwn', help='Enter pwn dfu mode, which will also apply sig patches', action='store_true')
-    parser.add_argument('-r', '--restore', help='Just restore to a custom ipsw', nargs=1, metavar='IPSW')
+    parser.add_argument('-p', '--pwn', help='Enter PWNDFU mode, which will also apply sig patches', action='store_true')
+    parser.add_argument('-r', '--restore', help='"Path/To/.ipsw" Just restore to a custom ipsw', nargs=1, metavar='IPSW')
+    parser.add_argument('-s', '--shsh', help='"Path/To/Save/Location/" Save OTA blobs to a given path for future use (64 Bit Only)', nargs=1, metavar='PATH')
     parser.add_argument("-v", "--version", help="List the version of the tool", action="store_true")
 
 
     if platform.system() != 'Darwin': # If not MacOS
         sys.exit("Sorry this OS is not supported!\nOnly MacOS machines (Hackintosh or a legitimate Apple computer) are support as of now.")
+
+    if os.path.exists("igetnonce"):
+        shutil.move("igetnonce", "resources/bin/igetnonce")
+
+    if os.path.exists("tsschecker"):
+        shutil.move("tsschecker", "resources/bin/tsschecker")
+
+    if os.path.exists("futurerestore"):
+        shutil.move("futurerestore", "resources/bin/futurerestore")
+
+    if os.path.exists("irecovery"):
+        shutil.move("irecovery", "resources/bin/irecovery")
+
+    if os.path.exists("custom.ipsw"):
+        os.remove("custom.ipsw")
 
     if len(argv) == 1:
         parser.print_help(sys.stderr)
@@ -39,12 +55,30 @@ if __name__ == "__main__":
 
     if args.clean:
         utils.clean()
-
+        exit(22)
+    elif args.pwn:
+        restore.pwndfumode()
+        exit(22)
+    elif args.shsh:
+        print("64 ONLY CURRENTLY\nCONNECT DEVICE IN DFU MODE...")
+        pathf = restore.saveshsh(argv[2])
+        print("SHSH saved to: " + pathf)
+        exit(22)
+    elif args.restore:
+        print("Coming soon...")
+        exit(22)
     elif args.ipsw:
+        print('\033[95m' + "Vieux - A tool for 32/64 Bit OTA downgrades" + '\033[0m')
+        print("Still in " + '\033[91m' + "BETA" + '\033[0m' + " so expect issues/broken things")
+        print("If you are using a 64 Bit device then connect it in DFU Mode\nIf you are using a 32 Bit device then just have it connected in normal mode")
         ipsw.removeFiles()
         ipsw.unzipIPSW(argv[2])
-    
+
+    elif args.kdfu:
+        sys.exit("Coming soon...")
+
     elif args.list:
+        print("Currently supported device:")
         for devices in device.supported():
             print(f"Device {devices['device']}, iOS {devices['version']}")
         sys.exit()
@@ -55,25 +89,6 @@ if __name__ == "__main__":
     else:
         sys.exit(f'{argv[1]} is not a valid argument!')
 
-  
-    print('\033[95m' + "Vieux - A tool for 32/64 Bit OTA downgrades" + '\033[0m')
-    print("Still in " + '\033[91m' + "BETA" + '\033[0m' + " so expect issues/broken things")
-    print("If you are using a 64 Bit device then connect it in DFU Mode\nIf you are using a 32 Bit device then just have it connected in normal mode")
-
-    if os.path.exists("igetnonce"):
-        shutil.move("igetnonce", "resources/restoreFiles/igetnonce")
-
-    if os.path.exists("tsschecker"):
-        shutil.move("tsschecker", "resources/restoreFiles/tsschecker")
-
-    if os.path.exists("futurerestore"):
-        shutil.move("futurerestore", "resources/restoreFiles/futurerestore")
-
-    if os.path.exists("irecovery"):
-        shutil.move("irecovery", "resources/restoreFiles/irecovery")
-
-    if os.path.exists("custom.ipsw"):
-        os.remove("custom.ipsw")
 
     print('\033[92m' + ''"Finished! Enjoy your downgraded device :)" + '\033[0m')
     sys.exit(0)

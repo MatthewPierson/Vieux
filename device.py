@@ -100,7 +100,7 @@ def getmodel():
         return found
 
 
-def enterkdfumode(kloader, kloader10, ibss):
+def enterkdfumode(kloader, ibss):
     ip = input("Please enter your devices IP address (Find it in WiFi settings):\n")
 
     try:
@@ -144,7 +144,7 @@ def enterkdfumode(kloader, kloader10, ibss):
         scp.put(ibss, '/')
         if finalresult.startswith("(b'16"):
             print("Device is running iOS 10.x, using HGSP4 kloader...")
-            scp.put(kloader10, '/')
+            scp.put(kloader, '/')
             command2 = "/kloader10 /ibss > /dev/null 2>&1 &"
         else:
             print('Device is not running iOS 10.x, using normal TFP0 kloader...')
