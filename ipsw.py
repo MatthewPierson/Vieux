@@ -28,8 +28,8 @@ def removeFiles():
 
     randomfiles = [
 
-    'errorlogshsh.txt', 'errorlogrestore.txt', 'ibss', 'ibec', 'resources/restoreFiles/baseband.bbfw', 
-    'resources/restoreFiles/sep.im4p', 'resources/restoreFiles/apnonce.shsh'
+    'errorlogshsh.txt', 'errorlogrestore.txt', 'ibss', 'ibec', 'resources/other/baseband.bbfw',
+    'resources/other/sep.im4p', 'resources/other/apnonce.shsh'
 
     ]
 
@@ -165,6 +165,7 @@ def createCustomIPSW32(fname):
 
     print("Starting iBSS/iBEC patching")
     kloaderlocation = "resources/bin/kloader"
+    kloaderlocation10 = "resources/bin/kloader10"
     patch_folder = Path("resources/patches/")
     phone52ibss = patch_folder / "ibss.iphone52.patch"
     phone51ibss = patch_folder / "ibss.iphone51.patch"
@@ -201,7 +202,7 @@ def createCustomIPSW32(fname):
     if device == "iPhone5":
         iosversion = "8.4.1"
         shutil.copy(fname, "custom.ipsw")
-        localdevice.enterkdfumode(kloaderlocation, ibsslocation)
+        localdevice.enterkdfumode(kloaderlocation, kloaderlocation10, ibsslocation)
         restore32(model, iosversion)
 
     elif device == "iPhone4s":
