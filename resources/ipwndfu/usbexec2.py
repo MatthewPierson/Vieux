@@ -1,5 +1,6 @@
 import struct, sys
-import dfu, device_platform
+import device_platform2 as device_platform
+import dfu2 as dfu
 
 class ExecConfig:
   def __init__(self, info, aes_crypto_cmd):

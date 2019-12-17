@@ -1,4 +1,3 @@
-
 .DS_Store
 venv
 __pycache__
@@ -7,4 +6,6 @@ __pycache__
 errorlog*.txt
 IPSW
 custom
-.ipsw
+*.ipsw
+.vscode
+*.code-workspace

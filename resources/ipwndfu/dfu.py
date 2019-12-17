@@ -2,6 +2,10 @@ import sys, time
 import usb # pyusb: use 'pip install pyusb' to install this module
 import usb.backend.libusb1
 from resources.ipwndfu import libusbfinder
+#try:
+    #from resources.ipwndfu import libusbfinder
+#except ImportError:
+    #import libusbfinder
 
 MAX_PACKET_SIZE = 0x800
 

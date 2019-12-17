@@ -1,5 +1,5 @@
-import dfu
-import usbexec
+import dfu2 as dfu
+import usbexec2 as usbexec
 import sys
 import usb.core
 

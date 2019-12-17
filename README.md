@@ -16,7 +16,26 @@ iPhone 5, iPhone 4s, More 32 Bit device support is coming
 ## 6.1.3
 iPhone 4s, More 32 Bit device support is coming
 
-#### You can also run "./vieux -l" to list all compatible devices and what iOS versions they can restore to
+-----------------
+
+# Usage
+```
+Usage: viuex [OPTIONS] [IPSW PATH (If required)]
+
+Options:
+
+  -i, --ipsw PATH		Path to IPSW file
+  -c, --clean			Clean up any leftover files
+  -k, --kdfu			Enter KDFU mode (32 Bit Only, device must be jailbroken)
+  -l, --list			List what devices can be restored to what iOS versions
+  -p, --pwn		        Enter PWNDFU mode, which will also apply sig patches (64 Bit Only)
+  -r, --restore		        "Path/To/.ipsw" Just restore to a custom ipsw
+  -s, --shsh PATH	        "Path/To/Save/Location/" Save OTA blobs to a given path for future use (64 Bit Only)
+  -v, --version			List the version of the tool
+
+```
+
+
 
 -----------------
 # Installing dependencies

@@ -1,5 +1,5 @@
 import struct, sys
-from ipwndfu import dfu, device_platform
+from resources.ipwndfu import dfu, device_platform
 
 class ExecConfig:
   def __init__(self, info, aes_crypto_cmd):
@@ -130,11 +130,9 @@ class PwnedUSBDevice():
   def __init__(self):
     self.config = None
     self.platform = None
-
     device = dfu.acquire_device()
     self.serial_number = device.serial_number
     dfu.release_device(device)
- 
     for dp in device_platform.all_platforms:
       if self.serial_number.startswith('CPID:%04x CPRV:%02x ' % (dp.cpid, dp.cprv)):
         self.platform = dp
