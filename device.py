@@ -9,6 +9,11 @@ import socket
 import getpass
 from scp import SCPClient
 
+futurerestore  = "resources/bin/futurerestore"
+irecovery = "resources/bin/irecovery"
+tsschecker = "resources/bin/tsschecker"
+igetnonce = "resources/bin/igetnonce"
+
 def supported():
 
     devices = [
@@ -66,7 +71,7 @@ def getecid():
 def getapnonce():
     #print("Getting current ApNonce from device...")
     time.sleep(6)
-    cmd = './igetnonce'
+    cmd = igetnonce
     so = os.popen(cmd).read()
 
     with silence_stdout():
@@ -84,7 +89,7 @@ def getapnonce():
 def getmodel():
     #print("Getting device model...")
     time.sleep(6)
-    cmd = './igetnonce'
+    cmd = igetnonce
     so = os.popen(cmd).read()
 
     with silence_stdout():

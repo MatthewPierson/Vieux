@@ -104,14 +104,6 @@ def unzipIPSW(fname):
         print("Continuing...")
 
     if testFile and fname.endswith(".ipsw"):
-        if os.path.exists("resources/bin/igetnonce"):
-            shutil.move("resources/bin/igetnonce", "igetnonce")
-        if os.path.exists("resources/bin/tsschecker"):
-            shutil.move("resources/bin/tsschecker", "tsschecker")
-        if os.path.exists("resources/bin/futurerestore"):
-            shutil.move("resources/bin/futurerestore", "futurerestore")
-        if os.path.exists("resources/bin/irecovery"):
-            shutil.move("resources/bin/irecovery", "irecovery")
 
         print("IPSW found at given path...")
         print("Cleaning up old files...")
@@ -160,8 +152,6 @@ def unzipIPSW(fname):
 
 
 def createCustomIPSW32(fname):
-    if os.path.exists("resources/bin/futurerestore"):
-        shutil.move("resources/bin/futurerestore", "futurerestore")
 
     print("Starting iBSS/iBEC patching")
     kloaderlocation = "resources/bin/kloader"

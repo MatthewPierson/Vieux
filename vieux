@@ -6,13 +6,13 @@ import shutil
 import ipsw
 import platform
 import argparse
-
 import device
 import restore
 import ipsw
 import utils
 
 tool_version = 'Public Beta 3' # Leave outside so we have it at an obvious spot to find later
+
 
 if __name__ == "__main__":
     argv = sys.argv
@@ -21,10 +21,10 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description = text, usage="vieux -i 'PATH/TO/.ipsw'")
     parser.add_argument('-c', '--clean', help='Clean up any leftover files', action='store_true')
     parser.add_argument("-i", "--ipsw", help="Path to IPSW file", nargs=1)
-    parser.add_argument('-k', '--kdfu', help='Enter KDFU mode (32 Bit Only, device must be jailbroken)', action='store_true')
+    parser.add_argument('-k', '--kdfu', help='(Coming soon) Enter KDFU mode (32 Bit Only, device must be jailbroken)', action='store_true')
     parser.add_argument("-l", "--list", help="List what devices can be restored to what iOS versions", action="store_true")
     parser.add_argument('-p', '--pwn', help='Enter PWNDFU mode, which will also apply sig patches (64 Bit Only)', action='store_true')
-    parser.add_argument('-r', '--restore', help='"Path/To/.ipsw" Just restore to a custom ipsw', nargs=1, metavar='IPSW')
+    parser.add_argument('-r', '--restore', help='(Coming soon) "Path/To/.ipsw" Just restore to a custom ipsw', nargs=1, metavar='IPSW')
     parser.add_argument('-s', '--shsh', help='"Path/To/Save/Location/" Save OTA blobs to a given path for future use (64 Bit Only)', nargs=1, metavar='PATH')
     parser.add_argument("-v", "--version", help="List the version of the tool", action="store_true")
 
@@ -33,20 +33,20 @@ if __name__ == "__main__":
         sys.exit("Sorry this OS is not supported!\nOnly MacOS machines (Hackintosh or a legitimate Apple computer) are support as of now.")
 
     if os.path.exists("igetnonce"):
-        shutil.move("igetnonce", "resources/bin/igetnonce")
+        os.remove("igetnonce")
 
     if os.path.exists("tsschecker"):
-        shutil.move("tsschecker", "resources/bin/tsschecker")
+        os.remove("tsschecker")
 
     if os.path.exists("futurerestore"):
-        shutil.move("futurerestore", "resources/bin/futurerestore")
+        os.remove("futurerestore")
 
     if os.path.exists("irecovery"):
-        shutil.move("irecovery", "resources/bin/irecovery")
+        os.remove("irecovery")
 
     if os.path.exists("custom.ipsw"):
         os.remove("custom.ipsw")
-
+        
     if len(argv) == 1:
         parser.print_help(sys.stderr)
         sys.exit(1)
@@ -91,4 +91,5 @@ if __name__ == "__main__":
 
 
     print('\033[92m' + ''"Finished! Enjoy your downgraded device :)" + '\033[0m')
+    utils.clean()
     sys.exit(0)
