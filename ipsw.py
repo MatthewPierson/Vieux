@@ -44,6 +44,21 @@ def removeFiles():
     if os.path.exists("custom"):
         shutil.rmtree('custom')
 
+    if os.path.exists("igetnonce"):
+        os.remove("igetnonce")
+
+    if os.path.exists("tsschecker"):
+        os.remove("tsschecker")
+
+    if os.path.exists("futurerestore"):
+        os.remove("futurerestore")
+
+    if os.path.exists("irecovery"):
+        os.remove("irecovery")
+
+    if os.path.exists("custom.ipsw"):
+        os.remove("custom.ipsw")
+
     dir_name = os.getcwd()
     test = os.listdir(dir_name)
 
@@ -71,7 +86,7 @@ def touch(path):
 
 def unzipIPSW(fname):
     armv7 = ['iPhone4,1']
-    armv7s = ['iPhone5,1', 'iPhone5,2']
+    armv7s = ['iPhone5,1', 'iPhone5,2', 'iPad3,4', 'iPad3,5', 'iPad3,6']
 
     if is_zipfile(fname): # First of all, check to see if fname is an actual ipsw, by verifying the file is a zip archive (ipsw's are just zip files).
         print(f'{fname} is a zip archive!')
@@ -161,6 +176,9 @@ def createCustomIPSW32(fname):
     phone51ibss = patch_folder / "ibss.iphone51.patch"
     phone4sibss6 = patch_folder / "ibss.iphone4,1.6.1.3.patch"
     phone4sibss8 = patch_folder / "ibss.iphone4,1.8.4.1.patch"
+    pad34ibss = patch_folder / "ibss.ipad34.patch"
+    pad35ibss = patch_folder / "ibss.ipad35.patch"
+    pad36ibss = patch_folder / "ibss.ipad36.patch"
     version = True
     versionManifest = readmanifest("IPSW/BuildManifest.plist", version)
     version = False
@@ -185,6 +203,25 @@ def createCustomIPSW32(fname):
         device = "iPhone4s"
         model = "iPhone4,1"
 
+    elif "8.4.1" in versionManifest and "iPad3,4" in deviceManifest:
+        bsdiff4.file_patch_inplace("iBSS.p101.RELEASE.dfu", pad34ibss)
+        shutil.copy("iBSS.p101.RELEASE.dfu", "ibss")
+        model = "iPad3,4"
+        ibsslocation = "ibss"
+        deviceManifest = "iPad4"
+    elif "8.4.1" in versionManifest and "iPad3,5" in deviceManifest:
+        bsdiff4.file_patch_inplace("iBSS.p102.RELEASE.dfu", pad35ibss)
+        shutil.copy("iBSS.p102.RELEASE.dfu", "ibss")
+        model = "iPad3,5"
+        ibsslocation = "ibss"
+        deviceManifest = "iPad4"
+    elif "8.4.1" in versionManifest and "iPad3,6" in deviceManifest:
+        bsdiff4.file_patch_inplace("iBSS.p103.RELEASE.dfu", pad36ibss)
+        shutil.copy("iBSS.p103.RELEASE.dfu", "ibss")
+        model = "iPad3,6"
+        ibsslocation = "ibss"
+        deviceManifest = "iPad4"
+
     else:
         print('\033[91m' + "Im tired" + '\033[0m')
         exit(24)
@@ -203,7 +240,7 @@ def createCustomIPSW32(fname):
             shutil.copy("iBSS.n94.RELEASE.dfu", "ibss")
             ibsslocation = "ibss"
             shutil.copy(fname, "custom.ipsw")
-            localdevice.enterkdfumode(kloaderlocation, ibsslocation)
+            localdevice.enterkdfumode(kloaderlocation, kloaderlocation10, ibsslocation)
             restore32(model, iosversion)
 
         elif "6.1.3" in versionManifest:
@@ -213,12 +250,19 @@ def createCustomIPSW32(fname):
             shutil.copy("iBSS.n94ap.RELEASE.dfu", "ibss")
             ibsslocation = "ibss"
             shutil.copy(fname, "custom.ipsw")
-            localdevice.enterkdfumode(kloaderlocation, ibsslocation)
+            localdevice.enterkdfumode(kloaderlocation, kloaderlocation10, ibsslocation)
             restore32(model, iosversion)
 
         else:
             print("=(")
             exit(2)
+    elif device == "iPad4":
+        print("Looks like you are downgrading an iPad4 to 8.4.1!")
+        iosversion = "8.4.1"
+        shutil.copy(fname, "custom.ipsw")
+        localdevice.enterkdfumode(kloaderlocation, kloaderlocation10, ibsslocation)
+        restore32(model, iosversion)
+
 
     else:
         print("=(")

@@ -56,12 +56,8 @@ def pwndfumode():
         print('\033[91m' + 'ERROR: This device is not supported.' + '\033[0m')
         exit(1)
 
-def saveshsh(path):
+def saveshsh(path, ecid, device, nonce):
     print("Getting SHSH...")
-    device = localdevice.getmodel()
-    ecid = localdevice.getecid()
-    nonce = localdevice.getapnonce()
-
     if device != "iPad4,3":
         cmd = f'{tsschecker} -d {device} -i 10.3.3 -o -m resources/manifests/BuildManifest_{device}.plist -e {ecid} --apnonce {nonce} -s'
     else:
@@ -88,7 +84,7 @@ def saveshsh(path):
     test = os.listdir(dir_name)
     if not str(path).endswith("/"):
         path = path + "/"
-    dest_name = path + "OTA.shsh"
+    dest_name = path + "apnonce.shsh"
 
     for item in test:
         if item.endswith(".shsh"):
@@ -210,37 +206,8 @@ def restore64(device):
 
     os.chdir("../../..")
     time.sleep(5)
-    print("Getting SHSH...")
     nonce = localdevice.getapnonce()
-
-    if device != "iPad4,3":
-        cmd = f'{tsschecker} -d {device} -i 10.3.3 -o -m resources/manifests/BuildManifest_{device}.plist -e {ecid} --apnonce {nonce} -s'
-    else:
-        cmd = f'{tsschecker} -d iPad4,3 --boardconfig j73AP -i 10.3.3 -o -m resources/manifests/BuildManifest_iPad4,3.plist -e {ecid} --apnonce {nonce} -s'
-
-    so = subprocess.run(cmd, shell=True, stdout=open('errorlogshsh.txt', 'w'))
-    returncode = so.returncode
-    output = 'errorlogshsh.txt'
-
-    if returncode != 0:
-        with open(output, 'r') as fin:
-            print(fin.read())
-
-        print("ERROR..\nReturn code:", returncode)
-        print("SHSH Saving Failed.\nPlease try again and report the error/full logs and the 'errorlogshsh.txt' file if it persists.\nExiting...")
-        exit(938862428)
-
-    else:
-        if os.path.exists('errorlogshsh.txt'):
-            os.remove('errorlogshsh.txt')
-
-    dir_name = os.getcwd()
-    test = os.listdir(dir_name)
-
-    for item in test:
-        if item.endswith(".shsh"):
-            shutil.move(os.path.join(dir_name, item), "resources/other/apnonce.shsh")
-
+    saveshsh("resources/other", ecid, device, nonce)
     time.sleep(3)
     print("Restoring...")
     print('\033[91m' + "Note that errors about 'BbSkeyId', 'FDR Client' and 'BasebandFirmware Node' are not important, just ignore them and only report errors that actually stop the restore." + '\033[0m')

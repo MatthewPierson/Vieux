@@ -26,6 +26,10 @@ def supported():
         {'device': 'iPhone5,1', 'version': '8.4.1'}, # iPhone 5
         {'device': 'iPhone5,2', 'version': '8.4.1'},
 
+        {'device': 'iPad3,4', 'version': '8.4.1'},   # iPad 4
+        {'device': 'iPad3,5', 'version': '8.4.1'},
+        {'device': 'iPad3,6', 'version': '8.4.1'},
+
         {'device': 'iPhone6,1', 'version': '10.3.3'}, # iPhone 5S
         {'device': 'iPhone6,2', 'version': '10.3.3'},
 

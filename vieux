@@ -31,21 +31,6 @@ if __name__ == "__main__":
 
     if platform.system() != 'Darwin': # If not MacOS
         sys.exit("Sorry this OS is not supported!\nOnly MacOS machines (Hackintosh or a legitimate Apple computer) are support as of now.")
-
-    if os.path.exists("igetnonce"):
-        os.remove("igetnonce")
-
-    if os.path.exists("tsschecker"):
-        os.remove("tsschecker")
-
-    if os.path.exists("futurerestore"):
-        os.remove("futurerestore")
-
-    if os.path.exists("irecovery"):
-        os.remove("irecovery")
-
-    if os.path.exists("custom.ipsw"):
-        os.remove("custom.ipsw")
         
     if len(argv) == 1:
         parser.print_help(sys.stderr)
@@ -61,7 +46,10 @@ if __name__ == "__main__":
         exit(22)
     elif args.shsh:
         print("64 ONLY CURRENTLY\nCONNECT DEVICE IN DFU MODE...")
-        pathf = restore.saveshsh(argv[2])
+        ecid = device.getecid()
+        nonce = device.getapnonce()
+        device = device.getmodel()
+        pathf = restore.saveshsh(argv[2], ecid, device, nonce)
         print("SHSH saved to: " + pathf)
         exit(22)
     elif args.restore:
@@ -89,7 +77,6 @@ if __name__ == "__main__":
     else:
         sys.exit(f'{argv[1]} is not a valid argument!')
 
-
-    print('\033[92m' + ''"Finished! Enjoy your downgraded device :)" + '\033[0m')
     utils.clean()
+    print('\033[92m' + ''"Finished! Enjoy your downgraded device :)" + '\033[0m')
     sys.exit(0)
