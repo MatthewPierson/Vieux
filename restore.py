@@ -115,7 +115,7 @@ def restore32(device, iosversion):
 
     print("Restoring...")
     print('\033[91m' + "Note that errors about 'BbSkeyId', 'FDR Client', 'BasebandFirmware Node' and 'ERROR: zip_name_locate: Firmware/all_flash/manifest' are not important.\nJust ignore them and only report errors that actually stop the restore." + '\033[0m')
-    
+    futurerestore  = "resources/bin/futurerestore"
     if device32 != "iPad2,1" or "iPad2,4" or "iPad2,5" or "iPad3,1" or "iPad3,4" or "iPod5,1":
         cmd2 = f'{futurerestore} -t resources/other/apnonce.shsh --use-pwndfu --latest-baseband custom.ipsw'
         so = subprocess.run(cmd2, shell=True, stdout=subprocess.DEVNULL)
