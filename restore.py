@@ -5,7 +5,6 @@ import time
 from resources.ipwndfu import checkm8, dfu
 import device as localdevice
 
-futurerestore  = "resources/bin/futurerestore"
 irecovery = "resources/bin/irecovery"
 tsschecker = "resources/bin/tsschecker"
 igetnonce = "resources/bin/igetnonce"
@@ -115,7 +114,7 @@ def restore32(device, iosversion):
             shutil.move(os.path.join(dir_name, item), "resources/other/apnonce.shsh")
 
     print("Restoring...")
-    print('\033[91m' + "Note that errors about 'BbSkeyId', 'FDR Client' and 'BasebandFirmware Node' are not important, just ignore them and only report errors that actually stop the restore." + '\033[0m')
+    print('\033[91m' + "Note that errors about 'BbSkeyId', 'FDR Client', 'BasebandFirmware Node' and 'ERROR: zip_name_locate: Firmware/all_flash/manifest' are not important.\nJust ignore them and only report errors that actually stop the restore." + '\033[0m')
     
     if device32 != "iPad2,1" or "iPad2,4" or "iPad2,5" or "iPad3,1" or "iPad3,4" or "iPod5,1":
         cmd2 = f'{futurerestore} -t resources/other/apnonce.shsh --use-pwndfu --latest-baseband custom.ipsw'
@@ -210,9 +209,11 @@ def restore64(device):
     saveshsh("resources/other", ecid, device, nonce)
     time.sleep(3)
     print("Restoring...")
-    print('\033[91m' + "Note that errors about 'BbSkeyId', 'FDR Client' and 'BasebandFirmware Node' are not important, just ignore them and only report errors that actually stop the restore." + '\033[0m')
-    
+    print('\033[91m' + "Note that errors about 'BbSkeyId', 'FDR Client', 'BasebandFirmware Node' and 'ERROR: zip_name_locate: Firmware/all_flash/manifest' are not important.\nJust ignore them and only report errors that actually stop the restore." + '\033[0m')
+    futurerestore  = "resources/bin/futurerestore"
     if device != "iPad4,1" or "iPad4,4":
+        if "iPad" in device:
+            futurerestore = "resources/bin/futurerestore_ipad_fix"
         cmd2 = f'{futurerestore} -t resources/other/apnonce.shsh -s resources/other/sep.im4p -m resources/manifests/BuildManifest_{device}.plist -b resources/other/baseband.bbfw -p resources/manifests/BuildManifest_{device}.plist custom.ipsw'
         so2 = subprocess.run(cmd2, shell=True, stdout=open('errorlogrestore.txt', 'w'))
         returncode = so2.returncode
@@ -230,6 +231,8 @@ def restore64(device):
                 os.remove('errorlogrestore.txt')
 
     else:
+        if "iPad" in device:
+            futurerestore = "resources/bin/futurerestore_ipad_fix"
         cmd2 = f'{futurerestore} -t resources/other/apnonce.shsh -s resources/other/sep.im4p -m resources/manifests/BuildManifest_{device}.plist --no-baseband custom.ipsw'
         so2 = subprocess.run(cmd2, shell=True, stdout=open('errorlogrestore.txt', 'w'))
         returncode = so2.returncode
