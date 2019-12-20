@@ -95,4 +95,6 @@ Please include as much detail as you can, including but not limited to - Full lo
 
 [@xerusdesign](https://twitter.com/xerusdesign) - Testing
 
+[Schnob](https://github.com/Schnob) - Testing/Fixing non-cellular iPad support 
+
 -----------------

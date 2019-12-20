@@ -211,9 +211,24 @@ def restore64(device):
     print("Restoring...")
     print('\033[91m' + "Note that errors about 'BbSkeyId', 'FDR Client', 'BasebandFirmware Node' and 'ERROR: zip_name_locate: Firmware/all_flash/manifest' are not important.\nJust ignore them and only report errors that actually stop the restore." + '\033[0m')
     futurerestore  = "resources/bin/futurerestore"
-    if device != "iPad4,1" or "iPad4,4":
-        if "iPad" in device:
-            futurerestore = "resources/bin/futurerestore_ipad_fix"
+    if device == "iPad4,1" or device == "iPad4,4":
+        
+        print(f"Restoring without a baseband as your {device} doesn't have cellular capabilities...")
+        cmd2 = f'{futurerestore} -t resources/other/apnonce.shsh -s resources/other/sep.im4p -m resources/manifests/BuildManifest_{device}.plist --no-baseband custom.ipsw'
+        so2 = subprocess.run(cmd2, shell=True, stdout=open('errorlogrestore.txt', 'w'))
+        returncode = so2.returncode
+        output = 'errorlogrestore.txt'
+
+        if returncode != 0:
+            with open(output, 'r') as fin:
+                print(fin.read())
+                
+            print("ERROR..\nReturn code:", returncode)
+            print("Restore Failed.\nPlease try again and report the error + full logs if it persists.\nExiting...")
+            exit(938862428)
+
+    else:
+
         cmd2 = f'{futurerestore} -t resources/other/apnonce.shsh -s resources/other/sep.im4p -m resources/manifests/BuildManifest_{device}.plist -b resources/other/baseband.bbfw -p resources/manifests/BuildManifest_{device}.plist custom.ipsw'
         so2 = subprocess.run(cmd2, shell=True, stdout=open('errorlogrestore.txt', 'w'))
         returncode = so2.returncode
@@ -229,19 +244,3 @@ def restore64(device):
         else:
             if os.path.exists('errorlogrestore.txt'):
                 os.remove('errorlogrestore.txt')
-
-    else:
-        if "iPad" in device:
-            futurerestore = "resources/bin/futurerestore_ipad_fix"
-        cmd2 = f'{futurerestore} -t resources/other/apnonce.shsh -s resources/other/sep.im4p -m resources/manifests/BuildManifest_{device}.plist --no-baseband custom.ipsw'
-        so2 = subprocess.run(cmd2, shell=True, stdout=open('errorlogrestore.txt', 'w'))
-        returncode = so2.returncode
-        output = 'errorlogrestore.txt'
-
-        if returncode != 0:
-            with open(output, 'r') as fin:
-                print(fin.read())
-                
-            print("ERROR..\nReturn code:", returncode)
-            print("Restore Failed.\nPlease try again and report the error + full logs if it persists.\nExiting...")
-            exit(938862428)

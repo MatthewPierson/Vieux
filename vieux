@@ -48,7 +48,7 @@ if __name__ == "__main__":
         print("Created by: Matty - @mosk_i\n")
         print("Lots of help by: Merc - @Vyce_Merculous\n")
         print("Thanks to, axi0mX, Tihmstar, Linus Henze, geohotz for their respective works\n")
-        print("Thanks to Xerus - @xerusdesign for testing\n\n")
+        print("Thanks to Xerus - @xerusdesign and @Schnob for testing\n\n")
         sys.exit()
     elif args.pwn:
         restore.pwndfumode()
