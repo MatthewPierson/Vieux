@@ -25,6 +25,7 @@ def acquire_device(timeout=30.0, match=None, fatal=True):
       time.sleep(0.001)
   if fatal:
       print('ERROR: No Apple device in DFU Mode 0x1227 detected after %0.2f second timeout. Exiting.' % timeout)
+      print("Place the device into DFU mode again and re-run Vieux")
       sys.exit(1)
   return None
 

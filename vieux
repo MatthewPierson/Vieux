@@ -27,6 +27,7 @@ if __name__ == "__main__":
     parser.add_argument('-r', '--restore', help='(Coming soon) "Path/To/.ipsw" Just restore to a custom ipsw', nargs=1, metavar='IPSW')
     parser.add_argument('-s', '--shsh', help='"Path/To/Save/Location/" Save OTA blobs to a given path for future use (64 Bit Only)', nargs=1, metavar='PATH')
     parser.add_argument("-v", "--version", help="List the version of the tool", action="store_true")
+    parser.add_argument("-y", "--credits", help="List credits and Big Yoshi", action="store_true")
 
 
     if platform.system() != 'Darwin': # If not MacOS
@@ -41,6 +42,14 @@ if __name__ == "__main__":
     if args.clean:
         utils.clean()
         exit(22)
+    if args.credits:
+        print("\n                                            Big Yoshi :)")
+        utils.yoshi()
+        print("Created by: Matty - @mosk_i\n")
+        print("Lots of help by: Merc - @Vyce_Merculous\n")
+        print("Thanks to, axi0mX, Tihmstar, Linus Henze, geohotz for their respective works\n")
+        print("Thanks to Xerus - @xerusdesign for testing\n\n")
+        sys.exit()
     elif args.pwn:
         restore.pwndfumode()
         exit(22)
@@ -56,6 +65,7 @@ if __name__ == "__main__":
         print("Coming soon...")
         exit(22)
     elif args.ipsw:
+        utils.yoshi()
         print('\033[95m' + "Vieux - A tool for 32/64 Bit OTA downgrades" + '\033[0m')
         print("Still in " + '\033[91m' + "BETA" + '\033[0m' + " so expect issues/broken things")
         print("If you are using a 64 Bit device then connect it in DFU Mode\nIf you are using a 32 Bit device then just have it connected in normal mode")
