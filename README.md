@@ -32,6 +32,7 @@ Options:
   -r, --restore		        "Path/To/.ipsw" Just restore to a custom ipsw
   -s, --shsh PATH	        "Path/To/Save/Location/" Save OTA blobs to a given path for future use (64 Bit Only)
   -v, --version			List the version of the tool
+  -y, --credits   List credits and Big Yoshi
 
 ```
 
