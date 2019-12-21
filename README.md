@@ -11,10 +11,10 @@
 iPhone 5s, iPad Air, iPad Mini (Not iPad4,6)
 
 ## 8.4.1
-iPhone 5, iPhone 4s, More 32 Bit device support is coming
+iPhone 5, iPhone 4s, iPad 2, iPad 4, More 32 Bit device support is coming
 
 ## 6.1.3
-iPhone 4s, More 32 Bit device support is coming
+iPhone 4s, iPad 2 (Not iPad2,4)
 
 -----------------
 
