@@ -97,7 +97,11 @@ def restore32(device, iosversion):
     print("Getting SHSH...")
     ecid = localdevice.getecid()
     device32 = str(localdevice.getmodel())
-    cmd = f'{tsschecker} -d {device32} -i {iosversion} -o -m resources/manifests/BuildManifest_{device32}.plist -e {ecid} -s'
+    if iosversion == "6.1.3":
+        cmd = f'{tsschecker} -d {device32} -i {iosversion} -o -m resources/manifests/BuildManifest613_{device32}.plist -e {ecid} -s'
+    else:
+        cmd = f'{tsschecker} -d {device32} -i {iosversion} -o -m resources/manifests/BuildManifest_{device32}.plist -e {ecid} -s'
+
     so = subprocess.run(cmd, shell=True, stdout=subprocess.DEVNULL)
     returncode = so.returncode
 
