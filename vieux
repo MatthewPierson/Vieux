@@ -11,7 +11,7 @@ import restore
 import ipsw
 import utils
 
-tool_version = 'Public Beta 3' # Leave outside so we have it at an obvious spot to find later
+tool_version = 'Public Beta 4' # Leave outside so we have it at an obvious spot to find later
 
 
 if __name__ == "__main__":
@@ -68,7 +68,7 @@ if __name__ == "__main__":
         utils.yoshi()
         print('\033[95m' + "Vieux - A tool for 32/64 Bit OTA downgrades" + '\033[0m')
         print("Still in " + '\033[91m' + "BETA" + '\033[0m' + " so expect issues/broken things")
-        print("If you are using a 64 Bit device then connect it in DFU Mode\nIf you are using a 32 Bit device then just have it connected in normal mode")
+        print("If you are using a 64 Bit device then connect it in " + '\033[91m' + "DFU" + '\033[0m' + " Mode\nIf you are using a 32 Bit device then just have it connected in " + '\033[91m' + "NORMAL" + '\033[0m' + " mode")
         ipsw.removeFiles()
         ipsw.unzipIPSW(argv[2])
 
@@ -76,7 +76,7 @@ if __name__ == "__main__":
         sys.exit("Coming soon...")
 
     elif args.list:
-        print("Currently supported device:")
+        print("Currently supported device:\n")
         for devices in device.supported():
             print(f"Device {devices['device']}, iOS {devices['version']}")
         sys.exit()

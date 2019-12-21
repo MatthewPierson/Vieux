@@ -15,30 +15,41 @@ tsschecker = "resources/bin/tsschecker"
 igetnonce = "resources/bin/igetnonce"
 
 def supported():
+    #template
+    #{'device': 'Device_Here', 'version': 'Version_Here'},   # Device_Name_Here
 
     devices = [
 
         # I think you don't have to define device and version every time, FIXME
 
         {'device': 'iPhone4,1', 'version': '6.1.3'}, # iPhone 4S
-        {'device': 'iPhone4,1', 'version': '8.4.1'},
+        {'device': 'iPhone4,1', 'version': '8.4.1\n'},
 
         {'device': 'iPhone5,1', 'version': '8.4.1'}, # iPhone 5
-        {'device': 'iPhone5,2', 'version': '8.4.1'},
+        {'device': 'iPhone5,2', 'version': '8.4.1\n'},
+        
+        {'device': 'iPad2,1', 'version': '6.1.3'},   # iPad 2
+        {'device': 'iPad2,2', 'version': '6.1.3'},
+        {'device': 'iPad2,3', 'version': '6.1.3\n'},
+
+        {'device': 'iPad2,1', 'version': '8.4.1'},   
+        {'device': 'iPad2,2', 'version': '8.4.1'},
+        {'device': 'iPad2,3', 'version': '8.4.1'},
+        {'device': 'iPad2,4', 'version': '8.4.1\n'},
 
         {'device': 'iPad3,4', 'version': '8.4.1'},   # iPad 4
         {'device': 'iPad3,5', 'version': '8.4.1'},
-        {'device': 'iPad3,6', 'version': '8.4.1'},
+        {'device': 'iPad3,6', 'version': '8.4.1\n'},
 
         {'device': 'iPhone6,1', 'version': '10.3.3'}, # iPhone 5S
-        {'device': 'iPhone6,2', 'version': '10.3.3'},
+        {'device': 'iPhone6,2', 'version': '10.3.3\n'},
 
-        {'device': 'iPhone4,4', 'version': '10.3.3'}, # iPad Mini 2
-        {'device': 'iPhone4,5', 'version': '10.3.3'},
+        {'device': 'iPad4,4', 'version': '10.3.3'}, # iPad Mini 2
+        {'device': 'iPad4,5', 'version': '10.3.3\n'},
 
-        {'device': 'iPhone4,1', 'version': '10.3.3'}, # iPad Air
-        {'device': 'iPhone4,2', 'version': '10.3.3'},
-        {'device': 'iPhone4,3', 'version': '10.3.3'}
+        {'device': 'iPad4,1', 'version': '10.3.3'}, # iPad Air
+        {'device': 'iPad4,2', 'version': '10.3.3'},
+        {'device': 'iPad4,3', 'version': '10.3.3\n'}
 
     ]
 
