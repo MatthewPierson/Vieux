@@ -179,5 +179,5 @@ def enterkdfumode(kloader, kloader10, ibss):
         print("Please press the home button on your device or unplug and replug it back in.\nWaiting 10 seconds for you to do this.")
         time.sleep(13)
     except:
-        print("ERROR: SSH/SCP failed, (need to add more details in this part)\nExiting...")
+        print("ERROR: SSH/SCP failed, make sure that you are jailbroken with OpenSSH installed, try rebooting the device\nExiting...")
         exit(222)

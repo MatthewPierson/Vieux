@@ -9,9 +9,10 @@ import argparse
 import device
 import restore
 import ipsw
+import device as localdevice
 import utils
 
-tool_version = 'Public Beta 4' # Leave outside so we have it at an obvious spot to find later
+tool_version = 'Public Beta 5' # Leave outside so we have it at an obvious spot to find later
 
 
 if __name__ == "__main__":
@@ -21,7 +22,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description = text, usage="vieux -i 'PATH/TO/.ipsw'")
     parser.add_argument('-c', '--clean', help='Clean up any leftover files', action='store_true')
     parser.add_argument("-i", "--ipsw", help="Path to IPSW file", nargs=1)
-    parser.add_argument('-k', '--kdfu', help='(Coming soon) Enter KDFU mode (32 Bit Only, device must be jailbroken)', action='store_true')
+    parser.add_argument('-k', '--kdfu', help='"Path/To/patchediBSS" Enter KDFU mode (32 Bit Only, device must be jailbroken)', nargs=1, metavar="iBSS")
     parser.add_argument("-l", "--list", help="List what devices can be restored to what iOS versions", action="store_true")
     parser.add_argument('-p', '--pwn', help='Enter PWNDFU mode, which will also apply sig patches (64 Bit Only)', action='store_true')
     parser.add_argument('-r', '--restore', help='(Coming soon) "Path/To/.ipsw" Just restore to a custom ipsw', nargs=1, metavar='IPSW')
@@ -40,6 +41,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     if args.clean:
+        utils.yoshi()
         utils.clean()
         exit(22)
     if args.credits:
@@ -51,9 +53,12 @@ if __name__ == "__main__":
         print("Thanks to Xerus - @xerusdesign and @Schnob for testing\n\n")
         sys.exit()
     elif args.pwn:
+        utils.yoshi()
+        print("Connect 64 Bit device in DFU mode...")
         restore.pwndfumode()
         exit(22)
     elif args.shsh:
+        utils.yoshi()
         print("64 ONLY CURRENTLY\nCONNECT DEVICE IN DFU MODE...")
         ecid = device.getecid()
         nonce = device.getapnonce()
@@ -62,6 +67,7 @@ if __name__ == "__main__":
         print("SHSH saved to: " + pathf)
         exit(22)
     elif args.restore:
+        utils.yoshi()
         print("Coming soon...")
         exit(22)
     elif args.ipsw:
@@ -73,7 +79,25 @@ if __name__ == "__main__":
         ipsw.unzipIPSW(argv[2])
 
     elif args.kdfu:
-        sys.exit("Coming soon...")
+        utils.yoshi()
+        print("Entering kDFU mode")
+        kloaderlocation = "resources/bin/kloader"
+        kloaderlocation10 = "resources/bin/kloader10"
+        ibssnew = str(argv[2])
+        if not os.path.exists(ibssnew):
+            print(f"File not found at {ibssnew}")
+            exit(2)
+        else:
+            with open(ibssnew, "rb") as f:
+                if b'iBSS for' in f.read():
+                    print("Found valid iBSS file")
+                    f.close()
+                    localdevice.enterkdfumode(kloader= kloaderlocation, kloader10=kloaderlocation10, ibss=ibssnew)
+                else:
+                    f.close()
+                    print("Not a valid iBSS file, try again with a valid iBSS file")
+                    exit(22)
+        exit(2)
 
     elif args.list:
         print("Currently supported device:\n")
