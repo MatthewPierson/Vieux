@@ -26,7 +26,7 @@ Options:
 
   -i, --ipsw PATH		Path to IPSW file
   -c, --clean			Clean up any leftover files
-  -k, --kdfu PATH			"Path/To/patchiBSS" Enter KDFU mode (32 Bit Only, device must be jailbroken)
+  -k, --kdfu PATH		"Path/To/patchiBSS" Enter KDFU mode (32 Bit Only, device must be jailbroken)
   -l, --list			List what devices can be restored to what iOS versions
   -p, --pwn		        Enter PWNDFU mode, which will also apply sig patches (64 Bit Only)
   -r, --restore		        "Path/To/.ipsw" Just restore to a custom ipsw
