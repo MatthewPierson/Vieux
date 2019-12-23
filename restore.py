@@ -10,7 +10,7 @@ tsschecker = "resources/bin/tsschecker"
 igetnonce = "resources/bin/igetnonce"
 
 def removesig():
-    cmd = 'python rmsigchks.py'
+    cmd = 'python2.7 rmsigchks.py'
     so = os.popen(cmd).read()
     print(so)
     os.chdir("../..")
