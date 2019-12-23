@@ -3,6 +3,11 @@
 ## By - Matty ([Twitter - @mosk_i](https://twitter.com/mosk_i))
 #### With help from - Merc ([Twitter - @Vyce_Merculous](https://twitter.com/Vyce_Merculous))
 
+-----------------
+# Requirements 
+A MacOS machine (Hackintosh or legit Mac) running 10.14.x or higher
+Compatible iOS device
+The ability to read this README
 
 -----------------
 # Current device support
