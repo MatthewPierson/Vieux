@@ -6,7 +6,9 @@
 -----------------
 # Requirements 
 A MacOS machine (Hackintosh or legit Mac) running 10.14.x or higher
+
 Compatible iOS device
+
 The ability to read this README
 
 -----------------
