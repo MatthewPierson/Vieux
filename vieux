@@ -12,7 +12,7 @@ import ipsw
 import device as localdevice
 import utils
 
-tool_version = 'Public Beta 5' # Leave outside so we have it at an obvious spot to find later
+tool_version = '\033[92m' + "1.0" + '\033[0m' # Leave outside so we have it at an obvious spot to find later
 
 
 if __name__ == "__main__":
@@ -32,7 +32,7 @@ if __name__ == "__main__":
 
 
     if platform.system() != 'Darwin': # If not MacOS
-        sys.exit("Sorry this OS is not supported!\nOnly MacOS machines (Hackintosh or a legitimate Apple computer) are support as of now.")
+        sys.exit('\033[91m' + "\nSorry this OS is not supported!\n\nOnly MacOS machines (Hackintosh or a legitimate Apple computer) are support as of now.\n" + '\033[0m')
         
     if len(argv) == 1:
         parser.print_help(sys.stderr)
@@ -72,8 +72,8 @@ if __name__ == "__main__":
         exit(22)
     elif args.ipsw:
         utils.yoshi()
-        print('\033[95m' + "Vieux - A tool for 32/64 Bit OTA downgrades" + '\033[0m')
-        print("Still in " + '\033[91m' + "BETA" + '\033[0m' + " so expect issues/broken things")
+        print('\033[95m' + "Vieux - A tool for 32/64 Bit OTA downgrades\n" + '\033[0m')
+        print("Current version is: " + tool_version)
         print("If you are using a 64 Bit device then connect it in " + '\033[91m' + "DFU" + '\033[0m' + " Mode\nIf you are using a 32 Bit device then just have it connected in " + '\033[91m' + "NORMAL" + '\033[0m' + " mode")
         ipsw.removeFiles()
         ipsw.unzipIPSW(argv[2])

@@ -32,10 +32,20 @@ def supported():
         {'device': 'iPad2,2', 'version': '6.1.3'},
         {'device': 'iPad2,3', 'version': '6.1.3\n'},
 
-        {'device': 'iPad2,1', 'version': '8.4.1'},   
+        {'device': 'iPad2,1', 'version': '8.4.1'},  # iPad 2   
         {'device': 'iPad2,2', 'version': '8.4.1'},
         {'device': 'iPad2,3', 'version': '8.4.1'},
         {'device': 'iPad2,4', 'version': '8.4.1\n'},
+
+        {'device': 'iPad2,5', 'version': '8.4.1'},  #iPad Mini 1
+        {'device': 'iPad2,6', 'version': '8.4.1'},
+        {'device': 'iPad2,7', 'version': '8.4.1\n'},
+
+        {'device': 'iPod5,1', 'version': '8.4.1\n'},    # iPod 5
+
+        {'device': 'iPad3,1', 'version': '8.4.1'},   # iPad 3
+        {'device': 'iPad3,2', 'version': '8.4.1'},
+        {'device': 'iPad3,3', 'version': '8.4.1\n'},
 
         {'device': 'iPad3,4', 'version': '8.4.1'},   # iPad 4
         {'device': 'iPad3,5', 'version': '8.4.1'},

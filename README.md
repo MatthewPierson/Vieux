@@ -7,7 +7,7 @@
 # Requirements 
 A MacOS machine (Hackintosh or legit Mac) running 10.14.x or higher
 
-Compatible iOS device
+Compatible iOS device - If your device is 32 Bit it needs to be jailbroken with OpenSSH installed (Some devices need a reboot and rejailbreak after installing OpenSSH)
 
 The ability to read this README
 
@@ -18,7 +18,7 @@ The ability to read this README
 iPhone 5s, iPad Air, iPad Mini (Not iPad4,6)
 
 ## 8.4.1
-iPhone 5, iPhone 4s, iPad 2, iPad 4, More 32 Bit device support is coming
+iPhone 5, iPhone 4s, iPad 2, iPad 3, iPad 4, iPad Mini 1, iPod 5 
 
 ## 6.1.3
 iPhone 4s, iPad 2 (Not iPad2,4)
@@ -68,10 +68,10 @@ Run 'pip3 install -r requirements.txt' to install all dependencies
 If you have a 64 Bit device (iPhone 5s, iPad Mini 2, iPad Air) then just connect your device in DFU mode and run the tool, if you have a 32 Bit device then just connect the device in Normal mode, NOT DFU MODE, and run the tool!
 
 ### What devices does this support/when will it support my iPad XX or iPhone XX?
-See [above](#current-device-support), support is coming for more 32 Bit devices, namely 32 Bit iPads and iPods. No other devices will ever be supported for the 10.3.3 downgrade. Ever.
+See [above](#current-device-support), all compatible devices are already supported. No other devices will ever be supported for the 10.3.3 downgrade. Ever.
 
 ### Why does the tool not run?
-Make sure you have run "pip3 install -r requirements.txt" before attempting to use this tool. If that doesn't fix the issue, take a screen shot of the error and create an issue on the Github page.
+Make sure you have ran "pip3 install -r requirements.txt" before attempting to use this tool. If that doesn't fix the issue, take a screen shot of the error and create an issue on the Github page.
 
 ### When will other OS's be supported? E.G Linux, Windows, etc...
 There will most likely never be Windows support as Windows is an awful OS for any iOS related stuff. Linux support is possible and will most likely come at a later date. macOS only for now, Mojave is best but Catalina works. Lower then Mojave is untested and officially unsupported but feel free to try, just don't expect any help from me if it doesn't work.
