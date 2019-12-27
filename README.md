@@ -15,7 +15,7 @@ The ability to read this README
 # Current device support
 
 ## 10.3.3
-iPhone 5s, iPad Air, iPad Mini (Not iPad4,6)
+iPhone 5s, iPad Air, iPad Mini 2 (Not iPad4,6)
 
 ## 8.4.1
 iPhone 5, iPhone 4s, iPad 2, iPad 3, iPad 4, iPad Mini 1, iPod 5 
