@@ -12,15 +12,15 @@ Compatible iOS device - If your device is 32 Bit it needs to be jailbroken with 
 The ability to read this README
 
 -----------------
-# Current device support
+# Device support
 
-## 10.3.3
+## iOS 10.3.3
 iPhone 5s, iPad Air, iPad Mini 2 (Not iPad4,6)
 
-## 8.4.1
+## iOS 8.4.1
 iPhone 5, iPhone 4s, iPad 2, iPad 3, iPad 4, iPad Mini 1, iPod 5 
 
-## 6.1.3
+## iOS 6.1.3
 iPhone 4s, iPad 2 (Not iPad2,4)
 
 -----------------
