@@ -54,6 +54,8 @@ if __name__ == "__main__":
         sys.exit()
     elif args.pwn:
         utils.yoshi()
+        print('\033[91m' + "Do not use this option if you are wanting to do an OTA downgrade.\nReboot your device into normal DFU mode and run './vieux -i path/to/.ipsw' and let that exploit the device if you want to downgrade to 10.3.3." + '\033[0m')
+        print("Only use this option for other things that require PWNDFU mode...")
         print("Connect 64 Bit device in DFU mode...")
         restore.pwndfumode()
         exit(22)
