@@ -122,20 +122,37 @@ def restore32(device, iosversion):
     futurerestore  = "resources/bin/futurerestore"
     if device32 == "iPad2,1" or device32 == "iPad2,4" or device32 == "iPad2,5" or device32 == "iPad3,1" or device32 == "iPad3,4" or device32 == "iPod5,1":
         cmd2 = f'{futurerestore} -t resources/other/apnonce.shsh --no-baseband --use-pwndfu custom.ipsw'
-        so = subprocess.run(cmd2, shell=True, stdout=subprocess.DEVNULL)
-        returncode = so.returncode
-        print(returncode)
+        so2 = subprocess.run(cmd2, shell=True, stdout=open('errorlogrestore.txt', 'w'))
+        returncode = so2.returncode
+        output = 'errorlogrestore.txt'
+
         if returncode != 0:
-            print("Restoring Failed.\nPlease try again and report the error + full logs if it persists.\nExiting...")
+            with open(output, 'r') as fin:
+                print(fin.read())
+            print("ERROR..\nReturn code:", returncode)
+            print("Restore Failed.\nPlease try again and report the error/send me the full logs and the 'errorlogrestore.txt' file if it persists\nExiting...")
             exit(938862428)
+
+        else:
+            if os.path.exists('errorlogrestore.txt'):
+                os.remove('errorlogrestore.txt')
 
     else:
         cmd2 = f'{futurerestore} -t resources/other/apnonce.shsh --use-pwndfu --latest-baseband custom.ipsw'
-        so = subprocess.run(cmd2, shell=True, stdout=subprocess.DEVNULL)
-        returncode = so.returncode
+        so2 = subprocess.run(cmd2, shell=True, stdout=open('errorlogrestore.txt', 'w'))
+        returncode = so2.returncode
+        output = 'errorlogrestore.txt'
+
         if returncode != 0:
-            print("Restoring Failed.\nPlease try again and report the error + full logs if it persists.\nExiting...")
+            with open(output, 'r') as fin:
+                print(fin.read())
+            print("ERROR..\nReturn code:", returncode)
+            print("Restore Failed.\nPlease try again and report the error/send me the full logs and the 'errorlogrestore.txt' file if it persists\nExiting...")
             exit(938862428)
+
+        else:
+            if os.path.exists('errorlogrestore.txt'):
+                os.remove('errorlogrestore.txt')
 
 
 def restore64(device):
