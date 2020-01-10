@@ -5,7 +5,7 @@
 
 -----------------
 # Requirements 
-A MacOS machine (Hackintosh or legit Mac) running 10.14.x or higher
+A MacOS machine (Hackintosh or legit Mac) running 10.14.x or higher (VM's DO NOT WORK, CHECKM8 DOESN'T WORK IN A VM)
 
 Compatible iOS device - If your device is 32 Bit it needs to be jailbroken with OpenSSH installed (Some devices need a reboot and rejailbreak after installing OpenSSH)
 
