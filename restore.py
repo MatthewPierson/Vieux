@@ -181,7 +181,7 @@ def saveshsh(path, ecid, device, seperate):
                     os.remove('errorlogshsh.txt')
             dir_name = os.getcwd()
             test = os.listdir(dir_name)
-            dest_name = subfolderpath + ecid + "." + device + '.10.3.3.' + i + ".shsh"
+            dest_name = subfolderpath + ecid + "." + device + '.10.3.3.OTA.' + i + ".shsh"
             for item in test:
                 if item.endswith(".shsh"):
                     if os.path.exists(dest_name):
