@@ -63,10 +63,14 @@ if __name__ == "__main__":
         utils.yoshi()
         print("64 ONLY CURRENTLY\nCONNECT DEVICE IN DFU MODE...")
         ecid = device.getecid()
-        nonce = device.getapnonce()
         device = device.getmodel()
-        pathf = restore.saveshsh(argv[2], ecid, device, nonce)
+        seperate = True
+        print("BE WARNED THIS WILL TAKE AROUND 1-2 MINUTES...")
+        print("DON'T WORRY IF IT LOOKS LIKE NOTHING IS HAPPENING...")
+        pathf = restore.saveshsh(argv[2], ecid, device, seperate)
         print("SHSH saved to: " + pathf)
+        print("In the case Apple unsigns 10.3.3 OTA and you need to use these SHSH, I will update Vieux to allow for the use of these backed up SHSH")
+        print("For now they should have no use as you can just use Vieux to downgrade! But it is good to be prepared for the worst")
         exit(22)
     elif args.restore:
         utils.yoshi()
