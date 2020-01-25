@@ -32,12 +32,12 @@ Usage: viuex [OPTIONS] [IPSW PATH (If required)]
 Options:
 
   -i, --ipsw PATH		Path to IPSW file
-  -c, --clean			Clean up any leftover files
+  -c, --clean			  Clean up any leftover files
   -k, --kdfu PATH		"Path/To/patchiBSS" Enter KDFU mode (32 Bit Only, device must be jailbroken)
-  -l, --list			List what devices can be restored to what iOS versions
-  -p, --pwn		        Enter PWNDFU mode, which will also apply sig patches (64 Bit Only)
-  -r, --restore		        "Path/To/.ipsw" Just restore to a custom ipsw
-  -s, --shsh PATH	        "Path/To/Save/Location/" Save OTA blobs to a given path for future use (64 Bit Only)
+  -l, --list			  List what devices can be restored to what iOS versions
+  -p, --pwn		      Enter PWNDFU mode, which will also apply sig patches (64 Bit Only)
+  -r, --restore		  "Path/To/.ipsw" Just restore to a custom ipsw
+  -s, --shsh PATH	  "Path/To/Save/Location/" Save OTA blobs to a given path for future use (64 Bit Only)
   -v, --version			List the version of the tool
   -y, --credits			List credits and Big Yoshi
 
@@ -68,7 +68,7 @@ Run 'pip3 install -r requirements.txt' to install all dependencies
 If you have a 64 Bit device (iPhone 5s, iPad Mini 2, iPad Air) then just connect your device in DFU mode and run the tool, if you have a 32 Bit device then just connect the device in Normal mode, NOT DFU MODE, and run the tool!
 
 ### What devices does this support/when will it support my iPad XX or iPhone XX?
-See [above](#current-device-support), all compatible devices are already supported. No other devices will ever be supported for the 10.3.3 downgrade. Ever.
+See [above](#device-support), all compatible devices are already supported. No other devices will ever be supported for the 10.3.3 downgrade. Ever.
 
 ### Why does the tool not run?
 Make sure you have ran "pip3 install -r requirements.txt" before attempting to use this tool. If that doesn't fix the issue, take a screen shot of the error and create an issue on the Github page.
