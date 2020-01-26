@@ -12,7 +12,7 @@ import ipsw
 import device as localdevice
 import utils
 
-tool_version = '\033[92m' + "1.0" + '\033[0m' # Leave outside so we have it at an obvious spot to find later
+tool_version = '\033[92m' + "1.0.1" + '\033[0m' # Leave outside so we have it at an obvious spot to find later
 
 
 if __name__ == "__main__":
@@ -31,9 +31,13 @@ if __name__ == "__main__":
     parser.add_argument("-y", "--credits", help="List credits and Big Yoshi", action="store_true")
 
 
-    if platform.system() != 'Darwin': # If not MacOS
-        sys.exit('\033[91m' + "\nSorry this OS is not supported!\n\nOnly MacOS machines (Hackintosh or a legitimate Apple computer) are support as of now.\n" + '\033[0m')
-        
+    if platform.system() == 'Darwin': # If not MacOS
+        pass
+    elif platform.system() == "Linux":
+        sys.exit('\033[91m' + "\nSorry this OS is not currently supported!\n\nOnly MacOS machines (Hackintosh or a legitimate Apple computer) are support as of now.\n" + '\033[0m')
+    elif platform.system() == "Windows":
+        sys.exit('\033[91m' + "\nSorry Windows will never be supported!\n\nOnly MacOS machines (Hackintosh or a legitimate Apple computer) are support as of now.\n" + '\033[0m')
+
     if len(argv) == 1:
         parser.print_help(sys.stderr)
         sys.exit(1)

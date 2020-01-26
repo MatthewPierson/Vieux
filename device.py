@@ -95,7 +95,7 @@ def getecid():
 
 def getapnonce():
     #print("Getting current ApNonce from device...")
-    time.sleep(6)
+    time.sleep(20)
     cmd = igetnonce
     so = os.popen(cmd).read()
 
