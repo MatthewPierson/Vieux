@@ -296,7 +296,7 @@ def createCustomIPSW32(fname):
         device = "iPad3"
     elif "8.4.1" in versionManifest and "iPad3,3" in deviceManifest:
         bsdiff4.file_patch_inplace("iBSS.j2a.RELEASE.dfu", pad33ibss)
-        shutil.copy("iBSS.j2a.RELEASE.dfu ", "ibss")
+        shutil.copy("iBSS.j2a.RELEASE.dfu", "ibss")
         model = "iPad3,3"
         ibsslocation = "ibss"
         device = "iPad3"
