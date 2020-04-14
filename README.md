@@ -91,9 +91,11 @@ The issue is that Vieux will call certain binaries, and Catalina will display a 
 2. Ctrl-click on the first binary (`futurerestore`) and select `Open`;
 3. You will see a security message from Catalina that now has the option `Open`, click on it;
 4. A terminal window will open and do some stuff, you can close it;
-5. Repeat steps 2-4 for all other binaries in the folder: `igetnonce`, `irecovery`, `kloader`, `kloader10` and `tsschecker`.
+5. Repeat steps 2-4 for all other binaries in the folder: `igetnonce`, `irecovery` and `tsschecker`.
 By doing this process, the binaries are saved as an exception on the security settings, and the main Vieux script will be able to run without facing this issue.
 Note that if you have tried running the script and encountered this issue, you might need to reset your ipad for the downgrade to work.
+
+Thanks to [Salompas](https://github.com/Salompas) for this fix and to [riotdream](https://github.com/riotdream) for their alternative fix seen [here](https://github.com/MatthewPierson/Vieux/issues/126#issuecomment-612641213)!
 
 ### How do you pronounce "Vieux"?
 "vyuh" apparently, I've had 5 different pronunciations given to me, it's French for "old" which fits well with the old iOS versions this tool downgrades devices to! Not that iOS 6/8/10 are bad at all, even given their age.
