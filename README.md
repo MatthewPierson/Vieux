@@ -85,7 +85,10 @@ If you have tried everything mentioned in this readme, you can either open an is
 Please include as much detail as you can, including but not limited to - Full log from the tool, macOS version, device model/iOS version you are trying to downgrade to and what you have already tried.
 
 ### MacOS Catalina Security Issues
-In MacOS Catalina, there is a new security feature that causes issues with the script.
+In MacOS Catalina, there is a new security feature that causes issues with the script. There are two methods to fix this issue as seen below -
+
+Fix 1:
+
 The issue is that Vieux will call certain binaries, and Catalina will display a security message saying: "... cannot be opened because the developer cannot be verified". You will be presented with two options, Move to Trash or Cancel, and you will end up needing to click on Cancel. To avoid this issue, you must give permission to these binaries so that they can run. The easiest way to do so is:
 1. Go to the folder `Vieux/resources/bin`;
 2. Ctrl-click on the first binary (`futurerestore`) and select `Open`;
@@ -95,7 +98,14 @@ The issue is that Vieux will call certain binaries, and Catalina will display a 
 By doing this process, the binaries are saved as an exception on the security settings, and the main Vieux script will be able to run without facing this issue.
 Note that if you have tried running the script and encountered this issue, you might need to reset your ipad for the downgrade to work.
 
-Thanks to [Salompas](https://github.com/Salompas) for this fix and to [riotdream](https://github.com/riotdream) for their alternative fix seen [here](https://github.com/MatthewPierson/Vieux/issues/126#issuecomment-612641213)!
+Fix 2:
+
+1. Open the 'Vieux' folder in terminal;
+2. Run './CatalinaFix.sh';
+3. Give your password when prompted;
+4. Run Vieux again after the script has finished. 
+
+Thanks to [Salompas](https://github.com/Salompas) for fix 1 and to [riotdream](https://github.com/riotdream) for fix 2/their alternative fix seen [here](https://github.com/MatthewPierson/Vieux/issues/126#issuecomment-612641213)!
 
 ### How do you pronounce "Vieux"?
 "vyuh" apparently, I've had 5 different pronunciations given to me, it's French for "old" which fits well with the old iOS versions this tool downgrades devices to! Not that iOS 6/8/10 are bad at all, even given their age.
