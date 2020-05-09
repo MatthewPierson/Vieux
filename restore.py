@@ -161,9 +161,9 @@ def saveshsh(path, ecid, device, seperate):
 
         for i in nonceList:
             if device != "iPad4,3":
-                cmd = f'{tsschecker} -d {device} -i 10.3.3 -o -m resources/manifests/BuildManifest_{device}.plist -e {ecid} --apnonce {i} -s'
+                cmd = f'{tsschecker} -d {device} -i 10.3.3 -o -m resources/manifests/BuildManifest_{device}.plist -e {"0x" + ecid} --apnonce {i} -s'
             else:
-                cmd = f'{tsschecker} -d iPad4,3 --boardconfig j73AP -i 10.3.3 -o -m resources/manifests/BuildManifest_iPad4,3.plist -e {ecid} --apnonce {i} -s'
+                cmd = f'{tsschecker} -d iPad4,3 --boardconfig j73AP -i 10.3.3 -o -m resources/manifests/BuildManifest_iPad4,3.plist -e {"0x" + ecid} --apnonce {i} -s'
             so = subprocess.run(cmd, shell=True, stdout=open('errorlogshsh.txt', 'w'))
             returncode = so.returncode
             output = 'errorlogshsh.txt'
@@ -191,9 +191,9 @@ def saveshsh(path, ecid, device, seperate):
     else:
         nonce = localdevice.getapnonce()
         if device != "iPad4,3":
-            cmd = f'{tsschecker} -d {device} -i 10.3.3 -o -m resources/manifests/BuildManifest_{device}.plist -e {ecid} --apnonce {nonce} -s'
+            cmd = f'{tsschecker} -d {device} -i 10.3.3 -o -m resources/manifests/BuildManifest_{device}.plist -e {"0x" + ecid} --apnonce {nonce} -s'
         else:
-            cmd = f'{tsschecker} -d iPad4,3 --boardconfig j73AP -i 10.3.3 -o -m resources/manifests/BuildManifest_iPad4,3.plist -e {ecid} --apnonce {nonce} -s'
+            cmd = f'{tsschecker} -d iPad4,3 --boardconfig j73AP -i 10.3.3 -o -m resources/manifests/BuildManifest_iPad4,3.plist -e {"0x" + ecid} --apnonce {nonce} -s'
 
         so = subprocess.run(cmd, shell=True, stdout=open('errorlogshsh.txt', 'w'))
         returncode = so.returncode
@@ -230,9 +230,9 @@ def restore32(device, iosversion):
     ecid = localdevice.getecid()
     device32 = str(localdevice.getmodel())
     if iosversion == "6.1.3":
-        cmd = f'{tsschecker} -d {device32} -i {iosversion} -o -m resources/manifests/BuildManifest613_{device32}.plist -e {ecid} -s'
+        cmd = f'{tsschecker} -d {device32} -i {iosversion} -o -m resources/manifests/BuildManifest613_{device32}.plist -e {"0x" + ecid} -s'
     else:
-        cmd = f'{tsschecker} -d {device32} -i {iosversion} -o -m resources/manifests/BuildManifest_{device32}.plist -e {ecid} -s'
+        cmd = f'{tsschecker} -d {device32} -i {iosversion} -o -m resources/manifests/BuildManifest_{device32}.plist -e {"0x" + ecid} -s'
 
     so = subprocess.run(cmd, shell=True, stdout=subprocess.DEVNULL)
     returncode = so.returncode
