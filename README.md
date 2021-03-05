@@ -1,6 +1,6 @@
 # Vieux - A tool for 32/64 Bit iOS downgrades using OTA Blobs
 
-## By - Matty ([Twitter - @mosk_i](https://twitter.com/mosk_i))
+## By - Matty ([Twitter - @moski_dev](https://twitter.com/moski_dev))
 #### With help from - Merc ([Twitter - @Vyce_Merculous](https://twitter.com/Vyce_Merculous))
 
 -----------------
