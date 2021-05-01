@@ -94,5 +94,8 @@ def as_array(data=None):
         # When you pass a unicode string or a character sequence,
         # you get a TypeError if the first parameter does not match
         a = array.array('B')
-        a.fromstring(data) # deprecated since 3.2
+        try:
+            a.fromstring(data) # deprecated since 3.2
+        except AttributeError:
+            a.frombytes(data)
         return a
