@@ -52,14 +52,14 @@ Needs Python3 (At least 3.5)
 
 Also needs Python2 but that comes default with macOS
 
-Run 'pip3 install -r requirements.txt' to install all dependencies
+Run `pip3 install -r requirements.txt` to install all dependencies
 
 -----------------
 # Instructions
 
-1. 'pip3 install -r requirements.txt' to install all dependencies
-2. 'cd' into the 'Vieux' folder that you either git cloned or downloaded
-3. run './vieux -i "PATH/TO/.ipsw"' or, if the that command doesn't work, 'python3 vieux -i "PATH/TO/.ipsw"'
+1. `pip3 install -r requirements.txt` to install all dependencies
+2. `cd` into the `Vieux` folder that you either git cloned or downloaded
+3. run `./vieux -i "PATH/TO/.ipsw"` or, if the that command doesn't work, `python3 vieux -i "PATH/TO/.ipsw"`
 4. Follow what the tool tells you to do
 5. Profit?
 -----------------
@@ -71,7 +71,7 @@ If you have a 64 Bit device (iPhone 5s, iPad Mini 2, iPad Air) then just connect
 See [above](#device-support), all compatible devices are already supported. No other devices will ever be supported for the 10.3.3 downgrade. Ever.
 
 ### Why does the tool not run?
-Make sure you have ran "pip3 install -r requirements.txt" before attempting to use this tool. If that doesn't fix the issue, take a screen shot of the error and create an issue on the Github page.
+Make sure you have ran `pip3 install -r requirements.txt` before attempting to use this tool. If that doesn't fix the issue, take a screen shot of the error and create an issue on the Github page.
 
 ### When will other OS's be supported? E.G Linux, Windows, etc...
 There will most likely never be Windows support as Windows is an awful OS for any iOS related stuff. Linux support is possible and will most likely come at a later date. macOS only for now, Mojave is best but Catalina works. Lower then Mojave is untested and officially unsupported but feel free to try, just don't expect any help from me if it doesn't work.
@@ -100,8 +100,8 @@ Note that if you have tried running the script and encountered this issue, you m
 
 Fix 2:
 
-1. Open the 'Vieux' folder in terminal;
-2. Run './CatalinaFix.sh';
+1. Open the `Vieux` folder in terminal;
+2. Run `./CatalinaFix.sh`;
 3. Give your password when prompted;
 4. Run Vieux again after the script has finished. 
 
