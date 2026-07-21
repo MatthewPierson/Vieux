@@ -55,7 +55,7 @@ def pwndfumode():
         print('\033[91m' + 'ERROR: This device is not supported.' + '\033[0m')
         exit(1)
 
-def saveshsh(path, ecid, device, seperate):
+def saveshsh(path, ecid, device, separate):
     print("Getting SHSH...")\
     #ApNonce Collision list from https://twitter.com/dora2_yururi - https://github.com/dora2-iOS/Nudaoaddu/blob/master/get.sh
     nonceList = [
@@ -139,7 +139,7 @@ def saveshsh(path, ecid, device, seperate):
         '70bbffa807a66b2a1a3a017d233b0c9f874e6be3',
     ]
 
-    if seperate: #If specified then setup the folder structure and iterate over the ApNonce list, saving SHSH for each ApNonce
+    if separate: #If specified then setup the folder structure and iterate over the ApNonce list, saving SHSH for each ApNonce
         dir_name = os.getcwd()
         test = os.listdir(dir_name)
         if not str(path).endswith("/"):
@@ -357,8 +357,8 @@ def restore64(device):
 
     os.chdir("../../..")
     time.sleep(5)
-    seperate = False
-    saveshsh("resources/other", ecid, device, seperate)
+    separate = False
+    saveshsh("resources/other", ecid, device, separate)
     time.sleep(3)
     print("Restoring...")
     print('\033[91m' + "Note that errors about 'BbSkeyId', 'FDR Client', 'BasebandFirmware Node' and 'ERROR: zip_name_locate: Firmware/all_flash/manifest' are not important.\nJust ignore them and only report errors that actually stop the restore." + '\033[0m')
